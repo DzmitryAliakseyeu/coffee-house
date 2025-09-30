@@ -1,0 +1,24 @@
+.navigation {
+    max-width: 1188px;
+    width: 100%;
+}
+
+.navitaion-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 40px;
+    justify-content: center;
+    padding: 0;
+}
+
+.item {
+  width: max-content;
+  padding-bottom: 4px;
+}
+
+.item-link {
+    text-decoration: none;
+    display: inline-block;
+
+}

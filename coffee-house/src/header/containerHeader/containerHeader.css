@@ -1,0 +1,15 @@
+.container-header {
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    max-width: 1360px;
+    width: 100%;
+    justify-content: center;
+    height: inherit;
+}

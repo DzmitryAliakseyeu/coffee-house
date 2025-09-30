@@ -1,0 +1,16 @@
+import createContainerHeader from "./containerHeader/containerHeader";
+import './header.css'
+
+export default function createHeader(parent){
+    const header = document.createElement('header');
+    header.classList.add('header');
+    parent.append(header);
+
+    createContainerHeader(header)
+
+
+
+    const sectionHero = document.createElement('section');
+    sectionHero.classList.add('hero');
+    header.append(sectionHero);
+}

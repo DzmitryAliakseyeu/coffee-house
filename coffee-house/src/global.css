@@ -1,0 +1,14 @@
+* {
+    font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.text-dark {
+    color: #403F3D;
+}
+
+.link-and-button {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+}
