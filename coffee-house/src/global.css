@@ -7,6 +7,26 @@
     color: #403F3D;
 }
 
+.text-accent {
+    color: #B0907A;
+}
+
+.text-light {
+    color: #E1D4C9;
+}
+
+.heading-1 {
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 105%;
+}
+
+.medium {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
 .link-and-button {
     font-size: 16px;
     font-weight: 600;
@@ -18,4 +38,8 @@
     width: 100%;
     height: 644px;
    
+}
+
+.bgc-body {
+    background-color: #E1D4C9;
 }
