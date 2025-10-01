@@ -1,5 +1,6 @@
 import './favorite.css'
 import '../../../../src/global.css'
+import createSliderContainer from './slider/sliderContainer/sliderContainer';
 
 export default function createFavoriteSection(parent){
     const sectionFavorite = document.createElement('section');
@@ -15,5 +16,7 @@ export default function createFavoriteSection(parent){
     sectionTitle.classList.add('text-dark');
     sectionTitle.classList.add('favorite-title');
     containerSection.append(sectionTitle);
-    sectionTitle.innerHTML = 'Choose your <span class="text-accent">favorite</span> coffee'
+    sectionTitle.innerHTML = 'Choose your <span class="text-accent">favorite</span> coffee';
+
+    createSliderContainer(containerSection)
 }

@@ -3,7 +3,7 @@
   font-optical-sizing: auto;
 }
 
-h2 {
+h2, h3 {
     margin: 0;
 }
 
@@ -27,6 +27,12 @@ h2 {
 
 .heading-2 {
     font-size: 60px;
+    font-weight: 600;
+    line-height: 125%;
+}
+
+.heading-3 {
+    font-size: 24px;
     font-weight: 600;
     line-height: 125%;
 }
