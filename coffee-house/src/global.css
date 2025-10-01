@@ -3,6 +3,10 @@
   font-optical-sizing: auto;
 }
 
+h2 {
+    margin: 0;
+}
+
 .text-dark {
     color: #403F3D;
 }
@@ -19,6 +23,12 @@
     font-size: 72px;
     font-weight: 600;
     line-height: 105%;
+}
+
+.heading-2 {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 125%;
 }
 
 .medium {
@@ -42,4 +52,10 @@
 
 .bgc-body {
     background-color: #E1D4C9;
+}
+
+.hero, .favorite {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }

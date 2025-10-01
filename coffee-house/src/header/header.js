@@ -9,8 +9,6 @@ export default function createHeader(parent){
 
     createContainerHeader(header)
 
-
-
     const sectionHero = document.createElement('section');
     sectionHero.classList.add('hero');
     header.append(sectionHero);

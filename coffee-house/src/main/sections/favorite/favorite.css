@@ -1,0 +1,9 @@
+.favorite-title {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.favorite-title span {
+    display: inline-block;
+    transform: skewX(-10deg)
+}

@@ -1,4 +1,5 @@
 import createHeader from "./header/header";
+import createMain from "./main/main";
 
 export default function renderPage(){
     const body = document.body;
@@ -9,7 +10,8 @@ export default function renderPage(){
     app.id = 'app';
     body.append(app);
 
-    createHeader(app)
+    createHeader(app);
+    createMain(app)
 
 
 }
