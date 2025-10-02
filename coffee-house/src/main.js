@@ -1,5 +1,4 @@
-import renderPage from "./renderPage";
-import '../src/global.css'
+import renderPage from './renderPage';
+import '../src/global.css';
 
-renderPage()
-
+renderPage();

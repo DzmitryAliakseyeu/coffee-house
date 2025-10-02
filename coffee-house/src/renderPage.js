@@ -1,17 +1,15 @@
-import createHeader from "./header/header";
-import createMain from "./main/main";
+import createHeader from './header/header';
+import createMain from './main/main';
 
-export default function renderPage(){
-    const body = document.body;
-    console.log(body);
+export default function renderPage() {
+  const body = document.body;
+  console.log(body);
 
-    const app = document.createElement('div');
-    app.classList.add('app');
-    app.id = 'app';
-    body.append(app);
+  const app = document.createElement('div');
+  app.classList.add('app');
+  app.id = 'app';
+  body.append(app);
 
-    createHeader(app);
-    createMain(app)
-
-
+  createHeader(app);
+  createMain(app);
 }

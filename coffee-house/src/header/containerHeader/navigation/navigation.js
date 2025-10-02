@@ -1,34 +1,33 @@
-import './navigation.css'
+import './navigation.css';
 
-export default function createNavigation(parent){
-    const navigation = document.createElement('nav');
-    navigation.classList.add('navigation');
-    parent.append(navigation);
+export default function createNavigation(parent) {
+  const navigation = document.createElement('nav');
+  navigation.classList.add('navigation');
+  parent.append(navigation);
 
-    const navigationList = document.createElement('ul');
-    navigationList.classList.add('navitaion-list');
-    navigation.append(navigationList);
+  const navigationList = document.createElement('ul');
+  navigationList.classList.add('navitaion-list');
+  navigation.append(navigationList);
 
-    const menuItems = [
-        {text: 'Favorite coffee', href: '#'},
-        {text: 'About', href: '#'},
-        {text: 'Mobile app', href: '#'},
-        {text: 'Contact us', href: '#'},
-    ];
+  const menuItems = [
+    { text: 'Favorite coffee', href: '#' },
+    { text: 'About', href: '#' },
+    { text: 'Mobile app', href: '#' },
+    { text: 'Contact us', href: '#' },
+  ];
 
-    menuItems.forEach((item) => {
-        const li = document.createElement('li');
-        li.classList.add('item');
-        const link = document.createElement('a');
-        link.classList.add('item-link');
-        link.classList.add('link-and-button');
-         link.classList.add('text-dark');
+  menuItems.forEach((item) => {
+    const li = document.createElement('li');
+    li.classList.add('item');
+    const link = document.createElement('a');
+    link.classList.add('item-link');
+    link.classList.add('link-and-button');
+    link.classList.add('text-dark');
 
-        link.href = item.href;
-        link.text = item.text;
+    link.href = item.href;
+    link.text = item.text;
 
-        li.appendChild(link);
-        navigationList.appendChild(li)
-    })
-
+    li.appendChild(link);
+    navigationList.appendChild(li);
+  });
 }

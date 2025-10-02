@@ -22,3 +22,29 @@
     background-repeat: none;
     justify-self: right;
 }
+
+.button-slider-left, .button-slider-right {
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #665F55;
+    align-self: center;
+}
+
+.button-slider-left-icon, .button-slider-right-icon {
+    height: 24px;
+    width: 24px;
+    background-image: url(../../public/slider/arrow-right.svg);
+}
+
+.button-slider-left-icon{
+    transform:rotate(180deg)
+}
+
+
