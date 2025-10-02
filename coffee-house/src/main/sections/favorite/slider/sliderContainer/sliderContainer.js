@@ -1,5 +1,6 @@
+import setContoller from '../../../../../actions/slider/setContoller';
 import createControls from '../controls/controls';
-import createSlider from '../slider/slider';
+import createSlider, { indexSlide } from '../slider/slider';
 import './sliderContainer.css';
 
 export default function createSliderContainer(parent) {
@@ -9,4 +10,6 @@ export default function createSliderContainer(parent) {
 
   createSlider(sliderContainer);
   createControls(sliderContainer);
+
+  setContoller(indexSlide)
 }

@@ -1,0 +1,14 @@
+.controls {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    list-style-type: none;
+    align-self: center;
+    padding: 0;
+}
+
+.controller {
+    width: 40px;
+    height: 4px;
+    border-radius: 100px;
+}

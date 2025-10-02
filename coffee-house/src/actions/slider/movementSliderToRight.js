@@ -1,3 +1,4 @@
+import setContoller from './setContoller';
 import switchSlide from './switchSlide';
 
 export default function movementSliderToRight(index) {
@@ -5,9 +6,11 @@ export default function movementSliderToRight(index) {
   if (step > 2) {
     index = 0;
     switchSlide(index);
+    setContoller(index)
     return index;
   }
   switchSlide(step);
   index = step;
+    setContoller(index)
   return index;
 }
