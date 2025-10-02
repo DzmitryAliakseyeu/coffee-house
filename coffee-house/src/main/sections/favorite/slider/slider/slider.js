@@ -1,4 +1,6 @@
-import switchSlide from '../../../../../actions/slider/switchSlide';
+import movementSliderToLeft from '../../../../../actions/slider/movementSliderToLeft';
+import movementSliderToRight from '../../../../../actions/slider/movementSliderToRight';
+
 import createButton from '../../../../../button/button';
 import './slider.css';
 import createSliderTrack from './sliderTrack/sliderTrack';
@@ -13,14 +15,7 @@ export default function createSlider(parent) {
     slider,
     'slider-left',
     () => {
-      let step = index - 1;
-      if (step < 0) {
-        index = 2;
-        switchSlide(index);
-        return;
-      }
-      switchSlide(step);
-      index = step;
+      return (index = movementSliderToLeft(index));
     },
     '',
     true,
@@ -30,16 +25,17 @@ export default function createSlider(parent) {
     slider,
     'slider-right',
     () => {
-      let step = index + 1;
-      if (step > 2) {
-        index = 0;
-        switchSlide(index);
-        return;
-      }
-      switchSlide(step);
-      index = step;
+      return (index = movementSliderToRight(index));
     },
     '',
     true,
   );
+
+  const animation = () => {
+    return setInterval(() => {
+      index = movementSliderToRight(index);
+    }, 5000); // better use ~2s instead of 700ms
+  };
+
+  const intervalId = animation();
 }

@@ -43,7 +43,7 @@
     background-image: url(../../public/slider/arrow-right.svg);
 }
 
-.button-slider-left-icon{
+.button-slider-left-icon {
     transform:rotate(180deg)
 }
 
