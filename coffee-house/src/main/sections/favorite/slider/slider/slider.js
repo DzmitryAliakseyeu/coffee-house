@@ -1,14 +1,14 @@
 import movementSliderToLeft from '../../../../../actions/slider/movementSliderToLeft';
 import movementSliderToRight from '../../../../../actions/slider/movementSliderToRight';
-import setContoller from '../../../../../actions/slider/setContoller';
 
 import createButton from '../../../../../button/button';
 import './slider.css';
 import createSliderTrack from './sliderTrack/sliderTrack';
 
-  export let indexSlide = 0;
+export let indexSlide = 0;
 
 export default function createSlider(parent) {
+  let intervalId;
 
   const slider = document.createElement('div');
   slider.classList.add('slider');
@@ -18,7 +18,8 @@ export default function createSlider(parent) {
     slider,
     'slider-left',
     () => {
-      return (indexSlide = movementSliderToLeft(indexSlide));
+      indexSlide = movementSliderToLeft(indexSlide);
+      resetAnimation();
     },
     '',
     true,
@@ -28,20 +29,30 @@ export default function createSlider(parent) {
     slider,
     'slider-right',
     () => {
-      return (indexSlide = movementSliderToRight(indexSlide));
+      indexSlide = movementSliderToRight(indexSlide);
+      resetAnimation();
     },
     '',
     true,
   );
 
- 
-
-  const animation = () => {
+  function startAnimation() {
     return setInterval(() => {
-       
       indexSlide = movementSliderToRight(indexSlide);
     }, 5000);
-  };
+  }
 
-  const intervalId = animation();
+  function resetAnimation() {
+    clearInterval(intervalId);
+    intervalId = startAnimation();
+  }
+
+  //   const animation = () => {
+  //     return setInterval(() => {
+
+  //       indexSlide = movementSliderToRight(indexSlide);
+  //     }, 5000);
+  //   };
+
+  intervalId = startAnimation();
 }

@@ -6,11 +6,11 @@ export default function movementSliderToLeft(index) {
   if (step < 0) {
     index = 2;
     switchSlide(index);
-     setContoller(index)
+    setContoller(index);
     return index;
   }
   switchSlide(step);
   index = step;
-   setContoller(index)
+  setContoller(index);
   return index;
 }

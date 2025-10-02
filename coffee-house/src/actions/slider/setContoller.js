@@ -1,9 +1,13 @@
-export default function setContoller(index){
-    const controls = document.querySelectorAll('.controller');
-    console.log(controls)
-    controls.forEach((controller) => {
-        controller.classList.remove('bgc-dark');
-    })
+export default function setContoller(index) {
+  const controls = document.querySelectorAll('.controller');
 
-    controls[index].classList.add('bgc-dark')
+  controls.forEach((controller, i) => {
+    if (i !== index) {
+      controller.classList.remove('controller-active');
+    }
+
+    requestAnimationFrame(() => {
+      controls[index].classList.add('controller-active');
+    });
+  });
 }

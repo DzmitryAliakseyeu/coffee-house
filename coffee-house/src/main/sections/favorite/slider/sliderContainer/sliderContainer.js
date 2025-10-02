@@ -11,5 +11,5 @@ export default function createSliderContainer(parent) {
   createSlider(sliderContainer);
   createControls(sliderContainer);
 
-  setContoller(indexSlide)
+  setContoller(indexSlide);
 }
