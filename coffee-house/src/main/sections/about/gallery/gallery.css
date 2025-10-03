@@ -1,0 +1,33 @@
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.img-box {
+    width: 660px;
+    height: 430px;
+    background-position: center;
+    background-size: 110%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    transition: background-size 0.9s ease; 
+}
+
+.img-box:hover {
+   
+    background-size: 100%;
+}
+
+
+
+.gallery-container-0 .img-box:first-child, .gallery-container-2 .img-box:last-child{
+ height: 590px;
+}

@@ -1,4 +1,5 @@
 import './main.css';
+import createAboutSection from './sections/about/about';
 import createFavoriteSection from './sections/favorite/favorite';
 
 export default function createMain(parent) {
@@ -7,4 +8,5 @@ export default function createMain(parent) {
   parent.append(main);
 
   createFavoriteSection(main);
+  createAboutSection(main)
 }
