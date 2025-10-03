@@ -1,6 +1,7 @@
 import './main.css';
 import createAboutSection from './sections/about/about';
 import createFavoriteSection from './sections/favorite/favorite';
+import createMobileAppSection from './sections/mobile-app/mobile-app';
 
 export default function createMain(parent) {
   const main = document.createElement('main');
@@ -8,5 +9,6 @@ export default function createMain(parent) {
   parent.append(main);
 
   createFavoriteSection(main);
-  createAboutSection(main)
+  createAboutSection(main);
+  createMobileAppSection(main)
 }

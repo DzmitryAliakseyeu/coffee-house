@@ -43,6 +43,12 @@ h2, h3 {
     line-height: 150%;
 }
 
+.caption {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 140%;
+}
+
 .link-and-button {
     font-size: 16px;
     font-weight: 600;
