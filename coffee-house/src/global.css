@@ -66,6 +66,7 @@ h2, h3 {
     background-color: #E1D4C9;
 }
 
+
 .bgc-light {
     background-color: #C1B6AD;
 }
@@ -78,4 +79,9 @@ h2, h3 {
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+.favorite-title span, .about span, .mobile-app span, .offer-footer-title span {
+    display: inline-block;
+    transform: skewX(-10deg);
 }

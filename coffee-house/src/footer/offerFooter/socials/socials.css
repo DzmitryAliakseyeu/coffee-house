@@ -1,0 +1,29 @@
+.socials {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.social {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #C1B6AD;
+     list-style-type: none;
+     border-radius: 100%;
+     background-repeat: no-repeat;
+     background-position: center center;
+}
+
+
+
+.twitter {
+    background-image: url('../../../../public/socials/twitter.svg');
+}
+
+.instagram {
+    background-image: url('../../../../public/socials/instagram.svg');
+}
+
+.facebook {
+    background-image: url('../../../../public/socials/facebook.svg');
+}
