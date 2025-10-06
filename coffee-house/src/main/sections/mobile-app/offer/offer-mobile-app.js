@@ -18,7 +18,7 @@ export default function createOffer(parent){
      offerText.classList.add('medium');
       offerText.classList.add('text-dark');
       offerText.classList.add('offer-text');
-      offerText.textContent = `Download the Resource app today and experience the comfort of ordering your favorite coffee from wherever you are`;
+      offerText.textContent = `<span class=text-accent>Download</span> the Resource app today and experience the comfort of ordering your favorite coffee from wherever you are`;
       offer.append(offerText);
 
       createOfferMAButtons(offer)

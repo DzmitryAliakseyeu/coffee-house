@@ -3,3 +3,7 @@
     flex-direction: column;
     gap: 40px;
 }
+
+.about-title {
+    text-align: left;
+}
