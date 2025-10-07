@@ -1,4 +1,5 @@
 import './footer.css'
+import createContactsInfo from './offerFooter/contacts-info/contacts-info';
 import createOfferFooter from './offerFooter/offerFooter';
 
 export default function createFooter(parent){
@@ -12,4 +13,5 @@ export default function createFooter(parent){
   footer.append(containerSection);
 
   createOfferFooter(containerSection)
+  createContactsInfo(containerSection)
 }

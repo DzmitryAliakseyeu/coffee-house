@@ -1,0 +1,9 @@
+.contacts-info {
+    max-width: 530px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 186px;
+}
