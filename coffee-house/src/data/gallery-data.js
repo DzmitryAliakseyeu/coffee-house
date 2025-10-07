@@ -8,10 +8,10 @@ export const galleryData = [
     alt: 'about-2',
   },
   {
-     srcImg: '../../../../../../public/gallery/about-3.png',
+    srcImg: '../../../../../../public/gallery/about-3.png',
     alt: 'about-3',
   },
-   {
+  {
     srcImg: '../../../../../../public/gallery/about-4.png',
     alt: 'about-4',
   },

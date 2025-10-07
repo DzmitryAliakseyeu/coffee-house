@@ -9,12 +9,11 @@ export default function createHeader(parent, isMainPage = false) {
 
   createContainerHeader(header);
 
+  if (isMainPage) {
+    const sectionHero = document.createElement('section');
+    sectionHero.classList.add('hero');
+    header.append(sectionHero);
 
-  if(isMainPage){
-  const sectionHero = document.createElement('section');
-  sectionHero.classList.add('hero');
-  header.append(sectionHero);
-
-  createEnjoySection(sectionHero);
+    createEnjoySection(sectionHero);
   }
 }

@@ -1,0 +1,9 @@
+.menu-offer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.menu-offer-title {
+    text-align: center;
+}

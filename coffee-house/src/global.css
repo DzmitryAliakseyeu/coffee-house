@@ -85,13 +85,13 @@ ul {
     background-color: #665F55;
 }
 
-.hero, .favorite, .about {
+.hero, .favorite, .about, .menu {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-.favorite-title span, .about span, .mobile-app span, .offer-footer-title span {
+.favorite-title span, .about span, .mobile-app span, .offer-footer-title span, .menu-offer-title span {
     display: inline-block;
     transform: skewX(-10deg);
 }

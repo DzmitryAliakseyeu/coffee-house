@@ -1,7 +1,7 @@
-import './mobile.css'
+import './mobile.css';
 
-export default function createMobile(parent){
-    const mobile = document.createElement('div');
+export default function createMobile(parent) {
+  const mobile = document.createElement('div');
   mobile.classList.add('mobile');
   parent.append(mobile);
 
@@ -9,6 +9,5 @@ export default function createMobile(parent){
   mobileScreens.classList.add('mobile-screens');
   mobile.append(mobileScreens);
   mobileScreens.alt = 'mobile-screens';
-  mobileScreens.src = '../../../../public/mobile-app/mobile-screens.png'
-
+  mobileScreens.src = '../../../../public/mobile-app/mobile-screens.png';
 }

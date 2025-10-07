@@ -1,0 +1,47 @@
+.menu-offer-tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: fit-content;
+    align-self: center;
+}
+
+.tab-item {
+  border: 1px solid #C1B6AD;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: row;
+  height: 46px;
+  align-items: center;
+  width: fit-content;
+  padding-left: 8px;
+  padding-right: 16px;;
+}
+
+.tab-link{
+  display: flex;
+  flex-direction: row;  
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-icon {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #C1B6AD;
+    border-radius: 100%;
+}
+
+.tab-coffee-icon{
+    background-image: url('../../../../../public/menu/menu-offer-tabs/coffee.png');
+}
+
+.tab-tea-icon{
+    background-image: url(../../../../../public/menu/menu-offer-tabs/tea.png);
+}
+
+.tab-dessert-icon {
+background-image: url(../../../../../public/menu/menu-offer-tabs/dessert.png);
+}

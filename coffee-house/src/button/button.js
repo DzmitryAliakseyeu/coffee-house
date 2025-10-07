@@ -6,7 +6,7 @@ export default function createButton(
   action,
   text,
   hasIcon = false,
-  isHtml = false
+  isHtml = false,
 ) {
   const button = document.createElement('button');
   button.classList.add('button');
@@ -18,8 +18,8 @@ export default function createButton(
   button.addEventListener('click', action);
   const buttonText = document.createElement('span');
   buttonText.classList.add(`button-${className}-text`);
-   if (isHtml) {
-    buttonText.innerHTML = text;  
+  if (isHtml) {
+    buttonText.innerHTML = text;
   } else {
     buttonText.textContent = text;
   }
