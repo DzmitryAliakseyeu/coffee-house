@@ -2,6 +2,7 @@ import createButton from '../../button/button';
 import createNavigation from './navigation/navigation';
 import './containerHeader.css';
 
+
 export default function createContainerHeader(parent) {
   const containerHeader = document.createElement('div');
   containerHeader.classList.add('container-header');
@@ -22,5 +23,10 @@ export default function createContainerHeader(parent) {
 
   createNavigation(headerMenu);
 
-  createButton(headerMenu, 'menu', () => console.log('click'), 'Menu', true);
+
+
+  createButton(headerMenu, 'menu', () => {
+    console.log('redirecting')
+  window.open('/pages/menu.html', '_self');
+}, 'Menu', true);
 }
