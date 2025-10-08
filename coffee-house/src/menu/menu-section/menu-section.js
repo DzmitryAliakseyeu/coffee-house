@@ -1,4 +1,5 @@
 import createMenuOfferContainer from './menu-container/menu-container';
+import createMenuProductsGrid from './menu-products/menu-products';
 
 export default function createMenuSection(parent) {
   const sectionMenu = document.createElement('section');
@@ -11,13 +12,5 @@ export default function createMenuSection(parent) {
 
   createMenuOfferContainer(containerSection);
 
-  //   const sectionTitle = document.createElement('h2');
-  //   sectionTitle.classList.add('heading-2');
-  //   sectionTitle.classList.add('text-dark');
-  //   sectionTitle.classList.add('favorite-title');
-  //   containerSection.append(sectionTitle);
-  //   sectionTitle.innerHTML =
-  //     'Choose your <span class="text-accent">favorite</span> coffee';
-
-  //   createSliderContainer(containerSection);
+  createMenuProductsGrid(containerSection);
 }

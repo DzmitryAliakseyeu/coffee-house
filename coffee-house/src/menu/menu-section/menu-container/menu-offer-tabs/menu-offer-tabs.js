@@ -6,10 +6,14 @@ export default function createMenuOfferTabs(parent) {
   menuOfferTabs.classList.add('menu-offer-tabs');
   parent.append(menuOfferTabs);
 
-  menuOfferTabsData.forEach((tabI) => {
+  menuOfferTabsData.forEach((tabI, i) => {
     const tab = document.createElement('li');
     tab.classList.add('tab-item');
     tab.classList.add(`tab-${tabI.title.toLowerCase()}`);
+    tab.id = tabI.title.toLowerCase();
+    if (i === 0) {
+      tab.classList.add('tab-active');
+    }
 
     menuOfferTabs.append(tab);
 
