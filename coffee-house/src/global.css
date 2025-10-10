@@ -92,6 +92,6 @@ ul {
 }
 
 .favorite-title span, .about span, .mobile-app span, .offer-footer-title span, .menu-offer-title span {
-    display: inline-block;
-    transform: skewX(-10deg);
+    display: inline;
+    font-style: italic;
 }
