@@ -1,6 +1,7 @@
 import createButton from '../../button/button';
 import createNavigation from './navigation/navigation';
 import './containerHeader.css';
+import toggleBurgerMenu from './burger/burger';
 
 export default function createContainerHeader(parent) {
   const containerHeader = document.createElement('div');
@@ -42,7 +43,7 @@ export default function createContainerHeader(parent) {
     headerMenu,
     'burger',
     () => {
-      console.log('burger');
+      toggleBurgerMenu()
     },
     '<span class="burger-line line-1"></span> <span  class="burger-line line-2"></span>',
     false,

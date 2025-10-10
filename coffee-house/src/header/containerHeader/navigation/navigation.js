@@ -6,7 +6,7 @@ export default function createNavigation(parent) {
   parent.append(navigation);
 
   const navigationList = document.createElement('ul');
-  navigationList.classList.add('navitaion-list');
+  navigationList.classList.add('navigation-list');
   navigation.append(navigationList);
 
   const menuItems = [
