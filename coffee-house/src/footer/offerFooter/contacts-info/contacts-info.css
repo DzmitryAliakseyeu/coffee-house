@@ -7,3 +7,10 @@
     gap: 40px;
     height: 186px;
 }
+
+@media (max-width: 768px){
+    .contacts-info {
+        max-width: 100%;
+        align-self: flex-start;
+    }
+}
