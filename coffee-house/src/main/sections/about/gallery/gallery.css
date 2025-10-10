@@ -51,3 +51,23 @@
 
   
 }
+
+@media (max-width: 768px){
+    .gallery {
+        gap: 40px;
+    }
+    .img-box {
+        width: 688px;
+        height: 590px;
+        background-size: 105%;
+    
+    }
+
+    .gallery-container-0 > :last-child {
+        display: none;
+    }
+
+   .gallery-container-2 > :first-child {
+        display: none;
+    }
+}
