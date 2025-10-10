@@ -51,3 +51,11 @@ video {
     border: none;
     border-radius: 100px;
 } */
+
+@media (max-width: 768px){
+    .offer {
+        left: 60px;
+    }
+
+    
+}

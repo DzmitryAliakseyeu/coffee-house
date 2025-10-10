@@ -24,6 +24,7 @@ a, button {
   margin: 0 auto;
   height: 100%;
   position: relative;
+  box-sizing:border-box;
 }
 
 @media (max-width: 1439px){
