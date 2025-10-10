@@ -9,3 +9,10 @@
 .offer-ma-title {
     text-align: left;
 }
+
+@media (max-width: 768px){
+    .mobile-app .offer-mobile-app {
+        max-width: 100%;
+        width: 100%;
+    }
+}

@@ -77,10 +77,17 @@
     
 }
 
-.button-offer-ma-app-store-text , .button-offer-ma-google-play-text {
-  align-self:first baseline
-    
+.offer-ma-buttons .button-offer-ma-app-store-text , .offer-ma-buttons .button-offer-ma-google-play-text {
+  /* align-self:first baseline */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
 }
+
+/* .offer-ma-buttons .button-offer-ma-app-store-text br, .offer-ma-buttons .button-offer-ma-google-play-text br {
+    height: 0px;
+} */
 
 .button-offer-ma-app-store-icon, .button-offer-ma-google-play-icon {
     width: 36px;

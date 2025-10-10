@@ -10,7 +10,7 @@ export default function createOfferMAButtons(parent) {
     offerMAButtons,
     'offer-ma-app-store',
     () => console.log('click'),
-    '<span class="caption text-dark">Available on the</span><br><span class="link-and-button text-dark">App Store</span>',
+    '<span class="caption text-dark">Available on the</span><span class="link-and-button text-dark">App Store</span>',
     true,
     true,
   );
@@ -19,7 +19,7 @@ export default function createOfferMAButtons(parent) {
     offerMAButtons,
     'offer-ma-google-play',
     () => console.log('click'),
-    '<span class="caption text-dark">Available on</span><br><span class="link-and-button text-dark">Google Play</span>',
+    '<span class="caption text-dark">Available on</span><span class="link-and-button text-dark">Google Play</span>',
     true,
     true,
   );
