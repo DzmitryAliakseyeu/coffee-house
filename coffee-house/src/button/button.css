@@ -23,6 +23,16 @@
     justify-self: right;
 }
 
+.button-burger {
+    width: 44px;
+    height: 44px;
+    background-color: #E1D4C9;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 1px solid #665F55;
+    align-self: center;
+}
+
 .button-offer, .button-offer-ma-app-store, .button-offer-ma-google-play {
     width: 200px;
     height: 64px;

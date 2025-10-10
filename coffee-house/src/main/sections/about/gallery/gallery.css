@@ -31,3 +31,23 @@
 .gallery-container-0 .img-box:first-child, .gallery-container-2 .img-box:last-child{
  height: 590px;
 }
+
+
+@media (max-width: 1439px){
+    .gallery {
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .gallery-container {
+        gap: 20px;
+    }
+}
+
+ @media (max-width: 1350px){
+    .gallery {
+       justify-content: center;
+    }
+
+  
+}

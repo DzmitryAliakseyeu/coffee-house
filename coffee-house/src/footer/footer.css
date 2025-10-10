@@ -18,3 +18,26 @@
      box-sizing: border-box;
      align-items: center;
 }
+
+@media (max-width: 1439px){
+ .footer .container-section {
+    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+ 
+}
+}
+
+@media (max-width: 1245px){
+ .footer .container-section {
+    padding: 100px 60px;
+    justify-content: center;
+}
+}
+
+@media (max-width: 1190px){
+ .footer .container-section {
+   gap: 100px;
+}
+}
+

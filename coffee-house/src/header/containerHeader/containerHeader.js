@@ -20,16 +20,31 @@ export default function createContainerHeader(parent) {
   logo.append(logoImage);
   logoImage.src = '../../public/logo.svg';
 
-  createNavigation(headerMenu);
+  const navigationBox = document.createElement('div');
+  navigationBox.classList.add('navigation-box');
+  headerMenu.append(navigationBox)
+
+  createNavigation(navigationBox);
 
   createButton(
-    headerMenu,
+    navigationBox,
     'menu',
     () => {
-      console.log('redirecting');
       window.open('/pages/menu.html', '_self');
     },
     'Menu',
     true,
   );
+
+
+  createButton(
+    headerMenu,
+    'burger',
+    () => {
+      console.log('burger');
+    },
+    '<span class="burger-line line-1"></span> <span  class="burger-line line-2"></span>',
+    false,
+    true
+  )
 }

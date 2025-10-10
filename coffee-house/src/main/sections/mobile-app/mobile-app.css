@@ -10,3 +10,13 @@
     gap: 100px;
     align-items: center;
 }
+
+@media (max-width: 1439px){
+    .mobile-app .container-section {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: space-between;
+}
+}

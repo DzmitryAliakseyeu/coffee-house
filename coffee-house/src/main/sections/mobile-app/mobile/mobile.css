@@ -2,3 +2,13 @@
     width: 630px;
     height: 630px;
 }
+
+
+@media (max-width: 1050px){
+    .mobile-app .container-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 100px;
+    }
+
+}

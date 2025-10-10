@@ -19,3 +19,9 @@ a, button {
   height: 100%;
 }
 
+@media (max-width: 1439px){
+  .app {
+    padding: 0 40px;
+  }
+}
+
