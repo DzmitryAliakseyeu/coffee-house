@@ -39,3 +39,9 @@ a, button {
   }
 }
 
+@media (max-width: 710px){
+  .app {
+    padding: 0 16px;
+  }
+}
+

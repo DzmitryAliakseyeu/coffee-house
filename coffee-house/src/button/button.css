@@ -23,6 +23,8 @@
     justify-self: right;
 }
 
+
+
 .button-burger {
     width: 44px;
     height: 44px;
@@ -39,6 +41,25 @@
     background-color: #E1D4C9;
     border: none;
     border-radius: 100px;
+}
+
+.button-offer {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+}
+
+.button-offer-icon {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-image: url('../../public/coffee-cup.svg');
+    background-repeat: none;
+    justify-self: right;
 }
 
 .button-slider-left, .button-slider-right {

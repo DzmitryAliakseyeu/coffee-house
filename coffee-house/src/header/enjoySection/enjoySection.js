@@ -34,5 +34,15 @@ export default function createEnjoySection(parent) {
   offerText.textContent =
     'With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.';
 
-  createButton(offer, 'offer', () => console.log('click'), 'Menu');
+  // createButton(offer, 'offer', () => console.log('click'), 'Menu');
+
+    createButton(
+      offer,
+      'offer',
+      () => {
+        window.open('/pages/menu.html', '_self');
+      },
+      'Menu',
+      true,
+    );
 }

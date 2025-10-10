@@ -33,7 +33,10 @@ video {
 
 .offer-text {
     letter-spacing: 0.1px;
+    white-space: normal;
 }
+
+
 
 .offer-title {
     text-align: left;
@@ -57,5 +60,24 @@ video {
         left: 60px;
     }
 
+
+}
+
+@media (max-width: 710px){
+    .offer {
+        width: 316px;
+        top: 60px;
+    }
+
     
+}
+
+@media (max-width: 470px){
+
+    .hero .container-section {
+        height: 552px;
+    }
+    .offer {
+        left: 16px;
+    }
 }
