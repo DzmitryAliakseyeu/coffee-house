@@ -14,6 +14,7 @@ export default function createContainerHeader(parent) {
   const logo = document.createElement('a');
   logo.classList.add('logo');
   headerMenu.append(logo);
+  logo.href = 'index.html';
 
   const logoImage = document.createElement('img');
   logoImage.classList.add('logo-img');
