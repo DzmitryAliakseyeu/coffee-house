@@ -55,6 +55,7 @@
 
 .content-container .card-offer-tabs .tab-item {
     gap: 8px;
+    box-sizing: border-box;
 }
 
 .content-container .card-offer-tabs .tab-icon {
@@ -102,4 +103,31 @@
 
 .content-container .type-of-buttons .card-offer-tabs{
     margin: 0;
+    flex-wrap: wrap;
+}
+
+
+@media (max-width: 820px){
+    .modal-card{
+        max-width: 688px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 695px){
+    .modal-card {
+        max-width: 342px;
+        width: 100%;
+    }
+
+    .modal-card .content-container {
+        padding: 16px;
+    }
+
+    .modal-card .content-container .content-card-block {
+        padding: 0;
+    }
+   .modal-card .content-container .img-card-block {
+     display: none;
+   }
 }

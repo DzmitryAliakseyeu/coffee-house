@@ -61,7 +61,7 @@ export default function createModalCard(parent, product) {
     if (i === 0) {
       type.textContent = 'Size';
       tabsData = Object.entries(productData.sizes).map(([key, value]) => ({
-        key: key,
+        key: key.toUpperCase(),
         title: value.size,
         addPrice: value['add-price'],
       }));
