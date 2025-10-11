@@ -123,6 +123,28 @@
     background-image: url('../../public/mobile-app/google-play.svg');
 }
 
+@media (max-width: 768px){
+    .button-menu {
+     width: 100%;
+     justify-content: center;
+     align-items: center;
+     gap: 16px;
+    }
+    .button-menu-text {
+          font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+    }
+
+     .button-menu-icon {
+         width: 40px;
+         height: 40px;
+         background-repeat: no-repeat;
+         background-size: contain;
+
+    }
+}
+
 
 @media (max-width: 500px){
     .button-slider-left, .button-slider-right {

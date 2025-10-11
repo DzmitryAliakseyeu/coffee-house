@@ -68,21 +68,23 @@
   }
 
   .navigation-box {
-       position: fixed;
+    position: fixed;
     top: 80px;
     left: 0;
+    max-width: 688px;
     width: 100%;
     flex: 1;
     height: 100%;
     background-color: #e1d4c9;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     transform: translateX(100%);
-  
+    gap: 85px;
     z-index: 1000;
     transition: transform 0.3s ease;
     overflow-y: hidden;
+    padding: 65px 40px;
   }
 
    .navigation-box.open {
