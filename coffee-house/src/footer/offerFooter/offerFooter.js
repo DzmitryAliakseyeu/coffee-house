@@ -12,7 +12,7 @@ export default function createOfferFooter(parent) {
   offerFooterTitle.classList.add('offer-footer-title');
   offerFooter.append(offerFooterTitle);
   offerFooterTitle.innerHTML =
-    'Sip, Savor, Smile.<br> <span class="text-accent">It’s coffee time!</span>';
+    'Sip, Savor, Smile. <span class="text-accent">It’s coffee time!</span>';
 
   createSocials(offerFooter);
 }

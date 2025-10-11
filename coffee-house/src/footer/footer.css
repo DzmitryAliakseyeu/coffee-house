@@ -41,5 +41,12 @@
 }
 }
 
+@media (max-width: 500px){
+ .footer .container-section {
+   gap: 40px;
+     padding: 60px 16px;
+}
+}
+
 
 
