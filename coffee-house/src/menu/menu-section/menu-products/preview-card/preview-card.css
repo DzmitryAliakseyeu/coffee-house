@@ -42,3 +42,9 @@
 .preview-card-price {
     align-self: flex-start;
 }
+
+@media(max-width: 768px){
+    .preview-card:nth-child(n+5){
+        display: none;
+    }
+}

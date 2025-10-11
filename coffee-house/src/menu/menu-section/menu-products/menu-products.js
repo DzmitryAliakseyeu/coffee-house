@@ -2,6 +2,8 @@ import filterProducts from './filter-products/filter-products';
 import './menu-products.css';
 import createPreviewCard from './preview-card/preview-card';
 
+export let filteredProducts
+
 export default function createMenuProductsGrid(parent) {
   const menuProductsGrid = document.createElement('ul');
   menuProductsGrid.classList.add('menu-products-grid');
@@ -9,7 +11,7 @@ export default function createMenuProductsGrid(parent) {
 
   const tabActive = document.querySelector('.tab-active');
 
-  const filteredProducts = filterProducts(tabActive.id);
+  filteredProducts = filterProducts(tabActive.id);
 
   filteredProducts.forEach((product) => {
     createPreviewCard(

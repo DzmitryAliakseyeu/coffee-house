@@ -62,7 +62,7 @@
     justify-self: right;
 }
 
-.button-slider-left, .button-slider-right {
+.button-slider-left, .button-slider-right, .button-load {
     padding: 0;
     width: 60px;
     height: 60px;
@@ -82,6 +82,15 @@
     background-image: url(../../public/slider/arrow-right.svg);
 }
 
+.button-load {
+    background-image: url(../../public/menu/load.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.button-load.hidden {
+    display: none;
+}
 .button-slider-left-icon {
     transform:rotate(180deg)
 }

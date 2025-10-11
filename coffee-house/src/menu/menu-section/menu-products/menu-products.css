@@ -5,3 +5,11 @@
     gap: 40px;
     margin: 0;
 }
+
+
+@media (max-width: 1439px){
+    .menu-products-grid {
+        justify-content: center;
+    }
+}
+
