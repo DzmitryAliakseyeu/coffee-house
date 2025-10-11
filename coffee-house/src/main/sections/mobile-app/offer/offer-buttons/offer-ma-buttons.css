@@ -17,3 +17,10 @@
 .offer-ma-buttons span > :first-of-type {
    text-align: left;
 }
+
+
+@media (max-width: 500px){
+    .offer-ma-buttons {
+        flex-direction: column;
+    }
+}
