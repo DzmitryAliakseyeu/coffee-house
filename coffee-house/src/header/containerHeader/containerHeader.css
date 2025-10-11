@@ -36,11 +36,30 @@
   height: fit-content;
 }
 
+.button-burger-text.open {
+  position: relative;
+  gap: 0px;
+}
+
+.button-burger-text.open .line-1, .button-burger-text.open .line-2 {
+  position: absolute;
+  
+}
+
+.button-burger-text.open .line-1 {
+  transform: rotate(45deg);
+}
+
+.button-burger-text.open .line-2 {
+  transform: rotate(-45deg);
+}
+
 .button-burger .burger-line {
   display: inline-block;
   height: 1.5px;
   width: 16px;
   background-color: #403F3D;
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px){
