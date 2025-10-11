@@ -16,5 +16,9 @@ export default function createMenuSection(parent) {
 
   createMenuProductsGrid(containerSection);
 
-  createButton(containerSection, 'load', ()=> {loadProducts(filteredProducts)}, '', true)
+
+        createButton(containerSection, 'load', ()=> {loadProducts(filteredProducts)}, '', true)
+    
+
+ 
 }

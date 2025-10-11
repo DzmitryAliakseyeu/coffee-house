@@ -4,7 +4,6 @@ import createMain from '../main/main';
 import './menu.css';
 
 const body = document.body;
-console.log(body);
 
 const app = document.createElement('div');
 app.classList.add('app');
