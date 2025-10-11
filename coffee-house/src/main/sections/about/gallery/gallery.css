@@ -75,3 +75,27 @@
         display: none;
     }
 }
+
+@media (max-width: 720px){
+    
+    .img-box {
+       width: 480px;
+        background-size:cover;
+    
+    }
+
+  
+}
+
+
+@media (max-width: 500px){
+    
+    .img-box {
+       width: 348px;
+       height: 348px;
+        background-size: 210%;
+    
+    }
+
+  
+}
