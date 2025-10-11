@@ -20,7 +20,7 @@
 .content-card-block {
      display: flex;
     flex-direction: column;
-    gap: 36px;
+    /* gap: 36px; */
     padding: 20px;
     height: 196px;
 
