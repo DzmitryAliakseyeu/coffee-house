@@ -103,3 +103,12 @@ ul {
         line-height: 115%;
     }
 }
+
+@media (max-width: 680px){
+    .heading-2 { 
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 125%;
+        letter-spacing: 1px;
+    }
+}
