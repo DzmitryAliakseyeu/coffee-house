@@ -116,10 +116,6 @@
 
 }
 
-/* .offer-ma-buttons .button-offer-ma-app-store-text br, .offer-ma-buttons .button-offer-ma-google-play-text br {
-    height: 0px;
-} */
-
 .button-offer-ma-app-store-icon, .button-offer-ma-google-play-icon {
     width: 36px;
     height: 36px;
@@ -131,6 +127,15 @@
 
 .button-offer-ma-google-play-icon {
     background-image: url('../../public/mobile-app/google-play.svg');
+}
+
+.button-close-modal {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #665F55;
+    box-sizing: border-box;
+    background-color: #E1D4C9;
+    border-radius: 100px;
 }
 
 @media (max-width: 768px){

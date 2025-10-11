@@ -3,7 +3,10 @@ import createHeader from '../header/header';
 import createMain from '../main/main';
 import './menu.css';
 
+
 const body = document.body;
+
+
 
 const app = document.createElement('div');
 app.classList.add('app');

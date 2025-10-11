@@ -1,6 +1,7 @@
 import { menuOfferTabsData } from '../../../../data/menu-offer-tabs-data';
+
 import filterProducts from '../../menu-products/filter-products/filter-products';
-import { filteredProducts } from '../../menu-products/menu-products';
+
 import createPreviewCard from '../../menu-products/preview-card/preview-card';
 import './menu-offer-tabs.css';
 
@@ -18,49 +19,47 @@ export default function createMenuOfferTabs(parent) {
       tab.classList.add('tab-active');
     }
 
-    tab.addEventListener('click', ()=> {
-        const id = tab.id;
-        console.log(id);
-        const prevActiveTab = document.querySelector('.tab-active');
-        prevActiveTab.classList.remove('tab-active');
+    tab.addEventListener('click', () => {
+      const id = tab.id;
+      console.log(id);
+      const prevActiveTab = document.querySelector('.tab-active');
+      prevActiveTab.classList.remove('tab-active');
 
-        const clickedTab = document.getElementById(id);
-        clickedTab.classList.add('tab-active')
+      const clickedTab = document.getElementById(id);
+      clickedTab.classList.add('tab-active');
 
-        let newFilteredProducts = filterProducts(id);
+      let newFilteredProducts = filterProducts(id);
 
-        console.log(filteredProducts)
-        const menuProductsGrid = document.querySelector('.menu-products-grid')
+     
+      const menuProductsGrid = document.querySelector('.menu-products-grid');
 
-        const prevCards = document.querySelectorAll('.preview-card');
+      const prevCards = document.querySelectorAll('.preview-card');
 
-        const loadButton = document.querySelector('.button-load');
-        loadButton.classList.remove('hidden')
+      const loadButton = document.querySelector('.button-load');
+      loadButton.classList.remove('hidden');
 
-        prevCards.forEach((card) => card.remove())
+      prevCards.forEach((card) => card.remove());
 
-        newFilteredProducts.forEach((product) => {
-            createPreviewCard(
-              menuProductsGrid,
-              `../../../../public/products/${product.name}.png`,
-              product.name,
-              product.description,
-              `$${product.price}`,
-            );
-          });
+      newFilteredProducts.forEach((product) => {
+        createPreviewCard(
+          menuProductsGrid,
+          `../../../../public/products/${product.name}.png`,
+          product.name,
+          product.description,
+          `$${product.price}`,
+        );
+      });
 
-          const previewCards = document.querySelectorAll('.preview-card');
+      const previewCards = document.querySelectorAll('.preview-card');
 
-            const hiddenCards = Array.from(previewCards).filter(
-            (card) => window.getComputedStyle(card).display === "none"
-            );
+      const hiddenCards = Array.from(previewCards).filter(
+        (card) => window.getComputedStyle(card).display === 'none',
+      );
 
-
-            if (hiddenCards.length === 0) {
-                loadButton.classList.add('hidden')
-            }
-
-    })
+      if (hiddenCards.length === 0) {
+        loadButton.classList.add('hidden');
+      }
+    });
 
     menuOfferTabs.append(tab);
 

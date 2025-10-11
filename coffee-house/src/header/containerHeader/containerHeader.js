@@ -24,7 +24,7 @@ export default function createContainerHeader(parent) {
 
   const navigationBox = document.createElement('div');
   navigationBox.classList.add('navigation-box');
-  headerMenu.append(navigationBox)
+  headerMenu.append(navigationBox);
 
   createNavigation(navigationBox);
 
@@ -38,15 +38,14 @@ export default function createContainerHeader(parent) {
     true,
   );
 
-
   createButton(
     headerMenu,
     'burger',
     () => {
-      toggleBurgerMenu()
+      toggleBurgerMenu();
     },
     '<span class="burger-line line-1"></span> <span  class="burger-line line-2"></span>',
     false,
-    true
-  )
+    true,
+  );
 }

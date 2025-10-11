@@ -6,6 +6,7 @@
     border: 1px solid #C1B6AD;
     box-sizing:border-box;
     border-radius: 40px;
+    cursor: pointer;
 }
 
 .screen-card-block {

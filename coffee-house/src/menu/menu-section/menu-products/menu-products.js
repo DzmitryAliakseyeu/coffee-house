@@ -2,7 +2,7 @@ import filterProducts from './filter-products/filter-products';
 import './menu-products.css';
 import createPreviewCard from './preview-card/preview-card';
 
-export let filteredProducts
+export let filteredProducts;
 
 export default function createMenuProductsGrid(parent) {
   const menuProductsGrid = document.createElement('ul');

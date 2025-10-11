@@ -36,13 +36,13 @@ export default function createEnjoySection(parent) {
 
   // createButton(offer, 'offer', () => console.log('click'), 'Menu');
 
-    createButton(
-      offer,
-      'offer',
-      () => {
-        window.open('/pages/menu.html', '_self');
-      },
-      'Menu',
-      true,
-    );
+  createButton(
+    offer,
+    'offer',
+    () => {
+      window.open('/pages/menu.html', '_self');
+    },
+    'Menu',
+    true,
+  );
 }

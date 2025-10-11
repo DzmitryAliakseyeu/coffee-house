@@ -1,3 +1,4 @@
+import createModal from '../modal/modal';
 import './preview-card.css';
 
 export default function createPreviewCard(
@@ -10,6 +11,8 @@ export default function createPreviewCard(
   const previewCard = document.createElement('li');
   previewCard.classList.add('preview-card');
   parent.append(previewCard);
+
+  previewCard.addEventListener('click', () => createModal(title));
 
   const screenCardBlock = document.createElement('div');
   screenCardBlock.classList.add('screen-card-block');

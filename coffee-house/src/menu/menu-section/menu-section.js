@@ -1,7 +1,9 @@
 import createButton from '../../button/button';
 import createMenuOfferContainer from './menu-container/menu-container';
 import loadProducts from './menu-products/load-products/load-products';
-import createMenuProductsGrid, { filteredProducts } from './menu-products/menu-products';
+import createMenuProductsGrid, {
+  filteredProducts,
+} from './menu-products/menu-products';
 
 export default function createMenuSection(parent) {
   const sectionMenu = document.createElement('section');
@@ -16,9 +18,13 @@ export default function createMenuSection(parent) {
 
   createMenuProductsGrid(containerSection);
 
-
-        createButton(containerSection, 'load', ()=> {loadProducts(filteredProducts)}, '', true)
-    
-
- 
+  createButton(
+    containerSection,
+    'load',
+    () => {
+      loadProducts(filteredProducts);
+    },
+    '',
+    true,
+  );
 }
