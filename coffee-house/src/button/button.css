@@ -124,5 +124,12 @@
 }
 
 
+@media (max-width: 500px){
+    .button-slider-left, .button-slider-right {
+        display: none;
+    }
+}
+
+
 
 
