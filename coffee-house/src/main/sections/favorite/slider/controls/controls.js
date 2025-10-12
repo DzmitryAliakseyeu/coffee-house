@@ -9,7 +9,6 @@ export default function createControls(parent) {
   sliderData.forEach((_, i) => {
     const item = document.createElement('li');
     item.classList.add('controller');
-    // item.classList.add('bgc-light');
     item.id = `controller-${i}`;
     controls.append(item);
   });
