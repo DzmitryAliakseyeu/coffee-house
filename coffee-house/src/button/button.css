@@ -256,6 +256,24 @@
     color: #E1D4C9;
   }
 
+  .social:hover {
+    cursor:pointer;
+    background-color: #E1D4C9;
+  }
+
+  .social:hover.twitter {
+    background-image: url('../../public/socials/twitter-hover.svg');
+    }
+
+   .social:hover.instagram {
+    background-image: url('../../public/socials/instagram-hover.svg');
+    }
+
+    .social:hover.facebook {
+    background-image: url('../../public/socials/facebook-hover.svg');
+    }
+
+
  
  
 }
