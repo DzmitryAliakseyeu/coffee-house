@@ -239,6 +239,25 @@
   .button-slider-right:hover .button-slider-right-icon {
     background-image: url('../../public/slider/arrow-right-hover.svg');
   }
+
+  .button-offer-ma-app-store:hover, .button-offer-ma-google-play:hover {
+     background-color: #665F55;
+  }
+
+  .button-offer-ma-app-store:hover .button-offer-ma-app-store-icon{
+      background-image: url('../../public/mobile-app/apple-hover.svg');
+  }
+
+   .button-offer-ma-google-play:hover .button-offer-ma-google-play-icon{
+       background-image: url('../../public/mobile-app/google-play-hover.svg');
+  }
+
+  .button-offer-ma-app-store:hover .button-offer-ma-app-store-text span, .button-offer-ma-google-play:hover .button-offer-ma-google-play-text span{
+    color: #E1D4C9;
+  }
+
+ 
+ 
 }
 
 
