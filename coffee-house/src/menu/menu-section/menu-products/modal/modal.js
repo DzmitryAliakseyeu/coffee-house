@@ -20,4 +20,12 @@ export default function createModal(title) {
   let product = newFilteredProducts.filter((card) => card.name === title);
 
   createModalCard(modal, product);
+
+  modal.addEventListener('click', (e)=> {
+   const modalCard = modal.querySelector('.modal-card');
+
+  if (!modalCard.contains(e.target)) {
+    modal.remove();
+  }
+  })
 }
