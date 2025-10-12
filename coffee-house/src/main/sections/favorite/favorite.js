@@ -6,6 +6,7 @@ export default function createFavoriteSection(parent) {
   const sectionFavorite = document.createElement('section');
   sectionFavorite.classList.add('favorite');
   parent.append(sectionFavorite);
+  sectionFavorite.id ='favorite'
 
   const containerSection = document.createElement('section');
   containerSection.classList.add('container-section');

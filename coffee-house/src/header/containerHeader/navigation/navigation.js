@@ -10,10 +10,10 @@ export default function createNavigation(parent) {
   navigation.append(navigationList);
 
   const menuItems = [
-    { text: 'Favorite coffee', href: '#' },
-    { text: 'About', href: '#' },
-    { text: 'Mobile app', href: '#' },
-    { text: 'Contact us', href: '#' },
+    { text: 'Favorite coffee', href: 'index.html#favorite' },
+    { text: 'About', href: 'index.html#about' },
+    { text: 'Mobile app', href: 'index.html#mobile-app' },
+    { text: 'Contact us', href: '#contact-us' },
   ];
 
   menuItems.forEach((item) => {

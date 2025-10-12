@@ -6,6 +6,7 @@ export default function createFooter(parent) {
   const footer = document.createElement('footer');
   footer.classList.add('footer');
   parent.append(footer);
+  footer.id = 'contact-us';
 
   const containerSection = document.createElement('section');
   containerSection.classList.add('container-section');
