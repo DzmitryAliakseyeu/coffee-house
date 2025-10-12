@@ -226,6 +226,19 @@
     width: 20px;
     opacity: 1;
   }
+
+  .button-slider-left:hover, .button-slider-right:hover {
+    background-color: #665F55;
+  }
+
+  .button-slider-left:hover .button-slider-left-icon {
+    transform: rotate(180deg);
+    background-image: url('../../public/slider/arrow-right-hover.svg');
+  }
+
+  .button-slider-right:hover .button-slider-right-icon {
+    background-image: url('../../public/slider/arrow-right-hover.svg');
+  }
 }
 
 
