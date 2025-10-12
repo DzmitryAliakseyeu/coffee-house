@@ -49,3 +49,10 @@
         display: none;
     }
 }
+
+@media (hover: hover) and (pointer: fine) {
+    .preview-card:hover {
+        box-shadow: 1px 1px 10px 1px rgb(121, 121, 121);
+    }
+
+}
