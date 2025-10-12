@@ -8,7 +8,7 @@ import createSliderTrack from './sliderTrack/sliderTrack';
 export let indexSlide = 0;
 
 export default function createSlider(parent) {
-   let intervalId;
+  let intervalId;
   let remainingTime = 5000;
   let lastStartTime;
   let paused = false;
@@ -41,11 +41,11 @@ export default function createSlider(parent) {
     true,
   );
 
- function startAnimation() {
+  function startAnimation() {
     lastStartTime = Date.now();
     return setTimeout(() => {
       indexSlide = movementSliderToRight(indexSlide);
-      resetAnimation(); 
+      resetAnimation();
     }, remainingTime);
   }
 
@@ -61,25 +61,28 @@ export default function createSlider(parent) {
     clearTimeout(intervalId);
     const elapsed = Date.now() - lastStartTime;
     remainingTime -= elapsed;
-      pauseControllerAnimation();
+    pauseControllerAnimation();
   }
 
   function resumeAnimation() {
     if (!paused) return;
     paused = false;
     intervalId = startAnimation();
-     resumeControllerAnimation();
+    resumeControllerAnimation();
   }
 
-
-    function pauseControllerAnimation() {
-    const activeController = document.querySelector('.controller.controller-active::after');
+  function pauseControllerAnimation() {
+    const activeController = document.querySelector(
+      '.controller.controller-active::after',
+    );
     if (!activeController) return;
     activeController.style.animationPlayState = 'paused';
   }
 
   function resumeControllerAnimation() {
-    const activeController = document.querySelector('.controller.controller-active::after');
+    const activeController = document.querySelector(
+      '.controller.controller-active::after',
+    );
     if (!activeController) return;
     activeController.style.animationPlayState = 'running';
   }
@@ -87,29 +90,36 @@ export default function createSlider(parent) {
   slider.addEventListener('mouseenter', pauseAnimation);
   slider.addEventListener('mouseleave', resumeAnimation);
 
-  slider.addEventListener('touchstart', (e) => {
-    pauseAnimation();
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
+  slider.addEventListener(
+    'touchstart',
+    (e) => {
+      pauseAnimation();
+      touchStartX = e.touches[0].clientX;
+    },
+    { passive: true },
+  );
 
-  slider.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].clientX;
-    const swipeDistance = touchEndX - touchStartX;
-    const minSwipe = 50;
+  slider.addEventListener(
+    'touchend',
+    (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      const swipeDistance = touchEndX - touchStartX;
+      const minSwipe = 50;
 
-    if (swipeDistance > minSwipe) {
-      indexSlide = movementSliderToLeft(indexSlide);
-      resetAnimation();
-    } else if (swipeDistance < -minSwipe) {
-      indexSlide = movementSliderToRight(indexSlide);
-      resetAnimation();
-    }
+      if (swipeDistance > minSwipe) {
+        indexSlide = movementSliderToLeft(indexSlide);
+        resetAnimation();
+      } else if (swipeDistance < -minSwipe) {
+        indexSlide = movementSliderToRight(indexSlide);
+        resetAnimation();
+      }
 
-    resumeAnimation();
-  }, { passive: true });
+      resumeAnimation();
+    },
+    { passive: true },
+  );
 
   slider.addEventListener('touchcancel', resumeAnimation, { passive: true });
 
   intervalId = startAnimation();
-
 }

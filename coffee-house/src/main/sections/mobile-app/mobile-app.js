@@ -6,7 +6,7 @@ export default function createMobileAppSection(parent) {
   const sectionMobileApp = document.createElement('section');
   sectionMobileApp.classList.add('mobile-app');
   parent.append(sectionMobileApp);
-  sectionMobileApp.id = 'mobile-app'
+  sectionMobileApp.id = 'mobile-app';
 
   const containerSection = document.createElement('section');
   containerSection.classList.add('container-section');

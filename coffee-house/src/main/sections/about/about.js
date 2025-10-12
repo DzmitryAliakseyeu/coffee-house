@@ -5,7 +5,7 @@ export default function createAboutSection(parent) {
   const sectionAbout = document.createElement('section');
   sectionAbout.classList.add('about');
   parent.append(sectionAbout);
-  sectionAbout.id = 'about'
+  sectionAbout.id = 'about';
 
   const containerSection = document.createElement('section');
   containerSection.classList.add('container-section');

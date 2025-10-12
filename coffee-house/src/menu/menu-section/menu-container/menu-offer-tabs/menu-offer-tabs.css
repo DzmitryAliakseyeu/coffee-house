@@ -48,6 +48,10 @@ background-image: url(../../../../../public/menu/menu-offer-tabs/dessert.png);
 }
 
 .tab-active {
+     background-color: #665F55;
+}
+
+.menu-offer-tabs .tab-active {
     background-color: #665F55;
      pointer-events: none;
     

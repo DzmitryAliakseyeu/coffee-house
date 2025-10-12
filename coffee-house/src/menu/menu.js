@@ -3,10 +3,7 @@ import createHeader from '../header/header';
 import createMain from '../main/main';
 import './menu.css';
 
-
 const body = document.body;
-
-
 
 const app = document.createElement('div');
 app.classList.add('app');
@@ -18,5 +15,4 @@ createMain(app, false);
 createFooter(app);
 
 const menuButton = document.querySelector('.button-menu');
-menuButton.setAttribute('disabled', "");
-
+menuButton.setAttribute('disabled', '');

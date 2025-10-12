@@ -30,7 +30,6 @@ export default function createMenuOfferTabs(parent) {
 
       let newFilteredProducts = filterProducts(id);
 
-     
       const menuProductsGrid = document.querySelector('.menu-products-grid');
 
       const prevCards = document.querySelectorAll('.preview-card');

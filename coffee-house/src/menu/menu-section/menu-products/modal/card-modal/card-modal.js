@@ -1,8 +1,9 @@
-
 import './card-modal.css';
 import createButton from '../../../../../button/button';
 
-let sum = [0]
+let sum = [0];
+let sizeArr = [];
+
 
 export default function createModalCard(parent, product) {
   const productData = product[0];
@@ -41,7 +42,6 @@ export default function createModalCard(parent, product) {
   textContentCardBlock.append(descriptionCard);
   descriptionCard.textContent = productData.description;
 
-
   for (let i = 0; i < 2; i++) {
     const typeOfButtons = document.createElement('div');
     typeOfButtons.classList.add('type-of-buttons');
@@ -64,6 +64,7 @@ export default function createModalCard(parent, product) {
         key: key.toUpperCase(),
         title: value.size,
         addPrice: value['add-price'],
+        field: 'size'
       }));
     } else {
       type.textContent = 'Additives';
@@ -71,6 +72,7 @@ export default function createModalCard(parent, product) {
         key: index + 1,
         title: additive.name,
         addPrice: additive['add-price'],
+        field: 'additives'
       }));
     }
 
@@ -81,28 +83,43 @@ export default function createModalCard(parent, product) {
       tab.classList.add('tab-item');
       tab.classList.add(`tab-${tabI.key}`);
       tab.id = tabI.key;
-      if (index === 0 && typeof tabI.key === 'string') tab.classList.add('tab-active');
+      if (index === 0 && typeof tabI.key === 'string')
+        tab.classList.add('tab-active');
       cardOfferTabs.append(tab);
 
-     tab.addEventListener('click', ()=> {
+      tab.addEventListener('click', () => {
+   
+        if (tabI.field === 'size') {
+          const activeSize = cardOfferTabs.querySelector('.tab-active');
+          if (activeSize && activeSize !== tab) {
+            activeSize.classList.remove('tab-active');
+            // const idx = sum.indexOf(+activeSize.dataset.price);
+            // if (idx !== -1) sum.splice(idx, 1);
+            sizeArr.pop()
+          }
 
-    if(tab.classList.contains('tab-active')){
-        tab.classList.remove('tab-active');
-       
-           const index = sum.indexOf(+tabI.addPrice);
-            if (index !== -1) sum.splice(index, 1);
-            const totalValue =  sum.reduce((acc, el) => acc + el, 0);
-            totalPrice.textContent = `$${totalValue.toFixed(2)}`;
-    } else {
+          if (!tab.classList.contains('tab-active')) {
+            tab.classList.add('tab-active');
+            // sum.push(+tabI.addPrice);
+            sizeArr.push(+tabI.addPrice);
+          }
+        }
+
+    
+        if (tabI.field === 'additives') {
+          if (tab.classList.contains('tab-active')) {
+            tab.classList.remove('tab-active');
+            const idx = sum.indexOf(+tabI.addPrice);
+            if (idx !== -1) sum.splice(idx, 1);
+          } else {
             tab.classList.add('tab-active');
             sum.push(+tabI.addPrice);
-                const totalValue = sum.reduce((acc, el) => acc + el, 0);
-            totalPrice.textContent = `$${totalValue.toFixed(2)}`;
+          }
+        }
 
-    }
-    })
-      
-
+        const totalValue = sum.concat(sizeArr).reduce((acc, el) => acc + el, 0);
+        totalPrice.textContent = `$${totalValue.toFixed(2)}`;
+      });
 
       const tabLink = document.createElement('a');
       tabLink.classList.add('tab-link');
@@ -142,12 +159,9 @@ export default function createModalCard(parent, product) {
   totalPrice.classList.add('total-price');
   total.append(totalPrice);
 
-
-
   const totalValue = sum.reduce((acc, el) => acc + el, 0);
 
-    totalPrice.textContent = `$${totalValue.toFixed(2)}`;
-
+  totalPrice.textContent = `$${totalValue.toFixed(2)}`;
 
   const alert = document.createElement('div');
   alert.classList.add('alert');
@@ -162,18 +176,17 @@ export default function createModalCard(parent, product) {
   alertText.classList.add('caption');
   alert.append(alertText);
 
-  alertText.textContent = 'The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.';
+  alertText.textContent =
+    'The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.';
 
-
-  createButton(contentCardBlock,
-     'close-modal',
-      ()=> {
-        const modal = document.querySelector('.modal');
-        modal.remove();
-        document.body.classList.remove('no-scroll')
-        },
-        "Close"
-    
-)
-
+  createButton(
+    contentCardBlock,
+    'close-modal',
+    () => {
+      const modal = document.querySelector('.modal');
+      modal.remove();
+      document.body.classList.remove('no-scroll');
+    },
+    'Close',
+  );
 }
