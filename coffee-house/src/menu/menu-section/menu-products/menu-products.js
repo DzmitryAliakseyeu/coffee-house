@@ -10,6 +10,7 @@ export default function createMenuProductsGrid(parent) {
   parent.append(menuProductsGrid);
 
   const tabActive = document.querySelector('.tab-active');
+  
 
   filteredProducts = filterProducts(tabActive.id);
 

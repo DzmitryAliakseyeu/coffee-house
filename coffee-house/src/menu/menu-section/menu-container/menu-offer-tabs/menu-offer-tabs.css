@@ -49,6 +49,7 @@ background-image: url(../../../../../public/menu/menu-offer-tabs/dessert.png);
 
 .tab-active {
     background-color: #665F55;
+     pointer-events: none;
     
 }
 
@@ -60,6 +61,8 @@ background-image: url(../../../../../public/menu/menu-offer-tabs/dessert.png);
 .tab-active .tab-text{
     color: #E1D4C9;
 }
+
+
 
 @media (max-width: 500px){
     .menu-offer-tabs {
