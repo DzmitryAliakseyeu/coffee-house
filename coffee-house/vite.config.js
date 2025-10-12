@@ -8,8 +8,8 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: 'public',   // source folder
-          dest: '',         // copy as-is into dist/public
+          src: 'public',   // copy the entire public folder
+          dest: 'public',  // into dist/public
         },
       ],
     }),
