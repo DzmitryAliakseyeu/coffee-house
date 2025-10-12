@@ -1,0 +1,1 @@
+import{c as o,a as t,b as c}from"./main-K2o2tTEu.js";function d(){const a=document.body;console.log(a);const e=document.createElement("div");e.classList.add("app"),e.id="app",a.append(e),o(e),t(e),c(e)}d();
