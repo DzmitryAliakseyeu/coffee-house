@@ -14,11 +14,9 @@
     border-radius: 100px;
     position: relative; 
     background-color: #C1B6AD;
-;
 }
 
-
-.controller::after {
+.controller.controller-active::after {
   content: "";
   position: absolute;
   top: 0;
@@ -26,9 +24,17 @@
   height: 100%;
   width: 0%;
   background: #665F55;
+
+  animation: fillProgress 5s linear forwards;
+  animation-play-state: running;
 }
 
-.controller.controller-active::after {
-  width: 100%;
-   transition: width 5s linear;
+.slider-container:hover .controller.controller-active::after {
+  animation-play-state: paused;
 }
+
+@keyframes fillProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
