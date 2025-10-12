@@ -273,6 +273,15 @@
     background-image: url('../../public/socials/facebook-hover.svg');
     }
 
+    .contact-info:hover, .contact-link:hover {
+        box-sizing: border-box;
+    }
+
+    .contact-info:hover.pin-alt a, .contact-info:hover.phone a{
+     
+        border-bottom: 2px solid #E1D4C9;
+    }
+
 
  
  
