@@ -173,6 +173,35 @@
     }
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .item,
+  .button-menu {
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .item::after,
+  .button-menu::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0; 
+    height: 2px;
+    width: 0;
+    background-color: #403F3D;
+    transition: width 0.4s ease-in-out;
+  }
+
+  .item:hover::after,
+  .button-menu:hover::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+
+}
+
 
 
 
