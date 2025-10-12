@@ -200,6 +200,18 @@
     right: auto;
   }
 
+  .tab-item:hover {
+    background-color: #665F55;
+    cursor: pointer;
+  }
+
+  .tab-item:hover .tab-icon{
+    background-color: #E1D4C9;
+  }
+
+  .tab-item:hover .tab-text{
+    color: #E1D4C9;
+  }
 }
 
 
