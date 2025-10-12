@@ -190,6 +190,8 @@
     box-sizing: border-box;
   }
 
+  
+
   .item::after,
   .button-menu::after {
     content: '';
@@ -202,8 +204,12 @@
     transition: width 0.4s ease-in-out;
   }
 
-  .item:hover::after,
-  .button-menu:hover::after {
+  .button-menu:disabled {
+    cursor: default;
+  }
+
+   .item:hover::after,
+  .button-menu:not(:disabled):hover::after {
     width: 100%;
     left: 0;
     right: auto;

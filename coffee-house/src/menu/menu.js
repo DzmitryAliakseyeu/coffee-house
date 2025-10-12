@@ -16,3 +16,6 @@ body.append(app);
 createHeader(app, false);
 createMain(app, false);
 createFooter(app);
+
+const menuButton = document.querySelector('.button-menu');
+menuButton.setAttribute('disabled', "")
