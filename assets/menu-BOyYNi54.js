@@ -1,1 +1,0 @@
-import{c as t,a,b as o}from"./main-B70fXae3.js";const c=document.body,e=document.createElement("div");e.classList.add("app");e.id="app";c.append(e);t(e,!1);a(e,!1);o(e);const d=document.querySelector(".button-menu");d.setAttribute("disabled","");
