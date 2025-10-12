@@ -37,6 +37,9 @@ export default function createContactsBlock(parent) {
     contactContent.textContent = info.content;
     if (info.isLink) {
       contactLink.append(contactContent);
+       contactItem.addEventListener('click', () => {
+        window.open(info.href, '_blank');
+      });
     } else {
       contactItem.append(contactContent);
     }
