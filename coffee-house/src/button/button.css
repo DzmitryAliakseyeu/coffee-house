@@ -282,6 +282,11 @@
         border-bottom: 2px solid #E1D4C9;
     }
 
+    .button-close-modal:hover {
+         background-color: #665F55;
+         color: #E1D4C9;
+    }
+
 
  
  
