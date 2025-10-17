@@ -1,6 +1,6 @@
 import './navigation.css';
 
-export default function createNavigation(parent) {
+export default function createNavigation(parent: HTMLElement) {
   const navigation = document.createElement('nav');
   navigation.classList.add('navigation');
   parent.append(navigation);
@@ -25,13 +25,13 @@ export default function createNavigation(parent) {
     link.classList.add('text-dark');
 
     link.addEventListener('click', () => {
-      const navigationBox = document.querySelector('.navigation-box');
+      const navigationBox = document.querySelector('.navigation-box') as HTMLElement;
 
       if (navigationBox.classList.contains('open')) {
         navigationBox.classList.remove('open');
         document.documentElement.classList.remove('no-scroll');
-        const buttonBurger = document.querySelector('.button-burger');
-        const buttonBurgerText = document.querySelector('.button-burger-text');
+        const buttonBurger = document.querySelector('.button-burger') as HTMLElement;
+        const buttonBurgerText = document.querySelector('.button-burger-text') as HTMLElement;
         buttonBurger.classList.remove('open');
         buttonBurgerText.classList.remove('open');
       }

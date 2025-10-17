@@ -4,7 +4,6 @@ import createButton from '../../../../../button/button';
 let sum = [0];
 let sizeArr = [];
 
-
 export default function createModalCard(parent, product) {
   const productData = product[0];
   const modalCard = document.createElement('div');
@@ -64,7 +63,7 @@ export default function createModalCard(parent, product) {
         key: key.toUpperCase(),
         title: value.size,
         addPrice: value['add-price'],
-        field: 'size'
+        field: 'size',
       }));
     } else {
       type.textContent = 'Additives';
@@ -72,7 +71,7 @@ export default function createModalCard(parent, product) {
         key: index + 1,
         title: additive.name,
         addPrice: additive['add-price'],
-        field: 'additives'
+        field: 'additives',
       }));
     }
 
@@ -88,14 +87,13 @@ export default function createModalCard(parent, product) {
       cardOfferTabs.append(tab);
 
       tab.addEventListener('click', () => {
-   
         if (tabI.field === 'size') {
           const activeSize = cardOfferTabs.querySelector('.tab-active');
           if (activeSize && activeSize !== tab) {
             activeSize.classList.remove('tab-active');
             // const idx = sum.indexOf(+activeSize.dataset.price);
             // if (idx !== -1) sum.splice(idx, 1);
-            sizeArr.pop()
+            sizeArr.pop();
           }
 
           if (!tab.classList.contains('tab-active')) {
@@ -105,7 +103,6 @@ export default function createModalCard(parent, product) {
           }
         }
 
-    
         if (tabI.field === 'additives') {
           if (tab.classList.contains('tab-active')) {
             tab.classList.remove('tab-active');

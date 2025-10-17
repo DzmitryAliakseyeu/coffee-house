@@ -1,9 +1,7 @@
 export default function toggleBurgerMenu() {
   const menu = document.querySelector('.navigation-box');
   const burger = document.querySelector('.button-burger');
-  const line1 = document.querySelector('.line-1');
-  const line2 = document.querySelector('.line-2');
-  const buttonBurgerText = document.querySelector('.button-burger-text');
+  const buttonBurgerText = document.querySelector('.button-burger-text') as HTMLElement;
 
   if (!menu || !burger) return;
 

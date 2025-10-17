@@ -1,7 +1,7 @@
 import createButton from '../../button/button';
 import './enjoySection.css';
 
-export default function createEnjoySection(parent) {
+export default function createEnjoySection(parent: HTMLElement) {
   const containerSection = document.createElement('section');
   containerSection.classList.add('container-section');
   parent.append(containerSection);
@@ -14,7 +14,7 @@ export default function createEnjoySection(parent) {
   video.muted = true;
   video.loop = true;
 
-  const offer = document.createElement('div');
+  const offer = document.createElement('div') as HTMLElement;
   offer.classList.add('offer');
   containerSection.append(offer);
 
@@ -36,13 +36,13 @@ export default function createEnjoySection(parent) {
 
   // createButton(offer, 'offer', () => console.log('click'), 'Menu');
 
-  createButton(
-    offer,
-    'offer',
-    () => {
+  createButton({
+    parent: offer,
+    className: 'offer',
+    action: () => {
       window.open('/pages/menu.html', '_self');
     },
-    'Menu',
-    true,
-  );
+    text: 'Menu',
+    hasIcon: true,
+  });
 }

@@ -6,7 +6,7 @@ export default function renderPage() {
   const body = document.body;
   console.log(body);
 
-  const app = document.createElement('div');
+  const app = document.createElement('div') as HTMLElement;
   app.classList.add('app');
   app.id = 'app';
   body.append(app);

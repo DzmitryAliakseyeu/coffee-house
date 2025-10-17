@@ -1,13 +1,14 @@
+import { ButtonI } from '../interfaces/interfaces';
 import './button.css';
 
-export default function createButton(
+export default function createButton({
   parent,
   className,
   action,
   text,
   hasIcon = false,
   isHtml = false,
-) {
+}: ButtonI) {
   const button = document.createElement('button');
   button.classList.add('button');
   button.classList.add('link-and-button');

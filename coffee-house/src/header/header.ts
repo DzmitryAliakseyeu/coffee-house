@@ -2,8 +2,8 @@ import createContainerHeader from './containerHeader/containerHeader';
 import createEnjoySection from './enjoySection/enjoySection';
 import './header.css';
 
-export default function createHeader(parent, isMainPage = true) {
-  const header = document.createElement('header');
+export default function createHeader(parent: HTMLElement, isMainPage = true) {
+  const header = document.createElement('header') as HTMLElement;
   header.classList.add('header');
   parent.append(header);
 

@@ -1,9 +1,11 @@
+
+import './containerHeader.css';
+
 import createButton from '../../button/button';
 import createNavigation from './navigation/navigation';
-import './containerHeader.css';
 import toggleBurgerMenu from './burger/burger';
 
-export default function createContainerHeader(parent) {
+export default function createContainerHeader(parent: HTMLElement) {
   const containerHeader = document.createElement('div');
   containerHeader.classList.add('container-header');
   parent.append(containerHeader);
@@ -28,24 +30,24 @@ export default function createContainerHeader(parent) {
 
   createNavigation(navigationBox);
 
-  createButton(
-    navigationBox,
-    'menu',
-    () => {
+  createButton({
+    parent: navigationBox,
+    className: 'menu',
+    action: () => {
       window.open('/pages/menu.html', '_self');
     },
-    'Menu',
-    true,
-  );
+    text: 'Menu',
+    hasIcon: true,
+  });
 
-  createButton(
-    headerMenu,
-    'burger',
-    () => {
+  createButton({
+    parent: headerMenu,
+    className: 'burger',
+    action: () => {
       toggleBurgerMenu();
     },
-    '<span class="burger-line line-1"></span> <span  class="burger-line line-2"></span>',
-    false,
-    true,
-  );
+    text: '<span class="burger-line line-1"></span> <span  class="burger-line line-2"></span>',
+    hasIcon: false,
+    isHtml: true,
+  });
 }
