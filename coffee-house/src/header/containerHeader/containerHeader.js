@@ -15,12 +15,18 @@ export default function createContainerHeader(parent) {
   const logo = document.createElement('a');
   logo.classList.add('logo');
   headerMenu.append(logo);
-  logo.href = 'index.html';
+  logo.href = '/coffee-house/index.html';
 
   const logoImage = document.createElement('img');
   logoImage.classList.add('logo-img');
   logo.append(logoImage);
-  logoImage.src = '../../public/logo.svg';
+  const url = window.location.href; 
+  if (url.includes('menu.html')) {
+    logoImage.src = '../logo.svg';
+  } else {
+    logoImage.src = './logo.svg';
+  }
+
 
   const navigationBox = document.createElement('div');
   navigationBox.classList.add('navigation-box');
@@ -32,7 +38,7 @@ export default function createContainerHeader(parent) {
     navigationBox,
     'menu',
     () => {
-      window.open('/pages/menu.html', '_self');
+      window.open('./pages/menu.html', '_self');
     },
     'Menu',
     true,

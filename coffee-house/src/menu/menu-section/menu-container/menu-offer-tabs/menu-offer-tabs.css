@@ -36,15 +36,15 @@
 }
 
 .tab-coffee-icon{
-    background-image: url('../../../../../public/menu/menu-offer-tabs/coffee.png');
+    background-image: url('../menu/menu-offer-tabs/coffee.png');
 }
 
 .tab-tea-icon{
-    background-image: url(../../../../../public/menu/menu-offer-tabs/tea.png);
+    background-image: url('../menu/menu-offer-tabs/tea.png');
 }
 
 .tab-dessert-icon {
-background-image: url(../../../../../public/menu/menu-offer-tabs/dessert.png);
+background-image: url('../menu/menu-offer-tabs/dessert.png');
 }
 
 .tab-active {
