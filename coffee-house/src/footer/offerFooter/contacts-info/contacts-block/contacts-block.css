@@ -26,13 +26,13 @@
 }
 
 .contact-pin-alt-icon {
-    background-image: url(../../../../../public/contacts-info/pin-alt.svg);
+    background-image: url('../../../../../public/contacts-info/pin-alt.svg');
 }
 
 .contact-phone-icon {
-    background-image: url(../../../../../public/contacts-info/phone.svg);
+    background-image: url('../../../../../public/contacts-info/phone.svg');
 }
 
 .contact-clock-icon {
-    background-image: url(../../../../../public/contacts-info/clock.svg);
+    background-image: url('../../../../../public/contacts-info/clock.svg');
 }

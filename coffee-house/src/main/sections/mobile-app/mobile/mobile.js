@@ -9,5 +9,5 @@ export default function createMobile(parent) {
   mobileScreens.classList.add('mobile-screens');
   mobile.append(mobileScreens);
   mobileScreens.alt = 'mobile-screens';
-  mobileScreens.src = '../../../../public/mobile-app/mobile-screens.png';
+  mobileScreens.src = './mobile-app/mobile-screens.png';
 }

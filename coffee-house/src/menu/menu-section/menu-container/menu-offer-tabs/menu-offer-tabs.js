@@ -42,7 +42,7 @@ export default function createMenuOfferTabs(parent) {
       newFilteredProducts.forEach((product) => {
         createPreviewCard(
           menuProductsGrid,
-          `../../../../public/products/${product.name}.png`,
+          `../products/${product.name}.png`,
           product.name,
           product.description,
           `$${product.price}`,

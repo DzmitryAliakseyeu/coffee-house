@@ -18,7 +18,7 @@ export default function createModalCard(parent, product) {
   const imgCardBlock = document.createElement('img');
   imgCardBlock.classList.add('img-card-block');
   contentContainer.append(imgCardBlock);
-  imgCardBlock.src = `../../../../../../public/products/${productData.name}.png`;
+  imgCardBlock.src = `../products/${productData.name}.png`;
 
   const contentCardBlock = document.createElement('div');
   contentCardBlock.classList.add('content-card-block');
