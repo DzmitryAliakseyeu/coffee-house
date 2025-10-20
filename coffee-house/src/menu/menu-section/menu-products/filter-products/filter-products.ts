@@ -2,8 +2,8 @@
 import { productsData } from '../../../../data/products-data';
 import { ProductsDataI } from '../../../../interfaces/interfaces';
 
-export default function filterProducts(category: string) {
-  let filteredProducts = productsData.filter(
+export default function filterProducts(category: string, products: ProductsDataI[]) {
+  let filteredProducts = products.filter(
     (product: ProductsDataI) => product.category === category,
   );
 

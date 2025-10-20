@@ -3,12 +3,15 @@ import createModal from '../modal/modal';
 
 import './preview-card.css';
 
+let isUserLogged = false
+
 export default function createPreviewCard({
   parent,
   srcImg,
   title,
   description,
   price,
+  discountPrice
 }: PreviewCardI
 
 ) {
@@ -49,10 +52,26 @@ export default function createPreviewCard({
   textContentCardBlock.append(descriptionCard);
   descriptionCard.textContent = description;
 
+  const priceCardBlock = document.createElement('div');
+  priceCardBlock.classList.add('price-block')
+ contentCardBlock.append(priceCardBlock)
+
   const priceCard = document.createElement('h3');
   priceCard.classList.add('heading-3');
   priceCard.classList.add('text-dark');
   priceCard.classList.add('preview-card-price');
-  contentCardBlock.append(priceCard);
+ priceCardBlock.append(priceCard);
   priceCard.textContent = price;
+
+  if(discountPrice && isUserLogged){
+    priceCard.classList.add('unavaliable-price')
+    const discountPriceCard = document.createElement('h3');
+    discountPriceCard.classList.add('heading-3');
+    discountPriceCard.classList.add('text-dark');
+    discountPriceCard.classList.add('preview-card-price');
+    priceCardBlock.append(discountPriceCard);
+    discountPriceCard.textContent = discountPrice;
+  } else {
+     priceCard.classList.remove('unavaliable-price')
+  }
 }

@@ -52,6 +52,7 @@ export interface ProductsDataI {
   category: 'coffee' | 'tea' | 'dessert';
   sizes: ProductSizesI;
   additives: ProductAdditiveI[];
+  discountPrice?: string
 }
 
 export interface PreviewCardI {
@@ -60,6 +61,7 @@ export interface PreviewCardI {
   title: string,
   description: string,
   price: string,
+discountPrice?: string | null
 }
 
 export interface ContactsInfoDataI {

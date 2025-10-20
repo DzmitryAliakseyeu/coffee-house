@@ -2,6 +2,7 @@
 import { menuOfferTabsData } from '../../../../data/menu-offer-tabs-data';
 import { MenuOfferTabsDataI, ProductsDataI } from '../../../../interfaces/interfaces';
 import filterProducts from '../../menu-products/filter-products/filter-products';
+import { filteredProducts, products } from '../../menu-products/menu-products';
 import createPreviewCard from '../../menu-products/preview-card/preview-card';
 
 import './menu-offer-tabs.css';
@@ -29,7 +30,9 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
       const clickedTab = document.getElementById(id) as HTMLElement;
       clickedTab.classList.add('tab-active');
 
-      let newFilteredProducts = filterProducts(id);
+      let newFilteredProducts = filterProducts(id, products);
+
+      console.log(newFilteredProducts)
 
       const menuProductsGrid = document.querySelector('.menu-products-grid') as HTMLElement;
 
@@ -47,6 +50,7 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
           title: product.name,
           description: product.description,
           price: `$${product.price}`,
+          ...(product.discountPrice ? {discountPrice: `$${product.discountPrice}`} : {})
         }
         );
       });

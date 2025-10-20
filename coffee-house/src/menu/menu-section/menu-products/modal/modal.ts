@@ -1,4 +1,5 @@
 import filterProducts from '../filter-products/filter-products';
+import { products } from '../menu-products';
 import createModalCard from './card-modal/card-modal';
 
 
@@ -13,7 +14,7 @@ export default function createModal(title: string) {
 
   const activeTab = document.querySelector('.tab-active') as HTMLElement;
 
-  let newFilteredProducts = filterProducts(activeTab.id);
+  let newFilteredProducts = filterProducts(activeTab.id, products);
 
   let product = newFilteredProducts.filter((card) => card.name === title);
 
