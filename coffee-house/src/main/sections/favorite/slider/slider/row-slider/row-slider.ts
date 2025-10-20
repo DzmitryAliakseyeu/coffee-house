@@ -1,5 +1,6 @@
 
 import { sliderData } from '../../../../../../data/slider-data';
+import showErrorText from '../../../../../../error/error';
 import { SliderDataI } from '../../../../../../interfaces/interfaces';
 import getFavoritesProducts from '../../../../../../requests/getFavorites';
 import createContent from './content/content';
@@ -11,15 +12,24 @@ export default async function createRowSlider(parent: HTMLElement) {
   rowSlider.classList.add('row-slider');
   parent.append(rowSlider);
 
-  let favoriteProductsResponse = await getFavoritesProducts();
+  let favoriteProductsData: SliderDataI[] = []
+  
+  try {
+    let response = await getFavoritesProducts();
 
-  let favoriteProductsData: SliderDataI[] = favoriteProductsResponse.data
+    favoriteProductsData = response.data
 
 
-   favoriteProductsData.forEach((slide) => {
-    console.log(slide)
-    createContent(rowSlider, slide);
-  });
+    favoriteProductsData.forEach((slide) => {
+      console.log(slide)
+      createContent(rowSlider, slide);
+    });
+  } catch {
+    favoriteProductsData = []
+    console.log('error')
+    showErrorText()
+  }
+
   // sliderData.forEach((slide) => {
   //   createContent(rowSlider, slide);
   // });
