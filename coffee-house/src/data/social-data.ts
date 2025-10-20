@@ -1,4 +1,6 @@
-export const socialsData = [
+import { SocialsDataI } from "../interfaces/interfaces";
+
+export const socialsData: SocialsDataI[] = [
   {
     srcImg: '../../../../../../public/socials/twitter.svg',
     src: '#',

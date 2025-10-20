@@ -1,4 +1,6 @@
-export const contactsInfoData = [
+import { ContactsInfoDataI } from "../interfaces/interfaces";
+
+export const contactsInfoData: ContactsInfoDataI[] = [
   {
     srcImg: '../../../../../../public/contacts-info/pin-alt.svg',
     href: 'https://maps.app.goo.gl/HcGzJkaL18asCgkq7',

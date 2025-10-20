@@ -1,3 +1,4 @@
+
 import createMenuSection from '../menu/menu-section/menu-section';
 import './main.css';
 import createAboutSection from './sections/about/about';

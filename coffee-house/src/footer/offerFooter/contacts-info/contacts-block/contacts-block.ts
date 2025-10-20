@@ -1,13 +1,15 @@
+
 import { contactsInfoData } from '../../../../data/contacts-info-data';
+import { ContactsInfoDataI } from '../../../../interfaces/interfaces';
 import './contacts-block.css';
 
-export default function createContactsBlock(parent) {
-  let contactLink;
+export default function createContactsBlock(parent: HTMLElement) {
+  let contactLink: HTMLElement;
   const contactsBlock = document.createElement('ul');
   contactsBlock.classList.add('contacts-list');
   parent.append(contactsBlock);
 
-  contactsInfoData.forEach((info) => {
+  contactsInfoData.forEach((info: ContactsInfoDataI) => {
     const contactItem = document.createElement('li');
     contactItem.classList.add('contact-info');
     contactItem.classList.add(info.title);

@@ -2,7 +2,8 @@ import './footer.css';
 import createContactsInfo from './offerFooter/contacts-info/contacts-info';
 import createOfferFooter from './offerFooter/offerFooter';
 
-export default function createFooter(parent) {
+
+export default function createFooter(parent: HTMLElement) {
   const footer = document.createElement('footer');
   footer.classList.add('footer');
   parent.append(footer);

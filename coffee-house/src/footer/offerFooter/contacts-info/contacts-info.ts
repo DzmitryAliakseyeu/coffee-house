@@ -1,7 +1,8 @@
+
 import createContactsBlock from './contacts-block/contacts-block';
 import './contacts-info.css';
 
-export default function createContactsInfo(parent) {
+export default function createContactsInfo(parent: HTMLElement) {
   const contactsInfo = document.createElement('div');
   contactsInfo.classList.add('contacts-info');
   parent.append(contactsInfo);

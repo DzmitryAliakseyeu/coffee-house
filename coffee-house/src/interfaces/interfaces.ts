@@ -63,3 +63,19 @@ export interface PreviewCardI {
   description: string,
   price: string,
 }
+
+export interface ContactsInfoDataI {
+    srcImg: string,
+    href: string,
+    title: string,
+    content: string,
+    isLink: boolean,
+}; 
+
+export interface SocialsDataI {
+    srcImg: string,
+    src: string,
+    title: string,
+  };
+
+

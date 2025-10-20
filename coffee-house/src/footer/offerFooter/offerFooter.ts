@@ -1,7 +1,7 @@
 import './offerFooter.css';
 import createSocials from './socials/socials';
 
-export default function createOfferFooter(parent) {
+export default function createOfferFooter(parent: HTMLElement) {
   const offerFooter = document.createElement('div');
   offerFooter.classList.add('offer-footer');
   parent.append(offerFooter);
