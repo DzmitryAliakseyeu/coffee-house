@@ -10,15 +10,13 @@ export interface ButtonI {
 }
 
 export interface GalleryDataI {
-     
     srcImg: string,
     alt: string,
- 
 }
 
 
 export interface SliderDataI {
-    srcImg: string,
+    name: string,
     slideTitle: string,
     description:
       string,

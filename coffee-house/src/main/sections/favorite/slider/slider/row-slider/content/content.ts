@@ -1,6 +1,8 @@
 import { SliderDataI } from '../../../../../../../interfaces/interfaces';
 import './content.css';
 
+
+
 export default function createContent(parent: HTMLElement, slide: SliderDataI) {
   const content = document.createElement('div');
   content.classList.add('content');
@@ -14,7 +16,9 @@ export default function createContent(parent: HTMLElement, slide: SliderDataI) {
   image.classList.add('image');
   imageBox.append(image);
 
-  image.src = slide.srcImg;
+  // image.src = slide.srcImg;
+    image.src = `../../../../../../../../public/products/${slide.name}.png`;
+
 
   const sliderInfo = document.createElement('div');
   sliderInfo.classList.add('slider-info');
