@@ -1,5 +1,7 @@
-import showErrorText from '../../../error/error';
+
+import { hideErrorText, showErrorText } from '../../../error/error';
 import { ProductsDataI } from '../../../interfaces/interfaces';
+import { hideLoader, showLoader } from '../../../loader/loader';
 import getProducts from '../../../requests/getProducts';
 import filterProducts from './filter-products/filter-products';
 import './menu-products.css';
@@ -16,10 +18,16 @@ export default async function createMenuProductsGrid(parent: HTMLElement) {
 
   const tabActive = document.querySelector('.tab-active') as HTMLElement;
 
+  hideErrorText('.menu')
+  showLoader('.menu')
+
+
    try {
       let response = await getProducts();
 
       products = response.data;
+
+      setTimeout(()=> hideLoader('.menu'), 1000)
 
       filteredProducts = filterProducts(tabActive.id, products);
 
@@ -37,8 +45,9 @@ export default async function createMenuProductsGrid(parent: HTMLElement) {
   })
       
     } catch {
-      console.log('error')
-      // showErrorText()
+      console.log('error');
+      hideLoader('.menu')
+     showErrorText('.menu')
     }
 
    

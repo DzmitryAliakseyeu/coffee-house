@@ -1,10 +1,20 @@
 export function showErrorText(parentElement: string){
+    console.log(parentElement)
     const parent = document.querySelector(`${parentElement}`) as HTMLElement;
     const containerSection = parent.firstElementChild as HTMLElement;
 
-    Array.from(containerSection.children).forEach((el) => {
-        (el as HTMLElement).style.display = 'none'
-    })
+       if(parentElement === '.menu'){
+        const menuOfferTabs = document.querySelector('.menu-offer-tabs') as HTMLElement;
+        menuOfferTabs.style.display = 'none';
+         const menuProductsGrid = document.querySelector('.menu-products-grid') as HTMLElement;
+        menuProductsGrid.style.display = 'none';
+    } else {
+        Array.from(containerSection.children).forEach((el) => {
+                (el as HTMLElement).style.display = 'none'
+            })
+
+    }
+
 
     if(document.querySelector('.error')) return
 
@@ -29,9 +39,18 @@ export function hideErrorText(parentElement: string){
 
     error.remove()
 
-    Array.from(containerSection.children).forEach((el) => {
-        (el as HTMLElement).removeAttribute('style');
-    })
+   if(parentElement === '.menu'){
+        const menuOfferTabs = document.querySelector('.menu-offer-tabs') as HTMLElement;
+        menuOfferTabs.removeAttribute('style');
+         const menuProductsGrid = document.querySelector('.menu-products-grid') as HTMLElement;
+        menuProductsGrid.removeAttribute('style');
+    } else {
+      
+        Array.from(containerSection.children).forEach((el) => {
+            (el as HTMLElement).removeAttribute('style');
+        })
+
+    }
 
 
 }
