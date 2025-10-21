@@ -1,7 +1,10 @@
 
 import { sliderData } from '../../../../../../data/slider-data';
-import showErrorText from '../../../../../../error/error';
+import { hideErrorText, showErrorText } from '../../../../../../error/error';
+
 import { SliderDataI } from '../../../../../../interfaces/interfaces';
+import { hideLoader, showLoader } from '../../../../../../loader/loader';
+
 import getFavoritesProducts from '../../../../../../requests/getFavorites';
 import createContent from './content/content';
 
@@ -12,25 +15,30 @@ export default async function createRowSlider(parent: HTMLElement) {
   rowSlider.classList.add('row-slider');
   parent.append(rowSlider);
 
-  let favoriteProductsData: SliderDataI[] = []
+  let favoriteProductsData: SliderDataI[] = [];
+
+  hideErrorText('.favorite')
+
+   showLoader('.favorite');
+
   
   try {
+   
     let response = await getFavoritesProducts();
 
-    favoriteProductsData = response.data
+    favoriteProductsData = response.data;
+
+    setTimeout(() => hideLoader('.favorite'), 1000)
 
 
     favoriteProductsData.forEach((slide) => {
-      console.log(slide)
       createContent(rowSlider, slide);
     });
   } catch {
     favoriteProductsData = []
-    console.log('error')
-    showErrorText()
+    console.log('error');
+    hideLoader('.favorite')
+    showErrorText('.favorite')
   }
 
-  // sliderData.forEach((slide) => {
-  //   createContent(rowSlider, slide);
-  // });
 }
