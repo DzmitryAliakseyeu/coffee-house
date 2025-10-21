@@ -1,4 +1,3 @@
-
 import { socialsData } from '../../../data/social-data';
 import { SocialsDataI } from '../../../interfaces/interfaces';
 import './socials.css';

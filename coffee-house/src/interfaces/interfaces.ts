@@ -1,5 +1,3 @@
-import { menuOfferTabsData } from "../data/menu-offer-tabs-data";
-
 export interface ButtonI {
   parent: HTMLElement;
   className: string;
@@ -10,28 +8,26 @@ export interface ButtonI {
 }
 
 export interface GalleryDataI {
-    srcImg: string,
-    alt: string,
+  srcImg: string;
+  alt: string;
 }
 
-
 export interface SliderDataI {
-    name: string,
-    slideTitle: string,
-    description:
-      string,
-    price: string,
+  name: string;
+  slideTitle: string;
+  description: string;
+  price: string;
 }
 
 export interface MenuOfferTabsDataI {
-     srcImg: string,
-    src: string,
-    title: string,
+  srcImg: string;
+  src: string;
+  title: string;
 }
 
 export interface ProductSizeI {
   size: string;
-  'add-price': string; 
+  'add-price': string;
 }
 
 export interface ProductSizesI {
@@ -46,38 +42,36 @@ export interface ProductAdditiveI {
 }
 
 export interface ProductsDataI {
-   name: string;
-   id: string;
+  name: string;
+  id: string;
   description: string;
   price: string;
   category: 'coffee' | 'tea' | 'dessert';
   sizes: ProductSizesI;
   additives: ProductAdditiveI[];
-  discountPrice?: string
+  discountPrice?: string;
 }
 
 export interface PreviewCardI {
-  parent: HTMLElement,
-  id: string,
-  srcImg: string,
-  title: string,
-  description: string,
-  price: string,
-discountPrice?: string | null
+  parent: HTMLElement;
+  id: string;
+  srcImg: string;
+  title: string;
+  description: string;
+  price: string;
+  discountPrice?: string | null;
 }
 
 export interface ContactsInfoDataI {
-    srcImg: string,
-    href: string,
-    title: string,
-    content: string,
-    isLink: boolean,
-}; 
+  srcImg: string;
+  href: string;
+  title: string;
+  content: string;
+  isLink: boolean;
+}
 
 export interface SocialsDataI {
-    srcImg: string,
-    src: string,
-    title: string,
-  };
-
-
+  srcImg: string;
+  src: string;
+  title: string;
+}

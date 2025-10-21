@@ -1,7 +1,5 @@
-
 import setContoller from './setContoller';
 import switchSlide from './switchSlide';
-
 
 export default function movementSliderToLeft(index: number) {
   let step = index - 1;

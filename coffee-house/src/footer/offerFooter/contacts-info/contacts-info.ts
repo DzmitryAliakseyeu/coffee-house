@@ -1,4 +1,3 @@
-
 import createContactsBlock from './contacts-block/contacts-block';
 import './contacts-info.css';
 

@@ -1,5 +1,4 @@
 import createButton from '../../button/button';
-import getProducts from '../../requests/getProducts';
 import createMenuOfferContainer from './menu-container/menu-container';
 import loadProducts from './menu-products/load-products/load-products';
 
@@ -18,7 +17,6 @@ export default function createMenuSection(parent: HTMLElement) {
 
   createMenuOfferContainer(containerSection);
 
- 
   createMenuProductsGrid(containerSection);
 
   createButton({
@@ -29,6 +27,5 @@ export default function createMenuSection(parent: HTMLElement) {
     },
     text: '',
     hasIcon: true,
-  }
-  );
+  });
 }

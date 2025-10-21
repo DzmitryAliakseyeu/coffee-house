@@ -1,4 +1,4 @@
-import { SliderDataI } from "../interfaces/interfaces";
+import { SliderDataI } from '../interfaces/interfaces';
 
 export const sliderData: SliderDataI[] = [
   {

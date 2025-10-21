@@ -1,4 +1,3 @@
-
 import { hideErrorText, showErrorText } from '../../../error/error';
 import { ProductsDataI } from '../../../interfaces/interfaces';
 import { hideLoader, showLoader } from '../../../loader/loader';
@@ -18,43 +17,38 @@ export default async function createMenuProductsGrid(parent: HTMLElement) {
 
   const tabActive = document.querySelector('.tab-active') as HTMLElement;
 
-  hideErrorText('.menu')
-  showLoader('.menu')
+  hideErrorText('.menu');
+  showLoader('.menu');
 
+  try {
+    let response = await getProducts();
 
-   try {
-      let response = await getProducts();
+    products = response.data;
 
-      products = response.data;
+    setTimeout(() => hideLoader('.menu'), 1000);
 
-      setTimeout(()=> hideLoader('.menu'), 1000)
+    filteredProducts = filterProducts(tabActive.id, products);
 
-      filteredProducts = filterProducts(tabActive.id, products);
-
-          filteredProducts.forEach((product) => {
-    createPreviewCard({
-      parent: menuProductsGrid,
-      id: product.id,
-      srcImg: `../../../../public/products/${product.name}.png`,
-      title: product.name,
-      description: product.description,
-      price: `$${product.price}`,
-       ...(product.discountPrice ? {discountPrice: `$${product.discountPrice}`} : {})
-    }
-    );
-  })
-      
-    } catch {
-      console.log('error');
-      hideLoader('.menu')
-     showErrorText('.menu')
-    }
-
-   
+    filteredProducts.forEach((product) => {
+      createPreviewCard({
+        parent: menuProductsGrid,
+        id: product.id,
+        srcImg: `../../../../public/products/${product.name}.png`,
+        title: product.name,
+        description: product.description,
+        price: `$${product.price}`,
+        ...(product.discountPrice
+          ? { discountPrice: `$${product.discountPrice}` }
+          : {}),
+      });
+    });
+  } catch {
+    console.log('error');
+    hideLoader('.menu');
+    showErrorText('.menu');
+  }
 
   // filteredProducts = filterProducts(tabActive.id);
-
- 
 
   // filteredProducts.forEach((product) => {
   //   createPreviewCard({
@@ -67,4 +61,3 @@ export default async function createMenuProductsGrid(parent: HTMLElement) {
   //   );
   // });
 }
-

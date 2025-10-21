@@ -25,13 +25,19 @@ export default function createNavigation(parent: HTMLElement) {
     link.classList.add('text-dark');
 
     link.addEventListener('click', () => {
-      const navigationBox = document.querySelector('.navigation-box') as HTMLElement;
+      const navigationBox = document.querySelector(
+        '.navigation-box',
+      ) as HTMLElement;
 
       if (navigationBox.classList.contains('open')) {
         navigationBox.classList.remove('open');
         document.documentElement.classList.remove('no-scroll');
-        const buttonBurger = document.querySelector('.button-burger') as HTMLElement;
-        const buttonBurgerText = document.querySelector('.button-burger-text') as HTMLElement;
+        const buttonBurger = document.querySelector(
+          '.button-burger',
+        ) as HTMLElement;
+        const buttonBurgerText = document.querySelector(
+          '.button-burger-text',
+        ) as HTMLElement;
         buttonBurger.classList.remove('open');
         buttonBurgerText.classList.remove('open');
       }

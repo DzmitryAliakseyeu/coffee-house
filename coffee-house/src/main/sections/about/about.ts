@@ -1,7 +1,6 @@
 import './about.css';
 import createGallery from './gallery/gallery';
 
-
 export default function createAboutSection(parent: HTMLElement) {
   const sectionAbout = document.createElement('section');
   sectionAbout.classList.add('about');

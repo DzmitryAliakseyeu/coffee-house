@@ -2,7 +2,6 @@ import './favorite.css';
 import '../../../../src/global.css';
 import createSliderContainer from './slider/sliderContainer/sliderContainer';
 
-
 export default function createFavoriteSection(parent: HTMLElement) {
   const sectionFavorite = document.createElement('section');
   sectionFavorite.classList.add('favorite');

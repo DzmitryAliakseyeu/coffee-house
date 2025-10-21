@@ -1,42 +1,50 @@
+import { hideErrorText, showErrorText } from '../../../../error/error';
+import { hideLoader, showLoader } from '../../../../loader/loader';
 import getProductById from '../../../../requests/getProductById';
-import filterProducts from '../filter-products/filter-products';
-import { products } from '../menu-products';
 import createModalCard from './card-modal/card-modal';
-
 
 import './modal.css';
 
-export default async function createModal(title: string, id:string) {
+export default async function createModal(id: string) {
   const modal = document.createElement('div');
   modal.classList.add('modal');
   document.body.append(modal);
 
   document.body.classList.add('no-scroll');
 
-  const activeTab = document.querySelector('.tab-active') as HTMLElement;
+  hideErrorText('.modal');
 
-  // let newFilteredProducts = filterProducts(activeTab.id, products);
+  showLoader('.modal');
 
-  // let product = newFilteredProducts.filter((card) => card.name === title);
+  modal.addEventListener('click', (e) => {
+    const overlay = modal.querySelector('.overlay') as HTMLElement;
+    const target = e.target as HTMLElement;
+
+    if (!overlay.contains(target)) {
+      modal.remove();
+    }
+  });
 
   try {
     let response = await getProductById(id);
 
     let product = response.data;
-    await createModalCard(modal, product);
-      modal.addEventListener('click', (e) => {
-    const modalCard = modal.querySelector('.modal-card') as HTMLElement;
-    const target = e.target as HTMLElement;
 
-    if (!modalCard.contains(target)) {
-      modal.remove();
-    }
+    setTimeout(() => {
+      hideLoader('.modal');
+      createModalCard(modal, product);
+    }, 1000);
+
+    modal.addEventListener('click', (e) => {
+      const modalCard = modal.querySelector('.modal-card') as HTMLElement;
+      const target = e.target as HTMLElement;
+
+      if (!modalCard.contains(target)) {
+        modal.remove();
+      }
     });
   } catch {
-    console.log('error')
+    hideLoader('.modal');
+    showErrorText('.modal');
   }
-
-
-
-
 }

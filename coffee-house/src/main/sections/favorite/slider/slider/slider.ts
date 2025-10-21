@@ -1,11 +1,8 @@
-
-
 import movementSliderToLeft from '../../../../../actions/slider/movementSliderToLeft';
 import movementSliderToRight from '../../../../../actions/slider/movementSliderToRight';
 import createButton from '../../../../../button/button';
 import './slider.css';
 import createSliderTrack from './sliderTrack/sliderTrack';
-
 
 export let indexSlide: number = 0;
 
@@ -30,20 +27,18 @@ export default function createSlider(parent: HTMLElement) {
     },
     text: '',
     hasIcon: true,
-  }
-  );
+  });
   createSliderTrack(slider);
   createButton({
     parent: slider,
-     className: 'slider-right',
-     action: () => {
+    className: 'slider-right',
+    action: () => {
       indexSlide = movementSliderToRight(indexSlide);
       resetAnimation();
     },
-     text: '',
+    text: '',
     hasIcon: true,
-  }
-  );
+  });
 
   function startAnimation() {
     lastStartTime = Date.now();

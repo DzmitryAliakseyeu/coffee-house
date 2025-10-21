@@ -3,7 +3,7 @@ import createModal from '../modal/modal';
 
 import './preview-card.css';
 
-let isUserLogged = false
+let isUserLogged = false;
 
 export default function createPreviewCard({
   parent,
@@ -12,12 +12,9 @@ export default function createPreviewCard({
   title,
   description,
   price,
-  discountPrice
-}: PreviewCardI
-
-) {
-
-  console.log(id)
+  discountPrice,
+}: PreviewCardI) {
+  console.log(id);
   const previewCard = document.createElement('li');
   previewCard.classList.add('preview-card');
   parent.append(previewCard);
@@ -26,12 +23,11 @@ export default function createPreviewCard({
 
   previewCard.addEventListener('click', (e) => {
     const targetCard = e.currentTarget as HTMLLIElement;
-    console.log(targetCard)
-  
+    console.log(targetCard);
+
     let id = targetCard.id;
-    createModal(title, id);
-  }
-  );
+    createModal(id);
+  });
 
   const screenCardBlock = document.createElement('div');
   screenCardBlock.classList.add('screen-card-block');
@@ -65,18 +61,18 @@ export default function createPreviewCard({
   descriptionCard.textContent = description;
 
   const priceCardBlock = document.createElement('div');
-  priceCardBlock.classList.add('price-block')
- contentCardBlock.append(priceCardBlock)
+  priceCardBlock.classList.add('price-block');
+  contentCardBlock.append(priceCardBlock);
 
   const priceCard = document.createElement('h3');
   priceCard.classList.add('heading-3');
   priceCard.classList.add('text-dark');
   priceCard.classList.add('preview-card-price');
- priceCardBlock.append(priceCard);
+  priceCardBlock.append(priceCard);
   priceCard.textContent = price;
 
-  if(discountPrice && isUserLogged){
-    priceCard.classList.add('unavaliable-price')
+  if (discountPrice && isUserLogged) {
+    priceCard.classList.add('unavaliable-price');
     const discountPriceCard = document.createElement('h3');
     discountPriceCard.classList.add('heading-3');
     discountPriceCard.classList.add('text-dark');
@@ -84,6 +80,6 @@ export default function createPreviewCard({
     priceCardBlock.append(discountPriceCard);
     discountPriceCard.textContent = discountPrice;
   } else {
-     priceCard.classList.remove('unavaliable-price')
+    priceCard.classList.remove('unavaliable-price');
   }
 }

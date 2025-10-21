@@ -1,4 +1,3 @@
-
 import { contactsInfoData } from '../../../../data/contacts-info-data';
 import { ContactsInfoDataI } from '../../../../interfaces/interfaces';
 import './contacts-block.css';

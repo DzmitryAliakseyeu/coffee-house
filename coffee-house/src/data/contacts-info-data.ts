@@ -1,4 +1,4 @@
-import { ContactsInfoDataI } from "../interfaces/interfaces";
+import { ContactsInfoDataI } from '../interfaces/interfaces';
 
 export const contactsInfoData: ContactsInfoDataI[] = [
   {

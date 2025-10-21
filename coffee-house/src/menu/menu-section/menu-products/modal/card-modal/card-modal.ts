@@ -3,13 +3,16 @@ import createButton from '../../../../../button/button';
 import { ProductsDataI } from '../../../../../interfaces/interfaces';
 
 let sum = [0];
-let sizeArr: number[]  = [];
+let sizeArr: number[] = [];
 
-export default function createModalCard(parent: HTMLElement, product: ProductsDataI) {
+export default function createModalCard(
+  parent: HTMLElement,
+  product: ProductsDataI,
+) {
   const productData: ProductsDataI = product;
-  console.log(product)
+  console.log(product);
   const regularPrice = product.price;
-  const discountPrice = product.discountPrice;
+  // const discountPrice = product.discountPrice;
   const modalCard = document.createElement('div');
   modalCard.classList.add('modal-card');
   parent.append(modalCard);
@@ -162,7 +165,7 @@ export default function createModalCard(parent: HTMLElement, product: ProductsDa
   total.append(totalPrice);
 
   const totalValue = sum.reduce((acc, el) => acc + el, 0);
-  let finalPrice = (+totalValue+ +regularPrice)
+  let finalPrice = +totalValue + +regularPrice;
 
   // totalPrice.textContent = `$${+totalValue.toFixed(2)++regularPrice}`;
   totalPrice.textContent = `$${finalPrice.toFixed(2)}`;
@@ -192,6 +195,5 @@ export default function createModalCard(parent: HTMLElement, product: ProductsDa
       document.body.classList.remove('no-scroll');
     },
     text: 'Close',
-  }
-  );
+  });
 }

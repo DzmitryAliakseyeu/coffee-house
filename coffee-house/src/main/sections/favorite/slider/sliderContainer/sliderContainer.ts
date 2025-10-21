@@ -1,10 +1,6 @@
-
 import setContoller from '../../../../../actions/slider/setContoller';
 import createControls from '../controls/controls';
 import createSlider, { indexSlide } from '../slider/slider';
-
-
-
 
 import './sliderContainer.css';
 

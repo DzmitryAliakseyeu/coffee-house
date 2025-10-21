@@ -1,4 +1,4 @@
-import { MenuOfferTabsDataI } from "../interfaces/interfaces";
+import { MenuOfferTabsDataI } from '../interfaces/interfaces';
 
 export const menuOfferTabsData: MenuOfferTabsDataI[] = [
   {

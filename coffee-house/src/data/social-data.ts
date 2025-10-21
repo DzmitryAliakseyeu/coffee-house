@@ -1,4 +1,4 @@
-import { SocialsDataI } from "../interfaces/interfaces";
+import { SocialsDataI } from '../interfaces/interfaces';
 
 export const socialsData: SocialsDataI[] = [
   {

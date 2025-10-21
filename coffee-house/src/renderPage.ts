@@ -1,9 +1,6 @@
-
 import createFooter from './footer/footer';
 import createHeader from './header/header';
 import createMain from './main/main';
-
-
 
 export default function renderPage() {
   const body = document.body;

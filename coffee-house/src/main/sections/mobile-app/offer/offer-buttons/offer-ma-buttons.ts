@@ -13,16 +13,14 @@ export default function createOfferMAButtons(parent: HTMLElement) {
     text: '<span class="caption text-dark">Available on the</span><span class="link-and-button text-dark">App Store</span>',
     hasIcon: true,
     isHtml: true,
-  }
-  );
+  });
 
   createButton({
-   parent: offerMAButtons,
-    className:'offer-ma-google-play',
+    parent: offerMAButtons,
+    className: 'offer-ma-google-play',
     action: () => console.log('click'),
     text: '<span class="caption text-dark">Available on</span><span class="link-and-button text-dark">Google Play</span>',
     hasIcon: true,
     isHtml: true,
-  }
-  );
+  });
 }

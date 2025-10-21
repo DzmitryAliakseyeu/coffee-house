@@ -40,6 +40,21 @@
     height: 100%;
 }
 
+.overlay {
+    min-width: 320px;
+    width: 50%;
+    height: 300px;
+    background-color: #E1D4C9;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay .loader {
+    justify-content: center;
+}
+
 @keyframes rotateBean{
     0% {
         transform: rotate(0deg)

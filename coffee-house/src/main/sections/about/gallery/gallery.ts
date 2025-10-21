@@ -1,4 +1,3 @@
-
 import { galleryData } from '../../../../data/gallery-data';
 import { GalleryDataI } from '../../../../interfaces/interfaces';
 import './gallery.css';
@@ -10,7 +9,7 @@ export default function createGallery(parent: HTMLElement) {
 
   let galleryContainer: HTMLElement;
 
-  galleryData.forEach((img: GalleryDataI , i: number) => {
+  galleryData.forEach((img: GalleryDataI, i: number) => {
     if (i % 2 === 0) {
       galleryContainer = document.createElement('div');
       galleryContainer.classList.add('gallery-container');

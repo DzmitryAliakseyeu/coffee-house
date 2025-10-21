@@ -1,8 +1,10 @@
-
 import { menuOfferTabsData } from '../../../../data/menu-offer-tabs-data';
-import { MenuOfferTabsDataI, ProductsDataI } from '../../../../interfaces/interfaces';
+import {
+  MenuOfferTabsDataI,
+  ProductsDataI,
+} from '../../../../interfaces/interfaces';
 import filterProducts from '../../menu-products/filter-products/filter-products';
-import { filteredProducts, products } from '../../menu-products/menu-products';
+import { products } from '../../menu-products/menu-products';
 import createPreviewCard from '../../menu-products/preview-card/preview-card';
 
 import './menu-offer-tabs.css';
@@ -23,8 +25,10 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
 
     tab.addEventListener('click', () => {
       const id = tab.id;
-      console.log(id);
-      const prevActiveTab = document.querySelector('.tab-active') as HTMLElement;
+
+      const prevActiveTab = document.querySelector(
+        '.tab-active',
+      ) as HTMLElement;
       prevActiveTab.classList.remove('tab-active');
 
       const clickedTab = document.getElementById(id) as HTMLElement;
@@ -32,9 +36,9 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
 
       let newFilteredProducts = filterProducts(id, products);
 
-      console.log(newFilteredProducts)
-
-      const menuProductsGrid = document.querySelector('.menu-products-grid') as HTMLElement;
+      const menuProductsGrid = document.querySelector(
+        '.menu-products-grid',
+      ) as HTMLElement;
 
       const prevCards = document.querySelectorAll('.preview-card');
 
@@ -44,7 +48,6 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
       prevCards.forEach((card) => card.remove());
 
       newFilteredProducts.forEach((product: ProductsDataI) => {
-        console.log(product)
         createPreviewCard({
           parent: menuProductsGrid,
           id: product.id,
@@ -52,9 +55,10 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
           title: product.name,
           description: product.description,
           price: `$${product.price}`,
-          ...(product.discountPrice ? {discountPrice: `$${product.discountPrice}`} : {})
-        }
-        );
+          ...(product.discountPrice
+            ? { discountPrice: `$${product.discountPrice}` }
+            : {}),
+        });
       });
 
       const previewCards = document.querySelectorAll('.preview-card');

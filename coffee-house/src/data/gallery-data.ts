@@ -1,6 +1,6 @@
-import { GalleryDataI } from "../interfaces/interfaces";
+import { GalleryDataI } from '../interfaces/interfaces';
 
-export const galleryData: GalleryDataI[]  = [
+export const galleryData: GalleryDataI[] = [
   {
     srcImg: '../../../../../../public/gallery/about-1.png',
     alt: 'about-1',
@@ -18,5 +18,3 @@ export const galleryData: GalleryDataI[]  = [
     alt: 'about-4',
   },
 ];
-
-
