@@ -42,7 +42,7 @@ export interface ProductSizesI {
 
 export interface ProductAdditiveI {
   name: string;
-  'add-price': string;
+  price: string;
 }
 
 export interface ProductsDataI {

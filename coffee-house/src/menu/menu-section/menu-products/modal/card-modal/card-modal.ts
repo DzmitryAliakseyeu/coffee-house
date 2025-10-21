@@ -7,6 +7,7 @@ let sizeArr: number[]  = [];
 
 export default function createModalCard(parent: HTMLElement, product: ProductsDataI) {
   const productData: ProductsDataI = product;
+  console.log(product)
   const regularPrice = product.price;
   const discountPrice = product.discountPrice;
   const modalCard = document.createElement('div');
@@ -65,7 +66,8 @@ export default function createModalCard(parent: HTMLElement, product: ProductsDa
       tabsData = Object.entries(productData.sizes).map(([key, value]) => ({
         key: key.toUpperCase(),
         title: value.size,
-        addPrice: value['add-price'],
+        // addPrice: value['add-price'],
+        addPrice: value.price,
         field: 'size',
       }));
     } else {
@@ -73,7 +75,7 @@ export default function createModalCard(parent: HTMLElement, product: ProductsDa
       tabsData = productData.additives.map((additive, index) => ({
         key: index + 1,
         title: additive.name,
-        addPrice: additive['add-price'],
+        addPrice: additive.price,
         field: 'additives',
       }));
     }
