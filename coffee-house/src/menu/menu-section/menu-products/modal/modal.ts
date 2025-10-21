@@ -1,3 +1,4 @@
+import getProductById from '../../../../requests/getProductById';
 import filterProducts from '../filter-products/filter-products';
 import { products } from '../menu-products';
 import createModalCard from './card-modal/card-modal';
@@ -5,7 +6,7 @@ import createModalCard from './card-modal/card-modal';
 
 import './modal.css';
 
-export default function createModal(title: string) {
+export default async function createModal(title: string, id:string) {
   const modal = document.createElement('div');
   modal.classList.add('modal');
   document.body.append(modal);
@@ -14,18 +15,28 @@ export default function createModal(title: string) {
 
   const activeTab = document.querySelector('.tab-active') as HTMLElement;
 
-  let newFilteredProducts = filterProducts(activeTab.id, products);
+  // let newFilteredProducts = filterProducts(activeTab.id, products);
 
-  let product = newFilteredProducts.filter((card) => card.name === title);
+  // let product = newFilteredProducts.filter((card) => card.name === title);
 
-  createModalCard(modal, product);
+  try {
+    let response = await getProductById(id);
 
-  modal.addEventListener('click', (e) => {
+    let product = response.data;
+    await createModalCard(modal, product);
+      modal.addEventListener('click', (e) => {
     const modalCard = modal.querySelector('.modal-card') as HTMLElement;
     const target = e.target as HTMLElement;
 
     if (!modalCard.contains(target)) {
       modal.remove();
     }
-  });
+    });
+  } catch {
+    console.log('error')
+  }
+
+
+
+
 }

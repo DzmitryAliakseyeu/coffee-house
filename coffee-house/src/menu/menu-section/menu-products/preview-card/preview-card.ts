@@ -7,6 +7,7 @@ let isUserLogged = false
 
 export default function createPreviewCard({
   parent,
+  id,
   srcImg,
   title,
   description,
@@ -19,7 +20,15 @@ export default function createPreviewCard({
   previewCard.classList.add('preview-card');
   parent.append(previewCard);
 
-  previewCard.addEventListener('click', () => createModal(title));
+  previewCard.id = id;
+
+  previewCard.addEventListener('click', (e) => {
+    const targetCard = e.currentTarget as HTMLLIElement;
+  
+    let id = targetCard.id;
+    createModal(title, id);
+  }
+  );
 
   const screenCardBlock = document.createElement('div');
   screenCardBlock.classList.add('screen-card-block');

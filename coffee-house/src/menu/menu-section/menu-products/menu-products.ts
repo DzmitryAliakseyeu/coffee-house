@@ -26,6 +26,7 @@ export default async function createMenuProductsGrid(parent: HTMLElement) {
           filteredProducts.forEach((product) => {
     createPreviewCard({
       parent: menuProductsGrid,
+      id: product.id,
       srcImg: `../../../../public/products/${product.name}.png`,
       title: product.name,
       description: product.description,

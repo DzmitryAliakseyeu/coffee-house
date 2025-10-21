@@ -47,6 +47,7 @@ export interface ProductAdditiveI {
 
 export interface ProductsDataI {
    name: string;
+   id: string;
   description: string;
   price: string;
   category: 'coffee' | 'tea' | 'dessert';
@@ -57,6 +58,7 @@ export interface ProductsDataI {
 
 export interface PreviewCardI {
   parent: HTMLElement,
+  id: string,
   srcImg: string,
   title: string,
   description: string,
