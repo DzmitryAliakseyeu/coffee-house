@@ -16,14 +16,17 @@ export default function createPreviewCard({
 }: PreviewCardI
 
 ) {
+
+  console.log(id)
   const previewCard = document.createElement('li');
   previewCard.classList.add('preview-card');
   parent.append(previewCard);
 
-  previewCard.id = id;
+  previewCard.id = String(id);
 
   previewCard.addEventListener('click', (e) => {
     const targetCard = e.currentTarget as HTMLLIElement;
+    console.log(targetCard)
   
     let id = targetCard.id;
     createModal(title, id);

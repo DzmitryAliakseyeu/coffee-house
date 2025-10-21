@@ -44,8 +44,10 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
       prevCards.forEach((card) => card.remove());
 
       newFilteredProducts.forEach((product: ProductsDataI) => {
+        console.log(product)
         createPreviewCard({
           parent: menuProductsGrid,
+          id: product.id,
           srcImg: `../../../../public/products/${product.name}.png`,
           title: product.name,
           description: product.description,
