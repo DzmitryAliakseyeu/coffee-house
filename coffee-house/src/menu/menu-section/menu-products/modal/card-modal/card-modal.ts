@@ -13,9 +13,31 @@ export default function createModalCard(
   console.log(product);
   const regularPrice = product.price;
   // const discountPrice = product.discountPrice;
+
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' || event.key === 'Esc') {
+      parent.remove();
+    }
+  });
+
+
   const modalCard = document.createElement('div');
   modalCard.classList.add('modal-card');
   parent.append(modalCard);
+
+  createButton({
+    parent: modalCard,
+    className: 'close-modal',
+    action: () => {
+     parent.remove()
+    },
+    text: '<span class="close-modal-line line-1"></span> <span  class="close-modal-line line-2"></span>',
+    hasIcon: false,
+    isHtml: true,
+  });
+
+  
 
   const contentContainer = document.createElement('div');
   contentContainer.classList.add('content-container');
@@ -188,12 +210,12 @@ export default function createModalCard(
 
   createButton({
     parent: contentCardBlock,
-    className: 'close-modal',
+    className: 'add-to-cart',
     action: () => {
       const modal = document.querySelector('.modal') as HTMLElement;
       modal.remove();
       document.body.classList.remove('no-scroll');
     },
-    text: 'Close',
+    text: 'Add to cart',
   });
 }

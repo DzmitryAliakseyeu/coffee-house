@@ -132,7 +132,7 @@
     background-image: url('../../public/mobile-app/google-play.svg');
 }
 
-.button-close-modal {
+.button-add-to-cart {
     width: 100%;
     height: 44px;
     border: 1px solid #665F55;
@@ -140,6 +140,48 @@
     background-color: #E1D4C9;
     border-radius: 100px;
 }
+
+.button-close-modal {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #C1B6AD;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  align-self: flex-end;
+  position: absolute;
+  top: -44px;
+}
+
+.button-close-modal-text {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.button-close-modal-text .line-1,
+.button-close-modal-text .line-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 1.5px;
+  background-color: #C1B6AD;
+  transform-origin: center;
+}
+
+.button-close-modal-text .line-1 {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.button-close-modal-text .line-2 {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
 
 @media (max-width: 768px){
     .button-menu {
@@ -288,7 +330,7 @@
         border-bottom: 2px solid #E1D4C9;
     }
 
-    .button-close-modal:hover {
+    .button-add-to-cart:hover {
          background-color: #665F55;
          color: #E1D4C9;
     }
