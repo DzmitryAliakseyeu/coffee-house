@@ -18,6 +18,7 @@ export default function createModalCard(
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' || event.key === 'Esc') {
       parent.remove();
+       document.body.classList.remove('no-scroll');
     }
   });
 
@@ -30,7 +31,8 @@ export default function createModalCard(
     parent: modalCard,
     className: 'close-modal',
     action: () => {
-     parent.remove()
+    parent.remove();
+    document.body.classList.remove('no-scroll');
     },
     text: '<span class="close-modal-line line-1"></span> <span  class="close-modal-line line-2"></span>',
     hasIcon: false,

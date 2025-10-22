@@ -19,9 +19,11 @@ export default async function createModal(id: string) {
   modal.addEventListener('click', (e) => {
     const overlay = modal.querySelector('.overlay') as HTMLElement;
     const target = e.target as HTMLElement;
+      document.body.classList.remove('no-scroll');
 
     if (!overlay.contains(target)) {
       modal.remove();
+     
     }
   });
 
