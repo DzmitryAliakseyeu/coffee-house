@@ -181,6 +181,39 @@
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+.button-cart {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+ align-self: center;
+  margin-right: 32px;
+}
+
+.button-cart .button-cart-text {
+  display: flex;
+  flex-direction: row;
+   align-items: center;
+   gap: 8px;
+  width: fit-content;
+  /* margin-bottom: 4px; */
+ 
+}
+
+.button-cart .cart-icon {
+  background-image: url('../../public/cart/shopping-bag.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 4px;
+}
+
+.button-cart .cart-quantity {
+  margin: 0;
+}
+
 
 
 @media (max-width: 768px){

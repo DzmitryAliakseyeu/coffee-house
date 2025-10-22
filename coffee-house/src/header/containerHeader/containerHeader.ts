@@ -29,6 +29,19 @@ export default function createContainerHeader(parent: HTMLElement) {
 
   createNavigation(navigationBox);
 
+  let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]') ;
+  let productsQuntityInCart = productsInLS ? productsInLS.length : 0
+    createButton({
+    parent: navigationBox,
+    className: 'cart',
+    action: () => {
+     window.open('/pages/cart.html', '_self');
+    },
+    text: `<span class="cart-icon"></span> <p class="link-and-button text-dark cart-quantity">${productsQuntityInCart}</p>`,
+    hasIcon: false,
+    isHtml: true,
+  });
+
   createButton({
     parent: navigationBox,
     className: 'menu',
@@ -38,6 +51,8 @@ export default function createContainerHeader(parent: HTMLElement) {
     text: 'Menu',
     hasIcon: true,
   });
+
+ 
 
   createButton({
     parent: headerMenu,

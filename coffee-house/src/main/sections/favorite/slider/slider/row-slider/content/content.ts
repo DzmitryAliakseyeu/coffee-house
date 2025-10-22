@@ -39,6 +39,6 @@ export default function createContent(parent: HTMLElement, slide: SliderDataI) {
   slidePrice.classList.add('heading-3');
   slidePrice.classList.add('text-dark');
   slidePrice.classList.add('slide-price');
-  slidePrice.textContent = slide.price;
+  slidePrice.textContent = `$${slide.price}`;
   sliderInfo.append(slidePrice);
 }
