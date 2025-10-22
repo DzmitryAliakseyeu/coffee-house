@@ -27,7 +27,8 @@ export interface MenuOfferTabsDataI {
 
 export interface ProductSizeI {
   size: string;
-  'add-price': string;
+  price: string;
+  // 'add-price': string;
 }
 
 export interface ProductSizesI {
@@ -74,4 +75,30 @@ export interface SocialsDataI {
   srcImg: string;
   src: string;
   title: string;
+}
+
+export interface ProductInLSI {
+  id: string,
+  name: string,
+  selectSize: string,
+  extras: string[],
+  price: ProductPriceInLSI[]
+}
+
+export interface ProductPriceInLSI {
+  price: string,
+  discountPrice?: string
+}
+
+export interface OrderI {
+  id: string,
+  name: string,
+  selectSize: string,
+  extras: string[],
+  price: {
+    base: number,
+    size: number,
+    discount: number
+    additivies: number[]
+  }
 }

@@ -1,9 +1,27 @@
 import './card-modal.css';
 import createButton from '../../../../../button/button';
-import { ProductsDataI } from '../../../../../interfaces/interfaces';
+import { OrderI, ProductInLSI, ProductsDataI } from '../../../../../interfaces/interfaces';
+import saveOrderToLS from '../../../../../actions/cart/saveOrderToLS';
 
 let sum = [0];
-let sizeArr: number[] = [];
+// let sizeArr: number[] = [];
+// let additiviesArr = []
+
+let sizeArr: { title: string; price: number }[] = [];
+let additivesArr: { title: string; price: number }[] = [];
+
+let order: OrderI = {
+  id: '',
+  name: '',
+  selectSize: '',
+  extras: [],
+  price: {
+    base: 0,
+    size: 0,
+    discount: 0,
+    additivies: []
+  }
+}
 
 export default function createModalCard(
   parent: HTMLElement,
@@ -13,6 +31,12 @@ export default function createModalCard(
   console.log(product);
   const regularPrice = product.price;
   // const discountPrice = product.discountPrice;
+
+  order.id = product.id;
+  order.name = product.name;
+  order.selectSize = product.sizes.s.size;
+  order.price.base = Number(product.sizes.s.price)
+ 
 
 
   document.addEventListener('keydown', (event) => {
@@ -123,31 +147,40 @@ export default function createModalCard(
           const activeSize = cardOfferTabs.querySelector('.tab-active');
           if (activeSize && activeSize !== tab) {
             activeSize.classList.remove('tab-active');
-            // const idx = sum.indexOf(+activeSize.dataset.price);
-            // if (idx !== -1) sum.splice(idx, 1);
-            sizeArr.pop();
+            order.price.size = +tabI.addPrice
           }
 
           if (!tab.classList.contains('tab-active')) {
             tab.classList.add('tab-active');
-            // sum.push(+tabI.addPrice);
-            sizeArr.push(+tabI.addPrice);
+            order.selectSize = tabI.title;
           }
+       
         }
 
         if (tabI.field === 'additives') {
           if (tab.classList.contains('tab-active')) {
             tab.classList.remove('tab-active');
-            const idx = sum.indexOf(+tabI.addPrice);
-            if (idx !== -1) sum.splice(idx, 1);
+           order.extras = order.extras.filter(item => item !== tabI.title);
+        const index = order.price.additivies.indexOf(+tabI.addPrice);
+  if (index !== -1) order.price.additivies.splice(index, 1);
+           
           } else {
             tab.classList.add('tab-active');
-            sum.push(+tabI.addPrice);
+            order.extras.push(tabI.title)
+            order.price.additivies.push(+tabI.addPrice)
+           
           }
         }
 
-        const totalValue = sum.concat(sizeArr).reduce((acc, el) => acc + el, 0);
-        totalPrice.textContent = `$${totalValue.toFixed(2)}`;
+   console.log(order)
+
+        let addivitesPriceSum = order.price.additivies.reduce((acc, el) => acc + el, 0);
+        let totalSum = addivitesPriceSum + order.price.size;
+
+
+
+        totalPrice.textContent = `$${totalSum.toFixed(2)}`;
+
       });
 
       const tabLink = document.createElement('a');
@@ -214,6 +247,7 @@ export default function createModalCard(
     parent: contentCardBlock,
     className: 'add-to-cart',
     action: () => {
+      // saveOrderToLS({})
       const modal = document.querySelector('.modal') as HTMLElement;
       modal.remove();
       document.body.classList.remove('no-scroll');
