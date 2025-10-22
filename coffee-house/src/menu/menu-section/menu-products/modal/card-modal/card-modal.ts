@@ -4,11 +4,6 @@ import { OrderI, ProductInLSI, ProductsDataI } from '../../../../../interfaces/i
 import saveOrderToLS from '../../../../../actions/cart/saveOrderToLS';
 
 let sum = [0];
-// let sizeArr: number[] = [];
-// let additiviesArr = []
-
-let sizeArr: { title: string; price: number }[] = [];
-let additivesArr: { title: string; price: number }[] = [];
 
 let order: OrderI = {
   id: '',
@@ -19,8 +14,9 @@ let order: OrderI = {
     base: 0,
     size: 0,
     discount: 0,
-    additivies: []
-  }
+    additivies: [],
+  },
+  totlatPrice: 0
 }
 
 export default function createModalCard(
@@ -35,7 +31,8 @@ export default function createModalCard(
   order.id = product.id;
   order.name = product.name;
   order.selectSize = product.sizes.s.size;
-  order.price.base = Number(product.sizes.s.price)
+  order.price.base = Number(product.sizes.s.price);
+  order.totlatPrice = order.price.base
  
 
 
@@ -177,6 +174,8 @@ export default function createModalCard(
         let addivitesPriceSum = order.price.additivies.reduce((acc, el) => acc + el, 0);
         let totalSum = addivitesPriceSum + order.price.size;
 
+        order.totlatPrice = totalSum
+
 
 
         totalPrice.textContent = `$${totalSum.toFixed(2)}`;
@@ -247,7 +246,8 @@ export default function createModalCard(
     parent: contentCardBlock,
     className: 'add-to-cart',
     action: () => {
-      // saveOrderToLS({})
+      
+      saveOrderToLS(order)
       const modal = document.querySelector('.modal') as HTMLElement;
       modal.remove();
       document.body.classList.remove('no-scroll');

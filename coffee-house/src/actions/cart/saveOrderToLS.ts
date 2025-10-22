@@ -1,7 +1,7 @@
-import { ProductInLSI } from "../../interfaces/interfaces";
+import { OrderI, ProductInLSI } from "../../interfaces/interfaces";
 
-export default function saveOrderToLS({id, name, selectSize, extras, price}: ProductInLSI){
-    const product = {id, name, selectSize, extras, price};
+export default function saveOrderToLS(obj: OrderI){
+    const product = {...obj};
 
     let storedOrders = localStorage.getItem('orders');
 

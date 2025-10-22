@@ -82,7 +82,7 @@ export interface ProductInLSI {
   name: string,
   selectSize: string,
   extras: string[],
-  price: ProductPriceInLSI[]
+  price: ProductPriceInLSI[] | string
 }
 
 export interface ProductPriceInLSI {
@@ -100,5 +100,6 @@ export interface OrderI {
     size: number,
     discount: number
     additivies: number[]
-  }
+  },
+  totlatPrice: number
 }
