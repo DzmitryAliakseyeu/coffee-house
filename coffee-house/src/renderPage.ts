@@ -12,6 +12,6 @@ export default function renderPage() {
   body.append(app);
 
   createHeader(app);
-  createMain(app);
+  createMain(app, true, false, false);
   createFooter(app);
 }

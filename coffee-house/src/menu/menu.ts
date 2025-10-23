@@ -11,7 +11,7 @@ app.id = 'app';
 body.append(app);
 
 createHeader(app, false);
-createMain(app, false);
+createMain(app, false, true, false);
 createFooter(app);
 
 const menuButton = document.querySelector('.button-menu') as HTMLElement;

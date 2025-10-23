@@ -214,6 +214,25 @@
   margin: 0;
 }
 
+.button-remove-from-cart {
+  width: 24px;
+  height: 24px;
+  align-self: center;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.button-remove-from-cart-icon {
+  display: block;
+  width: inherit;
+  height: inherit;
+  background-image: url('../../public/cart/trash.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 
 
 @media (max-width: 768px){
