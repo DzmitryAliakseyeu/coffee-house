@@ -1,5 +1,6 @@
 import createProductsCartContainer from "./products-in-cart/products-in-cart";
 import './cart-section.css'
+import createTotal from "./total/total";
 
 export default function createCartSection(parent: HTMLElement){
     const sectionCart = document.createElement('section');
@@ -17,7 +18,8 @@ export default function createCartSection(parent: HTMLElement){
       sectionTitle.textContent = 'Cart';
       containerSection.append(sectionTitle)
 
-      createProductsCartContainer(sectionCart)
+      createProductsCartContainer(containerSection);
+      createTotal(containerSection)
     
     //   createMenuOfferContainer(containerSection);
     
