@@ -246,10 +246,11 @@ export default function createModalCard(
     parent: contentCardBlock,
     className: 'add-to-cart',
     action: () => {
-      const cartQuantity = document.querySelector('.cart-quantity') as HTMLElement;
-      let productsInLS = localStorage.getItem('orders');
-      cartQuantity.textContent = productsInLS;
+     
       saveOrderToLS(order)
+       const cartQuantity = document.querySelector('.cart-quantity') as HTMLElement;
+      let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
+      cartQuantity.textContent = productsInLS.length;
       const modal = document.querySelector('.modal') as HTMLElement;
       modal.remove();
       document.body.classList.remove('no-scroll');
