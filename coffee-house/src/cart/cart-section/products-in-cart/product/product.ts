@@ -1,3 +1,4 @@
+import removeProductFromCart from "../../../../actions/cart/removeProductFromCart";
 import createButton from "../../../../button/button";
 import { OrderI } from "../../../../interfaces/interfaces";
 import './product.css'
@@ -6,13 +7,14 @@ import './product.css'
 export default function createProductBlock(parent: HTMLElement, product: OrderI){
     const productBlock = document.createElement('div');
     productBlock.classList.add('product-block');
+    productBlock.id = product.id;
     parent.append(productBlock);
 
     createButton({
     parent: productBlock,
     className: 'remove-from-cart',
     action: () => {
-        console.log('remove')
+        removeProductFromCart(productBlock.id)
     },
     text: '',
     hasIcon: true,
