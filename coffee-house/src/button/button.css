@@ -233,6 +233,15 @@
   background-size: contain;
 }
 
+.button-confirm, .button-sign-in, .button-registration {
+  width: 200px;
+  height: 44px;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 1px solid #665F55;
+  border-radius: 100px;
+}
+
 
 
 @media (max-width: 768px){
