@@ -120,5 +120,6 @@ export interface UserAddressI {
 export interface UserDataI {
   login: string,
   password: string,
-   address: UserAddressI
+  paymentMethod: string,
+  address: UserAddressI
 }

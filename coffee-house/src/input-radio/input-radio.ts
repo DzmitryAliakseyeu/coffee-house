@@ -1,3 +1,4 @@
+import { userAddress } from '../user-data/user-data';
 import './input-radio.css'
 
 export default function createRadioGroup(parent: HTMLElement, className: string, labelName: string, options: { value: string; text: string }[]){
@@ -29,8 +30,10 @@ export default function createRadioGroup(parent: HTMLElement, className: string,
 
     if(i == 0){
    radio.checked = true;
+    userAddress.paymentMethod = radio.value.toLowerCase()
   }
 
+ 
   const customCircle = document.createElement('span');
   customCircle.classList.add('custom-radio');
 
@@ -43,7 +46,15 @@ export default function createRadioGroup(parent: HTMLElement, className: string,
 
   optionWrapper.append(radio, customCircle, text);
   radiosContainer.append(optionWrapper);
+
+  radio.addEventListener('change', () => {
+      if (radio.checked) {
+        userAddress.paymentMethod = radio.value;
+      }
+    });
   });
+
+ 
 
 
 }

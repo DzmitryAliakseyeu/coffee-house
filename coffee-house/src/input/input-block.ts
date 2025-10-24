@@ -1,4 +1,5 @@
 import validateConfirmPassword from '../actions/validation/validateConfirmPassword';
+import validateHouseNumber from '../actions/validation/validateHouseNumber';
 import validateLogin from '../actions/validation/validateLogin';
 import validatePassword from '../actions/validation/validatePassword';
 import { userAddress } from '../user-data/user-data';
@@ -41,6 +42,8 @@ export default function createInputBlock(parent: HTMLElement, className: string,
             isValid = validatePassword(input, inputError);
         } else  if(labelName.toLocaleLowerCase() === 'confirm password'){
             isValid = validateConfirmPassword(input, inputError)
+        } else if(labelName.toLocaleLowerCase() === 'house number'){
+            isValid = validateHouseNumber(input, inputError)
         }
   
     if (!isValid) {
@@ -58,13 +61,11 @@ export default function createInputBlock(parent: HTMLElement, className: string,
            }
 
            if(labelName.toLocaleLowerCase() === 'confirm password'){
-           
-          
-                userAddress.password = input.value
-           
-                
-            
-           
+                userAddress.password = input.value           
+           }
+
+            if(labelName.toLocaleLowerCase() === 'house number'){
+                userAddress.address.houseNumber = input.value 
            }
       
            console.log(userAddress)
