@@ -1,0 +1,29 @@
+.input-block .input-block-city {
+    position: relative;
+    
+}
+
+.input-field {
+    height: 56px;;
+}
+
+.registration .input-block  .dropdown-list {
+  display: none;
+  width: 100%;
+  padding: 10px;;
+}
+
+.registration .input-block  .dropdown-list.show-list {
+  position: absolute;
+    top: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+ 
+}
+
+.dropdown-item {
+    text-align: center;
+}
