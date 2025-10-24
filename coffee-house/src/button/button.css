@@ -233,7 +233,7 @@
   background-size: contain;
 }
 
-.button-confirm, .button-sign-in, .button-registration {
+.button-confirm, .button-sign-in, .button-registration, .button-sign-in-request {
   width: 200px;
   height: 44px;
   box-sizing: border-box;

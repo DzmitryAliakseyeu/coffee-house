@@ -1,0 +1,39 @@
+.input-block {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    height: 84px;
+}
+
+.input-field {
+    background-color: transparent;
+    height: 56px;
+    border: 1px solid #C1B6AD;
+    border-radius: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+}
+
+.input-field.invalid {
+  border-color: red;
+  background-image: url('../../public/input/attention.svg');
+  background-position: 98% center;
+  background-repeat: no-repeat;
+}
+
+.input-field::placeholder {
+    color: #403f3d41;
+}
+
+.input-error {
+    position: absolute;
+    bottom: -20px;
+    margin: 0;
+    font-size: 12px;
+}

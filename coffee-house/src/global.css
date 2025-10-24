@@ -85,7 +85,7 @@ ul {
     background-color: #665F55;
 }
 
-.hero, .favorite, .about, .menu {
+.hero, .favorite, .about, .menu, .sign-in {
     display: flex;
     justify-content: center;
     width: 100%;

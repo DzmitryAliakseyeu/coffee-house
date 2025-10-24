@@ -1,11 +1,12 @@
 import createCartSection from '../cart/cart-section/cart-section';
 import createMenuSection from '../menu/menu-section/menu-section';
+import createSignSection from '../sign-in/sing-in-section/sign-in-section';
 import './main.css';
 import createAboutSection from './sections/about/about';
 import createFavoriteSection from './sections/favorite/favorite';
 import createMobileAppSection from './sections/mobile-app/mobile-app';
 
-export default function createMain(parent: HTMLElement, isMainPage = true, isMenuPage = false, isCartPage = false) {
+export default function createMain(parent: HTMLElement, isMainPage = true, isMenuPage = false, isCartPage = false, isSignInPage = false) {
   const main = document.createElement('main');
   main.classList.add('main');
   parent.append(main);
@@ -18,5 +19,7 @@ export default function createMain(parent: HTMLElement, isMainPage = true, isMen
     createMenuSection(main);
   } else if(isCartPage){
     createCartSection(main)
+  } else if(isSignInPage){
+    createSignSection(main)
   }
 }
