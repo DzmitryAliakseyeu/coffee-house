@@ -1,5 +1,7 @@
+import validateConfirmPassword from '../actions/validation/validateConfirmPassword';
 import validateLogin from '../actions/validation/validateLogin';
 import validatePassword from '../actions/validation/validatePassword';
+import { userAddress } from '../user-data/user-data';
 import './input-block.css'
 
 export default function createInputBlock(parent: HTMLElement, className: string, labelName: string, type: string, placeholder: string){
@@ -21,6 +23,10 @@ export default function createInputBlock(parent: HTMLElement, className: string,
     input.id = className
     inputBlock.append(input);
 
+    if(labelName.toLowerCase()=== 'confirm password'){
+        input.disabled = true;
+    }
+
      const inputError = document.createElement('p');
     inputError.classList.add('input-error');
     inputBlock.append(inputError);
@@ -33,6 +39,8 @@ export default function createInputBlock(parent: HTMLElement, className: string,
             isValid = validateLogin(input, inputError);
         } else if (labelName === 'Password'){
             isValid = validatePassword(input, inputError);
+        } else  if(labelName.toLocaleLowerCase() === 'confirm password'){
+            isValid = validateConfirmPassword(input, inputError)
         }
   
     if (!isValid) {
@@ -40,7 +48,26 @@ export default function createInputBlock(parent: HTMLElement, className: string,
       inputError.style.color = 'red'
     } else {
       input.classList.remove('invalid');
-        inputError.style.color = 'transparent'
+        inputError.style.color = 'transparent';
+           if(labelName === 'Login'){
+              userAddress.login = input.value;
+           }
+
+           if (labelName === 'Password'){
+              userAddress.password = input.value
+           }
+
+           if(labelName.toLocaleLowerCase() === 'confirm password'){
+           
+          
+                userAddress.password = input.value
+           
+                
+            
+           
+           }
+      
+           console.log(userAddress)
     }
   });
 

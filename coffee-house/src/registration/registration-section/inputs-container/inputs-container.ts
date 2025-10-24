@@ -16,7 +16,7 @@ export default function createInputsContainer(parent: HTMLElement){
 
     createInputBlock(inputsContainer, 'login', 'Login', 'text', 'Placeholder')
     createInputBlock(inputsContainer, 'password', 'Password', 'password', 'Placeholder')
-    createInputBlock(inputsContainer, 'confirm-password', 'Confirm Password', 'text', 'Placeholder');
+    createInputBlock(inputsContainer, 'confirm-password', 'Confirm Password', 'password', 'Placeholder');
     createDropdownInput(inputsContainer, 'city', 'City', 'Placeholder', cities)
     createDropdownInput(inputsContainer, 'street', 'Street', 'Placeholder', streets)
     //  createInputBlock(inputsContainer, 'city', 'City', 'text', 'Placeholder');
