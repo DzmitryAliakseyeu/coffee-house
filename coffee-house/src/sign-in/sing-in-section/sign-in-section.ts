@@ -13,7 +13,7 @@ export default function createSignSection(parent: HTMLElement){
       sectionSignIn.append(containerSection);
 
       const sectionTitle = document.createElement('h2');
-      sectionTitle.classList.add('cart-title');
+      sectionTitle.classList.add('sign-in-title');
       sectionTitle.classList.add('heading-2');
       sectionTitle.classList.add('text-dark');
       sectionTitle.textContent = 'Sign In';

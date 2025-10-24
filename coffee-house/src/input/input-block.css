@@ -37,3 +37,12 @@
     margin: 0;
     font-size: 12px;
 }
+
+.registration .input-block-city, .registration  .input-block-street,.registration  .input-block-house-number{
+    max-width: 260px;
+    width: 100%;
+}
+
+.registration .input-block-login {
+    padding-left: 56px;
+}

@@ -5,7 +5,7 @@ import './input-block.css'
 export default function createInputBlock(parent: HTMLElement, className: string, labelName: string, type: string, placeholder: string){
     const inputBlock = document.createElement('div');
     inputBlock.classList.add('input-block');
-    inputBlock.classList.add(`inpit-block-${className}`);
+    inputBlock.classList.add(`input-block-${className}`);
     parent.append(inputBlock);
 
       const label = document.createElement('label');

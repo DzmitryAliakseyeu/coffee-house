@@ -103,3 +103,22 @@ export interface OrderI {
   },
   totlatPrice: number
 }
+
+export interface AddressOptionI {
+  city: string;
+  streets: string[];
+}
+
+export interface UserAddressI {
+
+        city: string,
+        street: string,
+        houseNumber: string
+    
+}
+
+export interface UserDataI {
+  login: string,
+  password: string,
+   address: UserAddressI
+}
