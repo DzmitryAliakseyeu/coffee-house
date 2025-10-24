@@ -1,3 +1,4 @@
+import updateButtonState from '../actions/validation/updateButtonState';
 import { userAddress } from '../user-data/user-data';
 import './input-radio.css'
 
@@ -30,7 +31,11 @@ export default function createRadioGroup(parent: HTMLElement, className: string,
 
     if(i == 0){
    radio.checked = true;
-    userAddress.paymentMethod = radio.value.toLowerCase()
+    userAddress.paymentMethod = option.value.toLowerCase();
+      updateButtonState()
+     radio.dispatchEvent(new Event('change', { bubbles: true }));
+   
+    console.log(userAddress.paymentMethod)
   }
 
  
@@ -49,7 +54,8 @@ export default function createRadioGroup(parent: HTMLElement, className: string,
 
   radio.addEventListener('change', () => {
       if (radio.checked) {
-        userAddress.paymentMethod = radio.value;
+        userAddress.paymentMethod = radio.value.toLowerCase();
+          updateButtonState()
       }
     });
   });

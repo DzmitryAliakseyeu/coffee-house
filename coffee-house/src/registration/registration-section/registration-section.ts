@@ -32,4 +32,8 @@ export default function createRegistrationSection(parent: HTMLElement){
         hasIcon: false,
       });
 
+      const buttonRegistartion = document.querySelector('.button-registration-request') as HTMLButtonElement;
+      
+      buttonRegistartion.disabled = true;
+
 }

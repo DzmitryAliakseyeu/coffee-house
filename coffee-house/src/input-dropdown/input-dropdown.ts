@@ -1,3 +1,4 @@
+import updateButtonState from '../actions/validation/updateButtonState';
 import { addressData } from '../data/address-data';
 import { userAddress } from '../user-data/user-data';
 import './input-dropdown.css'
@@ -78,12 +79,13 @@ export default function createDropdownInput(parent: HTMLElement, className: stri
     const cityObj = addressData.find(c => c.city === userAddress.address.city);
     populateDropdown(cityObj ? cityObj.streets : [], input.value);
   }
-
+updateButtonState();
   dropdown.classList.add('show-list');
 });
 
 
   input.addEventListener('blur', () => {
+    updateButtonState()
     setTimeout(() => (dropdown.classList.remove('show-list')), 150); 
   });
 

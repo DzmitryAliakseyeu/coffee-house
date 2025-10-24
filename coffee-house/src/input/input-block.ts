@@ -1,3 +1,4 @@
+import updateButtonState from '../actions/validation/updateButtonState';
 import validateConfirmPassword from '../actions/validation/validateConfirmPassword';
 import validateHouseNumber from '../actions/validation/validateHouseNumber';
 import validateLogin from '../actions/validation/validateLogin';
@@ -45,6 +46,7 @@ export default function createInputBlock(parent: HTMLElement, className: string,
         } else if(labelName.toLocaleLowerCase() === 'house number'){
             isValid = validateHouseNumber(input, inputError)
         }
+
   
     if (!isValid) {
       input.classList.add('invalid');
@@ -67,6 +69,8 @@ export default function createInputBlock(parent: HTMLElement, className: string,
             if(labelName.toLocaleLowerCase() === 'house number'){
                 userAddress.address.houseNumber = input.value 
            }
+
+           updateButtonState()
       
            console.log(userAddress)
     }

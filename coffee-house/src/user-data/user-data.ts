@@ -3,7 +3,7 @@ import { UserDataI } from "../interfaces/interfaces";
 export let userAddress: UserDataI = {
     login: '',
     password: '',
-    paymentMethod: "card",
+    paymentMethod: '',
     address: {
         city: '',
         street: '',
