@@ -21,6 +21,10 @@ export function showLoader(parentElement: string) {
       '.menu-products-grid',
     ) as HTMLElement;
     menuProductsGrid.style.display = 'none';
+  } else if(parentElement === '.modal-registration'){
+  containerSection = document.createElement('div');
+      containerSection.classList.add('overlay');
+      parent.append(containerSection);
   } else {
     Array.from(containerSection.children).forEach((el) => {
       (el as HTMLElement).style.display = 'none';

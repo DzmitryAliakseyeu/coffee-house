@@ -1,5 +1,9 @@
 import createButton from '../../button/button';
+import { hideErrorText, showErrorText } from '../../error/error';
+import { hideLoader, showLoader } from '../../loader/loader';
 import createInputsContainer from '../../registration/registration-section/inputs-container/inputs-container';
+import registerUserRequest from '../../requests/postRegistration';
+import createModalRegistration from '../modal-registration/modal-registration';
 
 import './registration-section.css'
 
@@ -25,8 +29,10 @@ export default function createRegistrationSection(parent: HTMLElement){
     createButton({
         parent: containerSection,
         className: 'registration-request',
-        action: () => {
-          
+        action: async () => {
+              
+            createModalRegistration()
+              
         },
         text: 'Registration',
         hasIcon: false,

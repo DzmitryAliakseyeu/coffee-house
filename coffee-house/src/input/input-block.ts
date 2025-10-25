@@ -63,7 +63,7 @@ export default function createInputBlock(parent: HTMLElement, className: string,
            }
 
            if(labelName.toLocaleLowerCase() === 'confirm password'){
-                userAddress.password = input.value           
+                userAddress.confirmPassword = input.value           
            }
 
             if(labelName.toLocaleLowerCase() === 'house number'){

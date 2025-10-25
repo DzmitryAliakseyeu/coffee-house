@@ -120,6 +120,7 @@ export interface UserAddressI {
 export interface UserDataI {
   login: string,
   password: string,
+  confirmPassword: string,
   paymentMethod: string,
   address: UserAddressI
 }
