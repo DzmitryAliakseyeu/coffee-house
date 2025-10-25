@@ -48,10 +48,30 @@ export default function createProductBlock(parent: HTMLElement, product: OrderI)
     productDescription.append(productExtras);
     productExtras.textContent = `${product.selectSize}, ${product.extras.join(',')}`;
 
+    const productPriceBlock = document.createElement('div');
+  productPriceBlock.classList.add('product-price-block');
+  productBlock.append(productPriceBlock);
+
+
     const productPrice = document.createElement('h3');
     productPrice.classList.add('product-price');
     productPrice.classList.add('heading-3');
     productPrice.classList.add('text-dark');
-    productBlock.append(productPrice);
-    productPrice.textContent =`$${product.totlatPrice}`
+    productPriceBlock.append(productPrice);
+    let addivitiesSum = product.price.additivies.reduce((acc, sum) => acc + sum, 0)
+    productPrice.textContent =`$${(product.price.base+addivitiesSum).toFixed(2)}`
+
+  let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+  if (product.price.discount && userSignIn) {
+    productPrice.classList.add('unavaliable-price');
+    const discountPriceProduct = document.createElement('h3');
+    discountPriceProduct.classList.add('heading-3');
+    discountPriceProduct.classList.add('text-dark');
+    discountPriceProduct.classList.add('preview-card-price');
+    productPriceBlock.append(discountPriceProduct);
+    discountPriceProduct.textContent = `$${product.price.discount}`;
+  } else {
+    productPrice.classList.remove('unavaliable-price');
+  }
+
 }

@@ -115,7 +115,6 @@ export default function createModalCard(
       tabsData = Object.entries(productData.sizes).map(([key, value]) => ({
         key: key.toUpperCase(),
         title: value.size,
-        // addPrice: value['add-price'],
         addPrice: value.price,
         field: 'size',
       }));
@@ -130,8 +129,6 @@ export default function createModalCard(
     }
 
     tabsData.forEach((tabI, index) => {
-      console.log(tabI);
-
       const tab = document.createElement('li') as HTMLLIElement;
       tab.classList.add('tab-item');
       tab.classList.add(`tab-${tabI.key}`);
@@ -170,15 +167,9 @@ export default function createModalCard(
           }
         }
 
-   console.log(order)
-
         let addivitesPriceSum = order.price.additivies.reduce((acc, el) => acc + el, 0);
         let totalSum = addivitesPriceSum + order.price.size;
-
-        order.totlatPrice = totalSum
-
-
-
+        order.totlatPrice = totalSum;
         totalPrice.textContent = `$${totalSum.toFixed(2)}`;
 
       });
@@ -234,11 +225,13 @@ export default function createModalCard(
     discountPriceCard.classList.add('preview-card-price');
     totalPriceBlock.append(discountPriceCard);
     discountPriceCard.textContent = `$${product.discountPrice}`;
+    order.price.discount = +product.discountPrice;
+    order.totlatPrice = +product.discountPrice;
   } else {
     totalPrice.classList.remove('unavaliable-price');
   }
 
-  const totalValue = sum.reduce((acc, el) => acc + el, 0);
+  const totalValue =  sum.reduce((acc, el) => acc + el, 0);
   let finalPrice = +totalValue + +regularPrice;
 
   // totalPrice.textContent = `$${+totalValue.toFixed(2)++regularPrice}`;

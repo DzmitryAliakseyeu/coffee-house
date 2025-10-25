@@ -32,4 +32,12 @@
 
 .product-price {
     width: 69px;
+    text-align: right;
+}
+
+.product-price-block {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: start;
 }
