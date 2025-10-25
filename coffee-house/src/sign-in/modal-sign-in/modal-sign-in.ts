@@ -34,6 +34,9 @@ export default async function createModalSignIn() {
 
   try {
                 let response = await singInUserRequest();
+                console.log(response)
+
+                localStorage.setItem('token', response.data.access_token)
             
                 if(response){
                     setTimeout(() => hideLoader('.modal-sign-in'), 1000);
