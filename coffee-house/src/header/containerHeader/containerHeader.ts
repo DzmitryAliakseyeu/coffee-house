@@ -49,7 +49,7 @@ export default function createContainerHeader(parent: HTMLElement) {
   let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
   let orders= JSON.parse(JSON.stringify(localStorage.getItem('orders')))
 
-  if (!sessionStorage.getItem('firstLoadDone')) {
+  if (!sessionStorage.getItem('firstLoadDone') && !userSignIn) {
     localStorage.clear();
     sessionStorage.setItem('firstLoadDone', 'true');
      cartButtonBlock.classList.add('button-cart-text-hidden');

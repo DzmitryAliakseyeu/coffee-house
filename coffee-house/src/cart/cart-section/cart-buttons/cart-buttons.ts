@@ -6,9 +6,11 @@ let isUserLogged = false;
 export default function createCartButtonsBlock(parent: HTMLElement){
     const cartButtonsBlock = document.createElement('div');
     cartButtonsBlock.classList.add('cart-buttons-block');
-    parent.append(cartButtonsBlock)
+    parent.append(cartButtonsBlock);
 
-    if(isUserLogged){
+     let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+
+    if(userSignIn){
          createButton({
             parent:  cartButtonsBlock,
             className: 'confirm',
