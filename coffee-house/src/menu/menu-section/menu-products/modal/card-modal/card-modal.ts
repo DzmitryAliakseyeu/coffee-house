@@ -26,6 +26,7 @@ export default function createModalCard(
   const productData: ProductsDataI = product;
   console.log(product);
   const regularPrice = product.price;
+ 
   // const discountPrice = product.discountPrice;
 
   order.id = product.id;
@@ -214,11 +215,28 @@ export default function createModalCard(
   total.append(totalTitle);
   totalTitle.textContent = 'Total:';
 
+  const totalPriceBlock = document.createElement('div');
+  totalPriceBlock.classList.add('total-price-block');
+  total.append(totalPriceBlock)
+
   const totalPrice = document.createElement('h3');
   totalPrice.classList.add('heading-3');
   totalPrice.classList.add('text-dark');
   totalPrice.classList.add('total-price');
-  total.append(totalPrice);
+  totalPriceBlock.append(totalPrice);
+
+  let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+  if (product.discountPrice && userSignIn) {
+    totalPrice.classList.add('unavaliable-price');
+    const discountPriceCard = document.createElement('h3');
+    discountPriceCard.classList.add('heading-3');
+    discountPriceCard.classList.add('text-dark');
+    discountPriceCard.classList.add('preview-card-price');
+    totalPriceBlock.append(discountPriceCard);
+    discountPriceCard.textContent = `$${product.discountPrice}`;
+  } else {
+    totalPrice.classList.remove('unavaliable-price');
+  }
 
   const totalValue = sum.reduce((acc, el) => acc + el, 0);
   let finalPrice = +totalValue + +regularPrice;

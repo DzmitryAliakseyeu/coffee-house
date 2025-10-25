@@ -108,6 +108,13 @@
     flex-wrap: wrap;
 }
 
+.total-price-block {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 8px;
+    justify-content: start;
+}
+
 
 @media (max-width: 820px){
     .modal-card{
