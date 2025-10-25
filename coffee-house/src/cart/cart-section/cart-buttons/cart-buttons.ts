@@ -1,4 +1,5 @@
 import createButton from "../../../button/button";
+import { OrderToServerI, ProductInLSI } from "../../../interfaces/interfaces";
 import './cart-buttons.css'
 
 let isUserLogged = false;
@@ -15,7 +16,18 @@ export default function createCartButtonsBlock(parent: HTMLElement){
             parent:  cartButtonsBlock,
             className: 'confirm',
             action: () => {
-             console.log('confirm');
+                const ordersInLS: ProductInLSI[] =  JSON.parse(JSON.stringify(localStorage.getItem('orders') ?? '[]'));
+                console.log(ordersInLS);
+
+            //     const order: OrderToServerI = {
+            //     items: ordersInLS.map(item => ({
+            //     productId: +item.id,
+            //     size: item.selectSize,
+            //     additives: item.extras || [],
+            //     quantity: 1 
+            // })),
+        //   totalPrice: ordersInLS.reduce((sum, item) => sum + item.totlatPrice, 0)
+        // };
             },
             text: 'Confirm',
             hasIcon: false,

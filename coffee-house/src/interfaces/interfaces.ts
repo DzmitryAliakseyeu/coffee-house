@@ -129,3 +129,15 @@ export interface UserSignInI {
     login: string,
     password: string
 }
+
+export interface OrderToServerI {
+  items: OrderItemToServerI[],
+  totalPrice: number
+}
+
+export interface OrderItemToServerI {
+  productId: number,
+  size: string,
+  additives: string[],
+  quantity: number
+}
