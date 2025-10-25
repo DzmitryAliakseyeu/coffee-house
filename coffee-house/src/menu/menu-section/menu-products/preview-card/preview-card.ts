@@ -14,11 +14,10 @@ export default function createPreviewCard({
   price,
   discountPrice,
 }: PreviewCardI) {
-  console.log(id);
+
   const previewCard = document.createElement('li');
   previewCard.classList.add('preview-card');
   parent.append(previewCard);
-
   previewCard.id = String(id);
 
   previewCard.addEventListener('click', (e) => {
@@ -71,7 +70,8 @@ export default function createPreviewCard({
   priceCardBlock.append(priceCard);
   priceCard.textContent = price;
 
-  if (discountPrice && isUserLogged) {
+  let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+  if (discountPrice && userSignIn) {
     priceCard.classList.add('unavaliable-price');
     const discountPriceCard = document.createElement('h3');
     discountPriceCard.classList.add('heading-3');
