@@ -197,7 +197,12 @@
    align-items: center;
    gap: 8px;
   width: fit-content;
-  /* margin-bottom: 4px; */
+ opacity: 1;
+ 
+}
+
+.button-cart .button-cart-text.button-cart-text-hidden {
+ opacity: 0
  
 }
 

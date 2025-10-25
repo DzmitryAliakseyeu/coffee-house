@@ -16,3 +16,5 @@ export let userSignIn: UserSignInI = {
     login: '',
     password: ''
 }
+
+export let isSignIn: boolean = false
