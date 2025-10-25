@@ -50,7 +50,8 @@ export default function createContainerHeader(parent: HTMLElement) {
   if(userSignIn){
     cartButtonBlock.classList.remove('button-cart-text-hidden')
   } else {
-    cartButtonBlock.classList.add('button-cart-text-hidden')
+    cartButtonBlock.classList.add('button-cart-text-hidden');
+    localStorage.clear();
   }
 
 
