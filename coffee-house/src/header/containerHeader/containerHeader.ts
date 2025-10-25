@@ -47,13 +47,20 @@ export default function createContainerHeader(parent: HTMLElement) {
   const cartButtonBlock = document.querySelector('.button-cart-text') as HTMLElement;
 
   let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
-  if(userSignIn){
-    cartButtonBlock.classList.remove('button-cart-text-hidden')
-  } else {
-    cartButtonBlock.classList.add('button-cart-text-hidden');
-    localStorage.clear();
-  }
+  let orders= JSON.parse(JSON.stringify(localStorage.getItem('orders')))
 
+  if (!sessionStorage.getItem('firstLoadDone')) {
+    localStorage.clear();
+    sessionStorage.setItem('firstLoadDone', 'true');
+     cartButtonBlock.classList.add('button-cart-text-hidden');
+  } else {
+    if(userSignIn || orders){
+        cartButtonBlock.classList.remove('button-cart-text-hidden')
+      } else {
+        cartButtonBlock.classList.add('button-cart-text-hidden');
+        
+      }
+  }
 
   createButton({
     parent: navigationBox,

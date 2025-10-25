@@ -247,10 +247,22 @@ export default function createModalCard(
     className: 'add-to-cart',
     action: () => {
      
-      saveOrderToLS(order)
+      saveOrderToLS(order);
+     
        const cartQuantity = document.querySelector('.cart-quantity') as HTMLElement;
       let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
+        
+         
       cartQuantity.textContent = productsInLS.length;
+
+    
+
+     const cartButtonBlockHidden = document.querySelector('.button-cart-text-hidden') as HTMLElement;
+     if(cartButtonBlockHidden ){
+        cartButtonBlockHidden.classList.remove('button-cart-text-hidden')
+     }
+     
+    
       const modal = document.querySelector('.modal') as HTMLElement;
       modal.remove();
       document.body.classList.remove('no-scroll');
