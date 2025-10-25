@@ -1,4 +1,6 @@
+import updateButtonState from '../../actions/validation/updateButtonState';
 import createButton from '../../button/button';
+import createModalSignIn from '../modal-sign-in/modal-sign-in';
 import createInputsContainer from './inputs-container/inputs-container';
 import './sign-in-section.css'
 
@@ -25,10 +27,11 @@ export default function createSignSection(parent: HTMLElement){
         parent: containerSection,
         className: 'sign-in-request',
         action: () => {
-          
+          createModalSignIn()
         },
         text: 'Sign In',
         hasIcon: false,
       });
 
+       updateButtonState();
 }

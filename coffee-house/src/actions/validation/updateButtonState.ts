@@ -2,10 +2,18 @@ import checkAllInputsFilled from "./checkAllFormFields";
 
 export default function updateButtonState() {
         const buttonRegistration = document.querySelector('.button-registration-request') as HTMLButtonElement;
-        console.log(checkAllInputsFilled())
+        const buttonSignIn =  document.querySelector('.button-sign-in-request') as HTMLButtonElement;
         
         if(buttonRegistration){
-            buttonRegistration.disabled = !checkAllInputsFilled()
+            console.log('registrate')
+            buttonRegistration.disabled = !checkAllInputsFilled('registrate')
+            return
+        }
+
+          if(buttonSignIn){
+             console.log('sign-in')
+            buttonSignIn.disabled = !checkAllInputsFilled('sign-in')
+            return
         }
    
   };

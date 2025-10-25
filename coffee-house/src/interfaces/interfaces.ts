@@ -124,3 +124,8 @@ export interface UserDataI {
   paymentMethod: string,
   address: UserAddressI
 }
+
+export interface UserSignInI {
+    login: string,
+    password: string
+}

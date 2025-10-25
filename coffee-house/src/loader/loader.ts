@@ -21,11 +21,11 @@ export function showLoader(parentElement: string) {
       '.menu-products-grid',
     ) as HTMLElement;
     menuProductsGrid.style.display = 'none';
-  } else if(parentElement === '.modal-registration'){
+  } else if(parentElement === '.modal-registration' || parentElement === '.modal-sign-in' ){
   containerSection = document.createElement('div');
       containerSection.classList.add('overlay');
       parent.append(containerSection);
-  } else {
+  } else  {
     Array.from(containerSection.children).forEach((el) => {
       (el as HTMLElement).style.display = 'none';
     });

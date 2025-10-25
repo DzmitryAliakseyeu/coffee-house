@@ -6,19 +6,19 @@ import singInUserRequest from '../../requests/posrSignIn';
 import registerUserRequest from '../../requests/postRegistration';
 import { userAddress, userSignIn } from '../../user-data/user-data';
 
-import './modal-registration.css'
+import './modal-sign-in.css'
 
 
-export default async function createModalRegistration() {
+export default async function createModalSignIn() {
   const modal = document.createElement('div');
-  modal.classList.add('modal-registration');
+  modal.classList.add('modal-sign-in');
   document.body.append(modal);
 
   document.body.classList.add('no-scroll');
 
-  hideErrorText('.modal-registration');
+  hideErrorText('.modal-sign-in');
 
-  showLoader('.modal-registration');
+  showLoader('.modal-sign-in');
 
   modal.addEventListener('click', (e) => {
     const overlay = modal.querySelector('.overlay') as HTMLElement;
@@ -33,19 +33,12 @@ export default async function createModalRegistration() {
   });
 
   try {
-                let response = await registerUserRequest();
+                let response = await singInUserRequest();
             
                 if(response){
-                    userSignIn.login = userAddress.login;
-                    userSignIn.password = userAddress.password
-                    localStorage.setItem('signInUser', JSON.stringify(userSignIn))
-                    let responseSignIn = await singInUserRequest();
-                    if(responseSignIn){
-                        setTimeout(() => hideLoader('.menu-registration'), 1000);
-                        window.open('/pages/menu.html', '_self');
-                        localStorage.setItem('logedUser', JSON.stringify(userAddress))
-                    }
-                   
+                    setTimeout(() => hideLoader('.modal-sign-in'), 1000);
+                    window.open('/pages/menu.html', '_self');
+                     localStorage.setItem('signInUser', JSON.stringify(userSignIn))
                 }
 
                 modal.addEventListener('click', (e) => {
@@ -57,7 +50,7 @@ export default async function createModalRegistration() {
                 }
                 }); 
   } catch {
-    hideLoader('.modal-registration');
-    showErrorText('.modal-registration');
+    hideLoader('.modal-sign-in');
+    showErrorText('.modal-sign-in');
   }
 }

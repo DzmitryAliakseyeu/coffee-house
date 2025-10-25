@@ -1,4 +1,4 @@
-import { UserDataI } from "../interfaces/interfaces";
+import { UserDataI, UserSignInI } from "../interfaces/interfaces";
 
 export let userAddress: UserDataI = {
     login: '',
@@ -10,5 +10,9 @@ export let userAddress: UserDataI = {
         street: '',
         houseNumber: ''
     }
-  
+}
+
+export let userSignIn: UserSignInI = {
+    login: '',
+    password: ''
 }

@@ -12,6 +12,9 @@ export default function validatePassword(input: HTMLInputElement, errorEl: HTMLE
   }
 
   const confirmPassword = document.getElementById('confirm-password') as HTMLInputElement;
+  if(confirmPassword){
   confirmPassword.disabled = false;
+  }
+
   return true;
 }

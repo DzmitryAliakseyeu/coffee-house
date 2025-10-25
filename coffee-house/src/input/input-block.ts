@@ -3,7 +3,7 @@ import validateConfirmPassword from '../actions/validation/validateConfirmPasswo
 import validateHouseNumber from '../actions/validation/validateHouseNumber';
 import validateLogin from '../actions/validation/validateLogin';
 import validatePassword from '../actions/validation/validatePassword';
-import { userAddress } from '../user-data/user-data';
+import { userAddress, userSignIn } from '../user-data/user-data';
 import './input-block.css'
 
 export default function createInputBlock(parent: HTMLElement, className: string, labelName: string, type: string, placeholder: string){
@@ -56,10 +56,12 @@ export default function createInputBlock(parent: HTMLElement, className: string,
         inputError.style.color = 'transparent';
            if(labelName === 'Login'){
               userAddress.login = input.value;
+              userSignIn.login = input.value;
            }
 
            if (labelName === 'Password'){
-              userAddress.password = input.value
+              userAddress.password = input.value;
+              userSignIn.password = input.value;
            }
 
            if(labelName.toLocaleLowerCase() === 'confirm password'){

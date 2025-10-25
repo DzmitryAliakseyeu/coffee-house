@@ -1,3 +1,4 @@
+import updateButtonState from "../../../actions/validation/updateButtonState";
 import validateLogin from "../../../actions/validation/validateLogin";
 import createInputBlock from "../../../input/input-block";
 import './inputs-container.css'
@@ -8,5 +9,7 @@ export default function createInputsContainer(parent: HTMLElement){
     parent.append(inputsContainer);
 
     createInputBlock(inputsContainer, 'login', 'Login', 'text', 'Placeholder')
-    createInputBlock(inputsContainer, 'password', 'Password', 'text', 'Placeholder')
+    createInputBlock(inputsContainer, 'password', 'Password', 'text', 'Placeholder');
+
+    
 }
