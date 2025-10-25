@@ -23,7 +23,7 @@ export default function createTotal(parent: HTMLElement){
     totalPrice.classList.add('heading-3');
     totalPrice.classList.add('text-dark');
     totalBlock.append(totalPrice);
-    totalPrice.textContent = `$${totalOrderSum}`;
+    totalPrice.textContent = `$${totalOrderSum.toFixed(2)}`;
 
 
 }
