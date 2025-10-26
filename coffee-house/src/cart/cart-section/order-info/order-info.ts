@@ -6,8 +6,12 @@ export default function createOrderInfo(parent: HTMLElement){
     orderInfo.classList.add('order-info');
     parent.append(orderInfo);
 
-    createOrderInfoBlock(orderInfo, 'Total')
-    createOrderInfoBlock(orderInfo, 'Address')
+    createOrderInfoBlock(orderInfo, 'Total');
+    let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')));
+    if(userSignIn){
+   createOrderInfoBlock(orderInfo, 'Address')
     createOrderInfoBlock(orderInfo, 'Pay by')
+    }
+ 
 
 }

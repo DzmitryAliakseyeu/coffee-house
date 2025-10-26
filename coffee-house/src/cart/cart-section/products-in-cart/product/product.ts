@@ -59,9 +59,11 @@ export default function createProductBlock(parent: HTMLElement, product: OrderI)
     productPrice.classList.add('text-dark');
     productPriceBlock.append(productPrice);
     let addivitiesSum = product.price.additivies.reduce((acc, sum) => acc + sum, 0)
-    productPrice.textContent =`$${(product.price.base+addivitiesSum).toFixed(2)}`
+    let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
 
-  let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+    productPrice.textContent = (+product.price.discount > 0 && userSignIn) ? `$${(product.price.discount+addivitiesSum).toFixed(2)}` : `$${(product.price.size+addivitiesSum).toFixed(2)}`
+
+  
   if (product.price.discount && userSignIn) {
     productPrice.classList.add('unavaliable-price');
     const discountPriceProduct = document.createElement('h3');

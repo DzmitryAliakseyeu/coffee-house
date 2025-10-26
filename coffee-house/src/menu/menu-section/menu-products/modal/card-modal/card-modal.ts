@@ -31,9 +31,15 @@ export default function createModalCard(
   order.name = product.name;
   order.selectSize = product.sizes.s.size;
   order.price.base = Number(product.sizes.s.price);
-  order.price.size = Number(product.sizes.s.price)
+  order.price.size = Number(product.sizes.s.price);
   order.price.discount = product.sizes.s.discountPrice ? +product.sizes.s.discountPrice : 0;
-  order.totlatPrice =  product.discountPrice? +product.discountPrice : order.price.base;
+  const isSignedIn = Boolean(localStorage.getItem('signInUser'));
+order.totlatPrice = isSignedIn && product.discountPrice 
+  ? +product.discountPrice 
+  : +order.price.base;
+  // order.totlatPrice =  product.discountPrice? +product.discountPrice : order.price.base;
+
+ 
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' || event.key === 'Esc') {
@@ -137,11 +143,12 @@ export default function createModalCard(
         tab.classList.add('tab-active');
       cardOfferTabs.append(tab);
 
-     
 
       tab.addEventListener('click', () => {
         if (tabI.field === 'size') {
-           let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+           let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')));
+           let isSignIn = Boolean(userSignIn)
+         
           const activeSize = cardOfferTabs.querySelector('.tab-active');
           if (activeSize && activeSize !== tab) {
             activeSize.classList.remove('tab-active');
@@ -154,6 +161,7 @@ export default function createModalCard(
             order.price.discount = tabI.discount? +tabI.discount : 0;
              if(tab.id === 'S'){
                order.price.size = +tabI.addPrice;
+            
                order.price.discount = ((product.sizes.s.discountPrice && +product.sizes.s.discountPrice > 0) && product.discountPrice !== null) ?  +product.sizes.s.discountPrice : +(product.discountPrice ?? 0)
             }
 
@@ -183,12 +191,33 @@ export default function createModalCard(
         }
 
         let addivitesPriceSum = order.price.additivies.reduce((acc, el) => acc + el, 0);
-        let totalSum;
-        totalSum = order.price.discount ?addivitesPriceSum + order.price.discount: addivitesPriceSum + order.price.size;
+       const isSignedIn = Boolean(userSignIn);
+       let totalSum = 0;
+
+// Если пользователь авторизован и есть скидка
+if (isSignedIn && order.price.discount > 0) {
+  totalSum = addivitesPriceSum + order.price.discount;
+} 
+// Если пользователь авторизован, но скидки нет
+else if (isSignedIn && order.price.discount === 0) {
+  totalSum = addivitesPriceSum + order.price.size;
+} 
+// Если пользователь не авторизован
+else if (!isSignedIn) {
+  totalSum = addivitesPriceSum + order.price.size;
+}
+        // totalSum = (order.price.discount && userSignIn) ? addivitesPriceSum + order.price.discount : addivitesPriceSum + order.price.size;
         order.totlatPrice = totalSum;
         totalPrice.textContent = `$${totalSum.toFixed(2)}`;
 
       });
+
+      // if(!userSignIn){
+      //       order.totlatPrice = order;
+      // }
+
+      console.log( order.price.size )
+console.log(tabI.addPrice)
 
       const tabLink = document.createElement('a');
       tabLink.classList.add('tab-link');

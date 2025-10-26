@@ -4,7 +4,9 @@ export default function toggleDiscountCardPrice(product: ProductsDataI, userSign
 
        const totalPrice = document.querySelector('.total-price') as HTMLElement
         const totalPriceBlock = document.querySelector('.total-price-block') as HTMLElement
-     if (userSignIn && discount > 0) {
+       
+           let isSignIn = Boolean(userSignIn)
+     if (isSignIn && discount > 0) {
         console.log(discount)
         if( (document.querySelector('.discount-card-price-modal') as HTMLElement)){
             (document.querySelector('.discount-card-price-modal') as HTMLElement).textContent = `$${discount}`;

@@ -17,6 +17,7 @@ export default async function createOrderInfoBlock(parent: HTMLElement, title: s
     
         const orederInfoText =  document.createElement('h3');
         orederInfoText.classList.add('order-info-text');
+            orederInfoText.classList.add(`order-${title.toLowerCase()}-info-text`);
         orederInfoText.classList.add('heading-3');
         orederInfoText.classList.add('text-dark');
         orderInfoBlock.append(orederInfoText);
