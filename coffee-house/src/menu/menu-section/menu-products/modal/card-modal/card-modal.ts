@@ -10,6 +10,7 @@ let order: OrderI = {
   id: '',
   name: '',
   selectSize: '',
+  size: 's',
   extras: [],
   price: {
     base: 0,
@@ -139,6 +140,7 @@ order.totlatPrice = isSignedIn && product.discountPrice
       tab.classList.add('tab-item');
       tab.classList.add(`tab-${tabI.key}`);
       tab.id = String(tabI.key);
+      order.size = 's'
       if (index === 0 && typeof tabI.key === 'string')
         tab.classList.add('tab-active');
       cardOfferTabs.append(tab);
@@ -157,6 +159,8 @@ order.totlatPrice = isSignedIn && product.discountPrice
           if (!tab.classList.contains('tab-active')) {
             tab.classList.add('tab-active');
             order.selectSize = tabI.title;
+            console.log(tab)
+             order.size = String(tab.id).toLowerCase()
             order.price.size = +tabI.addPrice;
             order.price.discount = tabI.discount? +tabI.discount : 0;
              if(tab.id === 'S'){

@@ -17,7 +17,7 @@ export default async function createOrderInfoBlock(parent: HTMLElement, title: s
     
         const orederInfoText =  document.createElement('h3');
         orederInfoText.classList.add('order-info-text');
-            orederInfoText.classList.add(`order-${title.toLowerCase()}-info-text`);
+        orederInfoText.classList.add(`order-${title.toLowerCase().replace(/\s+/g, '-')}-info-text`);
         orederInfoText.classList.add('heading-3');
         orederInfoText.classList.add('text-dark');
         orderInfoBlock.append(orederInfoText);
@@ -27,7 +27,7 @@ export default async function createOrderInfoBlock(parent: HTMLElement, title: s
             orederInfoText.textContent = `$${totalOrderSum.toFixed(2)}`;
         } else if(title === 'Address'){
            
-               let token =localStorage.getItem('token')
+            let token =localStorage.getItem('token')
            if(token){
                 let response =await getProfile(token);
                 orederInfoText.textContent = `${response.data.city}, ${response.data.street}, ${response.data.houseNumber}`;
@@ -38,6 +38,7 @@ export default async function createOrderInfoBlock(parent: HTMLElement, title: s
               let token =localStorage.getItem('token')
            if(token){
                 let response =await getProfile(token);
+                console.log(`${response.data.paymentMethod.charAt(0).toUpperCase() + response.data.paymentMethod.slice(1)}`)
                  orederInfoText.textContent = `${response.data.paymentMethod.charAt(0).toUpperCase() + response.data.paymentMethod.slice(1)}`;
            }
         }

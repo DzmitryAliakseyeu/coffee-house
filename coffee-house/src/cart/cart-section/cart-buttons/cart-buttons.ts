@@ -1,5 +1,6 @@
 import createButton from "../../../button/button";
 import { OrderToServerI, ProductInLSI } from "../../../interfaces/interfaces";
+import confirmOrderRequest from "../../../requests/confirmOrder";
 import './cart-buttons.css'
 
 let isUserLogged = false;
@@ -12,22 +13,30 @@ export default function createCartButtonsBlock(parent: HTMLElement){
      let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
 
     if(userSignIn){
+        let  ordersInLS: ProductInLSI[];
+        let order: OrderToServerI
          createButton({
             parent:  cartButtonsBlock,
             className: 'confirm',
             action: () => {
-                const ordersInLS: ProductInLSI[] =  JSON.parse(JSON.stringify(localStorage.getItem('orders') ?? '[]'));
+                ordersInLS =  JSON.parse(localStorage.getItem('orders') ?? '[]');
                 console.log(ordersInLS);
 
-            //     const order: OrderToServerI = {
-            //     items: ordersInLS.map(item => ({
-            //     productId: +item.id,
-            //     size: item.selectSize,
-            //     additives: item.extras || [],
-            //     quantity: 1 
-            // })),
-        //   totalPrice: ordersInLS.reduce((sum, item) => sum + item.totlatPrice, 0)
-        // };
+               order = {
+                items: ordersInLS.map(item => ({
+                productId: +item.id,
+                size: item.size,
+                additives: item.extras || [],
+                quantity: 1 
+            })),
+          totalPrice: ordersInLS.reduce((sum, item) => sum + +item.totlatPrice, 0)
+        };
+
+        console.log(ordersInLS)
+         
+           console.log(order)
+
+           confirmOrderRequest(order)
             },
             text: 'Confirm',
             hasIcon: false,

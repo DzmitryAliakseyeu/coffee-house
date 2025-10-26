@@ -81,9 +81,10 @@ export interface SocialsDataI {
 export interface ProductInLSI {
   id: string,
   name: string,
+  size: string,
   selectSize: string,
   extras: string[],
-  price: ProductPriceInLSI[] | string
+  totlatPrice: ProductPriceInLSI[] | string
 }
 
 export interface ProductPriceInLSI {
@@ -94,6 +95,7 @@ export interface ProductPriceInLSI {
 export interface OrderI {
   id: string,
   name: string,
+  size: string,
   selectSize: string,
   extras: string[],
   price: {
