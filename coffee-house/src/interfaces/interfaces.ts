@@ -28,6 +28,7 @@ export interface MenuOfferTabsDataI {
 export interface ProductSizeI {
   size: string;
   price: string;
+  discountPrice?: string
   // 'add-price': string;
 }
 

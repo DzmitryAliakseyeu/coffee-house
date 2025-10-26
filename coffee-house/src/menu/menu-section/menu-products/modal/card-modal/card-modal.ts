@@ -2,6 +2,7 @@ import './card-modal.css';
 import createButton from '../../../../../button/button';
 import { OrderI, ProductInLSI, ProductsDataI } from '../../../../../interfaces/interfaces';
 import saveOrderToLS from '../../../../../actions/cart/saveOrderToLS';
+import toggleDiscountCardPrice from './discount-card-price/discount-card-price';
 
 let sum = [0];
 
@@ -24,18 +25,15 @@ export default function createModalCard(
   product: ProductsDataI,
 ) {
   const productData: ProductsDataI = product;
-  console.log(product);
   const regularPrice = product.price;
  
-  // const discountPrice = product.discountPrice;
-
   order.id = product.id;
   order.name = product.name;
   order.selectSize = product.sizes.s.size;
   order.price.base = Number(product.sizes.s.price);
-  order.totlatPrice = order.price.base
- 
-
+  order.price.size = Number(product.sizes.s.price)
+  order.price.discount = product.sizes.s.discountPrice ? +product.sizes.s.discountPrice : 0;
+  order.totlatPrice =  product.discountPrice? +product.discountPrice : order.price.base;
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' || event.key === 'Esc') {
@@ -117,6 +115,7 @@ export default function createModalCard(
         title: value.size,
         addPrice: value.price,
         field: 'size',
+        discount: value?.discountPrice ?? 0
       }));
     } else {
       type.textContent = 'Additives';
@@ -125,6 +124,7 @@ export default function createModalCard(
         title: additive.name,
         addPrice: additive.price,
         field: 'additives',
+        discount: 0
       }));
     }
 
@@ -137,17 +137,32 @@ export default function createModalCard(
         tab.classList.add('tab-active');
       cardOfferTabs.append(tab);
 
+     
+
       tab.addEventListener('click', () => {
         if (tabI.field === 'size') {
+           let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
           const activeSize = cardOfferTabs.querySelector('.tab-active');
           if (activeSize && activeSize !== tab) {
             activeSize.classList.remove('tab-active');
-            order.price.size = +tabI.addPrice
           }
 
           if (!tab.classList.contains('tab-active')) {
             tab.classList.add('tab-active');
             order.selectSize = tabI.title;
+            order.price.size = +tabI.addPrice;
+            order.price.discount = tabI.discount? +tabI.discount : 0;
+             if(tab.id === 'S'){
+               order.price.size = +tabI.addPrice;
+               order.price.discount = ((product.sizes.s.discountPrice && +product.sizes.s.discountPrice > 0) && product.discountPrice !== null) ?  +product.sizes.s.discountPrice : +(product.discountPrice ?? 0)
+            }
+
+            if( order.price.discount > 0){
+               toggleDiscountCardPrice(product, userSignIn, +order.price.discount)
+            } else {
+              order.price.discount = 0;
+              toggleDiscountCardPrice(product, userSignIn, +order.price.discount)
+            }
           }
        
         }
@@ -155,9 +170,9 @@ export default function createModalCard(
         if (tabI.field === 'additives') {
           if (tab.classList.contains('tab-active')) {
             tab.classList.remove('tab-active');
-           order.extras = order.extras.filter(item => item !== tabI.title);
-        const index = order.price.additivies.indexOf(+tabI.addPrice);
-  if (index !== -1) order.price.additivies.splice(index, 1);
+            order.extras = order.extras.filter(item => item !== tabI.title);
+            const index = order.price.additivies.indexOf(+tabI.addPrice);
+          if (index !== -1) order.price.additivies.splice(index, 1);
            
           } else {
             tab.classList.add('tab-active');
@@ -168,7 +183,8 @@ export default function createModalCard(
         }
 
         let addivitesPriceSum = order.price.additivies.reduce((acc, el) => acc + el, 0);
-        let totalSum = addivitesPriceSum + order.price.size;
+        let totalSum;
+        totalSum = order.price.discount ?addivitesPriceSum + order.price.discount: addivitesPriceSum + order.price.size;
         order.totlatPrice = totalSum;
         totalPrice.textContent = `$${totalSum.toFixed(2)}`;
 
@@ -217,24 +233,14 @@ export default function createModalCard(
   totalPriceBlock.append(totalPrice);
 
   let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
-  if (product.discountPrice && userSignIn) {
-    totalPrice.classList.add('unavaliable-price');
-    const discountPriceCard = document.createElement('h3');
-    discountPriceCard.classList.add('heading-3');
-    discountPriceCard.classList.add('text-dark');
-    discountPriceCard.classList.add('preview-card-price');
-    totalPriceBlock.append(discountPriceCard);
-    discountPriceCard.textContent = `$${product.discountPrice}`;
-    order.price.discount = +product.discountPrice;
-    order.totlatPrice = +product.discountPrice;
-  } else {
-    totalPrice.classList.remove('unavaliable-price');
+
+  if(order){
+    const productDiscount = product.discountPrice ? +product.discountPrice : 0;
+   toggleDiscountCardPrice(product, userSignIn, productDiscount)
   }
 
   const totalValue =  sum.reduce((acc, el) => acc + el, 0);
   let finalPrice = +totalValue + +regularPrice;
-
-  // totalPrice.textContent = `$${+totalValue.toFixed(2)++regularPrice}`;
   totalPrice.textContent = `$${finalPrice.toFixed(2)}`;
 
   const alert = document.createElement('div');
