@@ -30,19 +30,95 @@ export default function createContainerHeader(parent: HTMLElement) {
 
   createNavigation(navigationBox);
 
+  const renderCartButton = () => {
+    // Remove old cart button if it exists
+    const oldMenuButton = navigationBox.querySelector('.button-menu');
+    if (oldMenuButton) oldMenuButton.remove();
+    const oldCartButton = navigationBox.querySelector('.button-cart');
+    if (oldCartButton) oldCartButton.remove();
 
-  let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]') ;
-  let productsQuntityInCart = productsInLS ? productsInLS.length : 0
-    createButton({
+    const productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
+    const productsQuntityInCart = productsInLS ? productsInLS.length : 0;
+
+      if (window.innerWidth <= 768) {
+          createButton({
     parent: navigationBox,
-    className: 'cart',
+    className: 'menu',
     action: () => {
-     window.open('/pages/cart.html', '_self');
+      window.open('/pages/menu.html', '_self');
     },
-    text: `<span class="cart-icon"></span> <p class="link-and-button text-dark cart-quantity">${productsQuntityInCart}</p>`,
-    hasIcon: false,
-    isHtml: true,
+    text: 'Menu',
+    hasIcon: true,
   });
+
+      createButton({
+        parent: navigationBox,
+        className: 'cart',
+        action: () => {
+          window.open('/pages/cart.html', '_self');
+        },
+        text: `<p class="burger-link text-dark cart-title">Cart</p><span class="cart-icon"></span>`,
+        hasIcon: false,
+        isHtml: true,
+      });
+    } else {
+      createButton({
+        parent: navigationBox,
+        className: 'cart',
+        action: () => {
+          window.open('/pages/cart.html', '_self');
+        },
+        text: `<span class="cart-icon"></span> <p class="link-and-button text-dark cart-quantity">${productsQuntityInCart}</p>`,
+        hasIcon: false,
+        isHtml: true,
+      });
+
+      createButton({
+    parent: navigationBox,
+    className: 'menu',
+    action: () => {
+      window.open('/pages/menu.html', '_self');
+    },
+    text: 'Menu',
+    hasIcon: true,
+  });
+
+    }
+  };
+
+  // Initial render
+  renderCartButton();
+
+  // Re-render when window resizes
+  window.addEventListener('resize', renderCartButton);
+
+
+  // let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]') ;
+  // let productsQuntityInCart = productsInLS ? productsInLS.length : 0;
+  // if(window.innerWidth <= 768){
+  //    createButton({
+  //   parent: navigationBox,
+  //   className: 'cart',
+  //   action: () => {
+  //    window.open('/pages/cart.html', '_self');
+  //   },
+  //   text: `<p class="burger-link text-dark cart-title">Cart</p><span class="cart-icon"></span>`,
+  //   hasIcon: false,
+  //   isHtml: true,
+  // });
+  // } else {
+  //   createButton({
+  //   parent: navigationBox,
+  //   className: 'cart',
+  //   action: () => {
+  //    window.open('/pages/cart.html', '_self');
+  //   },
+  //   text: `<span class="cart-icon"></span> <p class="link-and-button text-dark cart-quantity">${productsQuntityInCart}</p>`,
+  //   hasIcon: false,
+  //   isHtml: true,
+  // });
+  // }
+
 
   const cartButtonBlock = document.querySelector('.button-cart-text') as HTMLElement;
 
@@ -62,15 +138,15 @@ export default function createContainerHeader(parent: HTMLElement) {
       }
   }
 
-  createButton({
-    parent: navigationBox,
-    className: 'menu',
-    action: () => {
-      window.open('/pages/menu.html', '_self');
-    },
-    text: 'Menu',
-    hasIcon: true,
-  });
+  // createButton({
+  //   parent: navigationBox,
+  //   className: 'menu',
+  //   action: () => {
+  //     window.open('/pages/menu.html', '_self');
+  //   },
+  //   text: 'Menu',
+  //   hasIcon: true,
+  // });
 
  
 

@@ -268,12 +268,35 @@
     line-height: 125%;
     }
 
-     .button-menu-icon {
+     .button-menu-icon, .button-cart .cart-icon {
          width: 40px;
          height: 40px;
          background-repeat: no-repeat;
          background-size: contain;
 
+    }
+
+    .button-cart {
+      margin: 0;
+     
+    }
+
+    .button-cart .cart-icon {
+      margin-top: 20px;
+    }
+
+    .button-cart  .button-cart-text {
+      gap: 16px;
+      width: 130px;
+      justify-content: space-between;
+    }
+
+    .button-cart  .button-cart-text .cart-title{
+        margin: 0;
+      margin-top: 20px;
+      align-self: center;
+      justify-self: center;
+    
     }
 
     

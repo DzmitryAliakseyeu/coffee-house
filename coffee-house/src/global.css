@@ -65,6 +65,12 @@ ul {
     line-height: 150%;
 }
 
+.burger-link {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+}
+
 .container-section {
     max-width: 1360px;
     width: 100%;
