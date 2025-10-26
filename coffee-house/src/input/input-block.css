@@ -50,3 +50,17 @@
 #password {
     background-image: url();
 }
+
+@media(max-width: 1050px){
+    .registration .input-block-login{
+        padding: 0;
+    }
+}
+
+
+
+@media(max-width: 430px){
+    .input-block{
+        width: 360px;
+    }
+}

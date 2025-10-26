@@ -8,6 +8,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
+    gap: 8px;
 }
 
 .button-menu-text {
@@ -401,9 +402,10 @@
         border-bottom: 2px solid #E1D4C9;
     }
 
-    .button-add-to-cart:hover {
+    .button-add-to-cart:hover, .button-sign-in:hover, .button-registration:hover, .button-confirm:hover {
          background-color: #665F55;
          color: #E1D4C9;
+         transition: all 0.2s ease-in;
     }
 
 
