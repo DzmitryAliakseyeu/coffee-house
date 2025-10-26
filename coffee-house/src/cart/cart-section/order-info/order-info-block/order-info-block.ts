@@ -1,5 +1,6 @@
 import { OrderI } from "../../../../interfaces/interfaces";
 import getProfile from "../../../../requests/getProfile";
+import './order-info-block.css'
 
 export default async function createOrderInfoBlock(parent: HTMLElement, title: string){
 

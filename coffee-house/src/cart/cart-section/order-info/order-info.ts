@@ -1,4 +1,5 @@
 import createOrderInfoBlock from "./order-info-block/order-info-block";
+import './order-info.css'
 
 export default function createOrderInfo(parent: HTMLElement){
   const orderInfo = document.createElement('div');
