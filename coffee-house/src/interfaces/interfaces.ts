@@ -28,7 +28,7 @@ export interface MenuOfferTabsDataI {
 export interface ProductSizeI {
   size: string;
   price: string;
-  discountPrice?: string
+  discountPrice?: string;
   // 'add-price': string;
 }
 
@@ -79,32 +79,32 @@ export interface SocialsDataI {
 }
 
 export interface ProductInLSI {
-  id: string,
-  name: string,
-  size: string,
-  selectSize: string,
-  extras: string[],
-  totlatPrice: ProductPriceInLSI[] | string
+  id: string;
+  name: string;
+  size: string;
+  selectSize: string;
+  extras: string[];
+  totlatPrice: ProductPriceInLSI[] | string;
 }
 
 export interface ProductPriceInLSI {
-  price: string,
-  discountPrice?: string
+  price: string;
+  discountPrice?: string;
 }
 
 export interface OrderI {
-  id: string,
-  name: string,
-  size: string,
-  selectSize: string,
-  extras: string[],
+  id: string;
+  name: string;
+  size: string;
+  selectSize: string;
+  extras: string[];
   price: {
-    base: number,
-    size: number,
-    discount: number
-    additivies: number[]
-  },
-  totlatPrice: number
+    base: number;
+    size: number;
+    discount: number;
+    additivies: number[];
+  };
+  totlatPrice: number;
 }
 
 export interface AddressOptionI {
@@ -113,34 +113,32 @@ export interface AddressOptionI {
 }
 
 export interface UserAddressI {
-
-        city: string,
-        street: string,
-        houseNumber: string
-    
+  city: string;
+  street: string;
+  houseNumber: string;
 }
 
 export interface UserDataI {
-  login: string,
-  password: string,
-  confirmPassword: string,
-  paymentMethod: string,
-  address: UserAddressI
+  login: string;
+  password: string;
+  confirmPassword: string;
+  paymentMethod: string;
+  address: UserAddressI;
 }
 
 export interface UserSignInI {
-    login: string,
-    password: string
+  login: string;
+  password: string;
 }
 
 export interface OrderToServerI {
-  items: OrderItemToServerI[],
-  totalPrice: number
+  items: OrderItemToServerI[];
+  totalPrice: number;
 }
 
 export interface OrderItemToServerI {
-  productId: number,
-  size: string,
-  additives: string[],
-  quantity: number
+  productId: number;
+  size: string;
+  additives: string[];
+  quantity: number;
 }

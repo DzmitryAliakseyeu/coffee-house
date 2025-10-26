@@ -1,9 +1,6 @@
 import { PreviewCardI } from '../../../../interfaces/interfaces';
 import createModal from '../modal/modal';
-
 import './preview-card.css';
-
-let isUserLogged = false;
 
 export default function createPreviewCard({
   parent,
@@ -14,7 +11,6 @@ export default function createPreviewCard({
   price,
   discountPrice,
 }: PreviewCardI) {
-
   const previewCard = document.createElement('li');
   previewCard.classList.add('preview-card');
   parent.append(previewCard);
@@ -22,7 +18,6 @@ export default function createPreviewCard({
 
   previewCard.addEventListener('click', (e) => {
     const targetCard = e.currentTarget as HTMLLIElement;
-    console.log(targetCard);
 
     let id = targetCard.id;
     createModal(id);
@@ -70,7 +65,9 @@ export default function createPreviewCard({
   priceCardBlock.append(priceCard);
   priceCard.textContent = price;
 
-  let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+  let userSignIn = JSON.parse(
+    JSON.stringify(localStorage.getItem('signInUser')),
+  );
   if (discountPrice && userSignIn) {
     priceCard.classList.add('unavaliable-price');
     const discountPriceCard = document.createElement('h3');

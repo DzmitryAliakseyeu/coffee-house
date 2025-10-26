@@ -43,21 +43,7 @@ export default async function createMenuProductsGrid(parent: HTMLElement) {
       });
     });
   } catch {
-    console.log('error');
     hideLoader('.menu');
     showErrorText('.menu');
   }
-
-  // filteredProducts = filterProducts(tabActive.id);
-
-  // filteredProducts.forEach((product) => {
-  //   createPreviewCard({
-  //     parent: menuProductsGrid,
-  //     srcImg: `../../../../public/products/${product.name}.png`,
-  //     title: product.name,
-  //     description: product.description,
-  //     price: `$${product.price}`,
-  //   }
-  //   );
-  // });
 }

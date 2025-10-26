@@ -1,13 +1,13 @@
-import { OrderI, ProductInLSI } from "../../interfaces/interfaces";
+import { OrderI } from '../../interfaces/interfaces';
 
-export default function saveOrderToLS(obj: OrderI){
-    const product = {...obj};
+export default function saveOrderToLS(obj: OrderI) {
+  const product = { ...obj };
 
-    let storedOrders = localStorage.getItem('orders');
+  let storedOrders = localStorage.getItem('orders');
 
-    const orders = storedOrders ? JSON.parse(storedOrders) : [];
+  const orders = storedOrders ? JSON.parse(storedOrders) : [];
 
-    orders.push(product);
+  orders.push(product);
 
-    localStorage.setItem('orders', JSON.stringify(orders));
+  localStorage.setItem('orders', JSON.stringify(orders));
 }

@@ -1,6 +1,6 @@
 import './card-modal.css';
 import createButton from '../../../../../button/button';
-import { OrderI, ProductInLSI, ProductsDataI } from '../../../../../interfaces/interfaces';
+import { OrderI, ProductsDataI } from '../../../../../interfaces/interfaces';
 import saveOrderToLS from '../../../../../actions/cart/saveOrderToLS';
 import toggleDiscountCardPrice from './discount-card-price/discount-card-price';
 
@@ -18,8 +18,8 @@ let order: OrderI = {
     discount: 0,
     additivies: [],
   },
-  totlatPrice: 0
-}
+  totlatPrice: 0,
+};
 
 export default function createModalCard(
   parent: HTMLElement,
@@ -27,28 +27,27 @@ export default function createModalCard(
 ) {
   const productData: ProductsDataI = product;
   const regularPrice = product.price;
- 
+
   order.id = product.id;
   order.name = product.name;
   order.selectSize = product.sizes.s.size;
   order.price.base = Number(product.sizes.s.price);
   order.price.size = Number(product.sizes.s.price);
-  order.price.discount = product.sizes.s.discountPrice ? +product.sizes.s.discountPrice : 0;
+  order.price.discount = product.sizes.s.discountPrice
+    ? +product.sizes.s.discountPrice
+    : 0;
   const isSignedIn = Boolean(localStorage.getItem('signInUser'));
-order.totlatPrice = isSignedIn && product.discountPrice 
-  ? +product.discountPrice 
-  : +order.price.base;
-  // order.totlatPrice =  product.discountPrice? +product.discountPrice : order.price.base;
-
- 
+  order.totlatPrice =
+    isSignedIn && product.discountPrice
+      ? +product.discountPrice
+      : +order.price.base;
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' || event.key === 'Esc') {
       parent.remove();
-       document.body.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
     }
   });
-
 
   const modalCard = document.createElement('div');
   modalCard.classList.add('modal-card');
@@ -58,15 +57,13 @@ order.totlatPrice = isSignedIn && product.discountPrice
     parent: modalCard,
     className: 'close-modal',
     action: () => {
-    parent.remove();
-    document.body.classList.remove('no-scroll');
+      parent.remove();
+      document.body.classList.remove('no-scroll');
     },
     text: '<span class="close-modal-line line-1"></span> <span  class="close-modal-line line-2"></span>',
     hasIcon: false,
     isHtml: true,
   });
-
-  
 
   const contentContainer = document.createElement('div');
   contentContainer.classList.add('content-container');
@@ -122,7 +119,7 @@ order.totlatPrice = isSignedIn && product.discountPrice
         title: value.size,
         addPrice: value.price,
         field: 'size',
-        discount: value?.discountPrice ?? 0
+        discount: value?.discountPrice ?? 0,
       }));
     } else {
       type.textContent = 'Additives';
@@ -131,7 +128,7 @@ order.totlatPrice = isSignedIn && product.discountPrice
         title: additive.name,
         addPrice: additive.price,
         field: 'additives',
-        discount: 0
+        discount: 0,
       }));
     }
 
@@ -140,17 +137,17 @@ order.totlatPrice = isSignedIn && product.discountPrice
       tab.classList.add('tab-item');
       tab.classList.add(`tab-${tabI.key}`);
       tab.id = String(tabI.key);
-      order.size = 's'
+      order.size = 's';
       if (index === 0 && typeof tabI.key === 'string')
         tab.classList.add('tab-active');
       cardOfferTabs.append(tab);
 
-
       tab.addEventListener('click', () => {
         if (tabI.field === 'size') {
-           let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')));
-           let isSignIn = Boolean(userSignIn)
-         
+          let userSignIn = JSON.parse(
+            JSON.stringify(localStorage.getItem('signInUser')),
+          );
+
           const activeSize = cardOfferTabs.querySelector('.tab-active');
           if (activeSize && activeSize !== tab) {
             activeSize.classList.remove('tab-active');
@@ -159,69 +156,67 @@ order.totlatPrice = isSignedIn && product.discountPrice
           if (!tab.classList.contains('tab-active')) {
             tab.classList.add('tab-active');
             order.selectSize = tabI.title;
-            console.log(tab)
-             order.size = String(tab.id).toLowerCase()
+            order.size = String(tab.id).toLowerCase();
             order.price.size = +tabI.addPrice;
-            order.price.discount = tabI.discount? +tabI.discount : 0;
-             if(tab.id === 'S'){
-               order.price.size = +tabI.addPrice;
-            
-               order.price.discount = ((product.sizes.s.discountPrice && +product.sizes.s.discountPrice > 0) && product.discountPrice !== null) ?  +product.sizes.s.discountPrice : +(product.discountPrice ?? 0)
+            order.price.discount = tabI.discount ? +tabI.discount : 0;
+            if (tab.id === 'S') {
+              order.price.size = +tabI.addPrice;
+
+              order.price.discount =
+                product.sizes.s.discountPrice &&
+                +product.sizes.s.discountPrice > 0 &&
+                product.discountPrice !== null
+                  ? +product.sizes.s.discountPrice
+                  : +(product.discountPrice ?? 0);
             }
 
-            if( order.price.discount > 0){
-               toggleDiscountCardPrice(product, userSignIn, +order.price.discount)
+            if (order.price.discount > 0) {
+              toggleDiscountCardPrice(
+                product,
+                userSignIn,
+                +order.price.discount,
+              );
             } else {
               order.price.discount = 0;
-              toggleDiscountCardPrice(product, userSignIn, +order.price.discount)
+              toggleDiscountCardPrice(
+                product,
+                userSignIn,
+                +order.price.discount,
+              );
             }
           }
-       
         }
 
         if (tabI.field === 'additives') {
           if (tab.classList.contains('tab-active')) {
             tab.classList.remove('tab-active');
-            order.extras = order.extras.filter(item => item !== tabI.title);
+            order.extras = order.extras.filter((item) => item !== tabI.title);
             const index = order.price.additivies.indexOf(+tabI.addPrice);
-          if (index !== -1) order.price.additivies.splice(index, 1);
-           
+            if (index !== -1) order.price.additivies.splice(index, 1);
           } else {
             tab.classList.add('tab-active');
-            order.extras.push(tabI.title)
-            order.price.additivies.push(+tabI.addPrice)
-           
+            order.extras.push(tabI.title);
+            order.price.additivies.push(+tabI.addPrice);
           }
         }
 
-        let addivitesPriceSum = order.price.additivies.reduce((acc, el) => acc + el, 0);
-       const isSignedIn = Boolean(userSignIn);
-       let totalSum = 0;
+        let addivitesPriceSum = order.price.additivies.reduce(
+          (acc, el) => acc + el,
+          0,
+        );
+        const isSignedIn = Boolean(userSignIn);
+        let totalSum = 0;
 
-// Если пользователь авторизован и есть скидка
-if (isSignedIn && order.price.discount > 0) {
-  totalSum = addivitesPriceSum + order.price.discount;
-} 
-// Если пользователь авторизован, но скидки нет
-else if (isSignedIn && order.price.discount === 0) {
-  totalSum = addivitesPriceSum + order.price.size;
-} 
-// Если пользователь не авторизован
-else if (!isSignedIn) {
-  totalSum = addivitesPriceSum + order.price.size;
-}
-        // totalSum = (order.price.discount && userSignIn) ? addivitesPriceSum + order.price.discount : addivitesPriceSum + order.price.size;
+        if (isSignedIn && order.price.discount > 0) {
+          totalSum = addivitesPriceSum + order.price.discount;
+        } else if (isSignedIn && order.price.discount === 0) {
+          totalSum = addivitesPriceSum + order.price.size;
+        } else if (!isSignedIn) {
+          totalSum = addivitesPriceSum + order.price.size;
+        }
         order.totlatPrice = totalSum;
         totalPrice.textContent = `$${totalSum.toFixed(2)}`;
-
       });
-
-      // if(!userSignIn){
-      //       order.totlatPrice = order;
-      // }
-
-      console.log( order.price.size )
-console.log(tabI.addPrice)
 
       const tabLink = document.createElement('a');
       tabLink.classList.add('tab-link');
@@ -257,7 +252,7 @@ console.log(tabI.addPrice)
 
   const totalPriceBlock = document.createElement('div');
   totalPriceBlock.classList.add('total-price-block');
-  total.append(totalPriceBlock)
+  total.append(totalPriceBlock);
 
   const totalPrice = document.createElement('h3');
   totalPrice.classList.add('heading-3');
@@ -265,14 +260,16 @@ console.log(tabI.addPrice)
   totalPrice.classList.add('total-price');
   totalPriceBlock.append(totalPrice);
 
-  let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
+  let userSignIn = JSON.parse(
+    JSON.stringify(localStorage.getItem('signInUser')),
+  );
 
-  if(order){
+  if (order) {
     const productDiscount = product.discountPrice ? +product.discountPrice : 0;
-   toggleDiscountCardPrice(product, userSignIn, productDiscount)
+    toggleDiscountCardPrice(product, userSignIn, productDiscount);
   }
 
-  const totalValue =  sum.reduce((acc, el) => acc + el, 0);
+  const totalValue = sum.reduce((acc, el) => acc + el, 0);
   let finalPrice = +totalValue + +regularPrice;
   totalPrice.textContent = `$${finalPrice.toFixed(2)}`;
 
@@ -296,23 +293,22 @@ console.log(tabI.addPrice)
     parent: contentCardBlock,
     className: 'add-to-cart',
     action: () => {
-     
       saveOrderToLS(order);
-     
-       const cartQuantity = document.querySelector('.cart-quantity') as HTMLElement;
+
+      const cartQuantity = document.querySelector(
+        '.cart-quantity',
+      ) as HTMLElement;
       let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
-        
-         
+
       cartQuantity.textContent = productsInLS.length;
 
-    
+      const cartButtonBlockHidden = document.querySelector(
+        '.button-cart-text-hidden',
+      ) as HTMLElement;
+      if (cartButtonBlockHidden) {
+        cartButtonBlockHidden.classList.remove('button-cart-text-hidden');
+      }
 
-     const cartButtonBlockHidden = document.querySelector('.button-cart-text-hidden') as HTMLElement;
-     if(cartButtonBlockHidden ){
-        cartButtonBlockHidden.classList.remove('button-cart-text-hidden')
-     }
-     
-    
       const modal = document.querySelector('.modal') as HTMLElement;
       modal.remove();
       document.body.classList.remove('no-scroll');

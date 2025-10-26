@@ -1,9 +1,7 @@
 import './containerHeader.css';
-
 import createButton from '../../button/button';
 import createNavigation from './navigation/navigation';
 import toggleBurgerMenu from './burger/burger';
-import { isSignIn } from '../../user-data/user-data';
 
 export default function createContainerHeader(parent: HTMLElement) {
   const containerHeader = document.createElement('div');
@@ -31,7 +29,6 @@ export default function createContainerHeader(parent: HTMLElement) {
   createNavigation(navigationBox);
 
   const renderCartButton = () => {
-    // Remove old cart button if it exists
     const oldMenuButton = navigationBox.querySelector('.button-menu');
     if (oldMenuButton) oldMenuButton.remove();
     const oldCartButton = navigationBox.querySelector('.button-cart');
@@ -40,16 +37,16 @@ export default function createContainerHeader(parent: HTMLElement) {
     const productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
     const productsQuntityInCart = productsInLS ? productsInLS.length : 0;
 
-      if (window.innerWidth <= 768) {
-          createButton({
-    parent: navigationBox,
-    className: 'menu',
-    action: () => {
-      window.open('/pages/menu.html', '_self');
-    },
-    text: 'Menu',
-    hasIcon: true,
-  });
+    if (window.innerWidth <= 768) {
+      createButton({
+        parent: navigationBox,
+        className: 'menu',
+        action: () => {
+          window.open('/pages/menu.html', '_self');
+        },
+        text: 'Menu',
+        hasIcon: true,
+      });
 
       createButton({
         parent: navigationBox,
@@ -74,81 +71,40 @@ export default function createContainerHeader(parent: HTMLElement) {
       });
 
       createButton({
-    parent: navigationBox,
-    className: 'menu',
-    action: () => {
-      window.open('/pages/menu.html', '_self');
-    },
-    text: 'Menu',
-    hasIcon: true,
-  });
-
+        parent: navigationBox,
+        className: 'menu',
+        action: () => {
+          window.open('/pages/menu.html', '_self');
+        },
+        text: 'Menu',
+        hasIcon: true,
+      });
     }
   };
 
-  // Initial render
   renderCartButton();
-
-  // Re-render when window resizes
   window.addEventListener('resize', renderCartButton);
 
+  const cartButtonBlock = document.querySelector(
+    '.button-cart-text',
+  ) as HTMLElement;
 
-  // let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]') ;
-  // let productsQuntityInCart = productsInLS ? productsInLS.length : 0;
-  // if(window.innerWidth <= 768){
-  //    createButton({
-  //   parent: navigationBox,
-  //   className: 'cart',
-  //   action: () => {
-  //    window.open('/pages/cart.html', '_self');
-  //   },
-  //   text: `<p class="burger-link text-dark cart-title">Cart</p><span class="cart-icon"></span>`,
-  //   hasIcon: false,
-  //   isHtml: true,
-  // });
-  // } else {
-  //   createButton({
-  //   parent: navigationBox,
-  //   className: 'cart',
-  //   action: () => {
-  //    window.open('/pages/cart.html', '_self');
-  //   },
-  //   text: `<span class="cart-icon"></span> <p class="link-and-button text-dark cart-quantity">${productsQuntityInCart}</p>`,
-  //   hasIcon: false,
-  //   isHtml: true,
-  // });
-  // }
-
-
-  const cartButtonBlock = document.querySelector('.button-cart-text') as HTMLElement;
-
-  let userSignIn = JSON.parse(JSON.stringify(localStorage.getItem('signInUser')))
-  let orders= JSON.parse(JSON.stringify(localStorage.getItem('orders')))
+  let userSignIn = JSON.parse(
+    JSON.stringify(localStorage.getItem('signInUser')),
+  );
+  let orders = JSON.parse(JSON.stringify(localStorage.getItem('orders')));
 
   if (!sessionStorage.getItem('firstLoadDone') && !userSignIn) {
     localStorage.clear();
     sessionStorage.setItem('firstLoadDone', 'true');
-     cartButtonBlock.classList.add('button-cart-text-hidden');
+    cartButtonBlock.classList.add('button-cart-text-hidden');
   } else {
-    if(userSignIn || orders){
-        cartButtonBlock.classList.remove('button-cart-text-hidden')
-      } else {
-        cartButtonBlock.classList.add('button-cart-text-hidden');
-        
-      }
+    if (userSignIn || orders) {
+      cartButtonBlock.classList.remove('button-cart-text-hidden');
+    } else {
+      cartButtonBlock.classList.add('button-cart-text-hidden');
+    }
   }
-
-  // createButton({
-  //   parent: navigationBox,
-  //   className: 'menu',
-  //   action: () => {
-  //     window.open('/pages/menu.html', '_self');
-  //   },
-  //   text: 'Menu',
-  //   hasIcon: true,
-  // });
-
- 
 
   createButton({
     parent: headerMenu,

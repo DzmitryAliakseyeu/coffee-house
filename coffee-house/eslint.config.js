@@ -35,6 +35,11 @@ export default [
       requestAnimationFrame: 'readonly',
       cancelAnimationFrame: 'readonly',
       fetch: 'readonly',
+      localStorage: 'readonly',
+      HTMLButtonElement: 'readonly',
+      HTMLInputElement: 'readonly',
+      Event: 'readonly',
+      sessionStorage: 'readonly'
       },
    
     },
@@ -45,9 +50,11 @@ export default [
     rules: {
       'prettier/prettier': 'error',
       'no-unused-vars': 'warn',
-      'no-console': 'off',
       // '@typescript-eslint/no-unused-vars': ['warn'],
       '@typescript-eslint/no-explicit-any': ['error'],
+      "no-useless-escape": "off",
+      //  "no-console": ["error"]
+      "no-console": 'off'
     },
   },
 ];

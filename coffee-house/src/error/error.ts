@@ -1,13 +1,11 @@
 import '../loader/loader.css';
-import './error.css'
+import './error.css';
 
 export function showErrorText(parentElement: string) {
-  console.log(parentElement);
   const parent = document.querySelector(`${parentElement}`) as HTMLElement;
   let containerSection = parent.firstElementChild as HTMLElement;
 
   if (parentElement === '.modal') {
-    console.log('modal open');
     const modalCard = document.querySelector('.modal-card');
     if (modalCard) {
       modalCard.remove();
@@ -41,12 +39,11 @@ export function showErrorText(parentElement: string) {
   errorText.classList.add('heading-3');
   errorText.classList.add('text-dark');
   errorBlock.append(errorText);
-  if(parentElement === '.menu' || parentElement === '.favorite'){
-     errorText.textContent = 'Something went wrong. Please, refresh the page';
+  if (parentElement === '.menu' || parentElement === '.favorite') {
+    errorText.textContent = 'Something went wrong. Please, refresh the page';
   } else {
-     errorText.textContent = ' Something went wrong. Please, try again';
+    errorText.textContent = ' Something went wrong. Please, try again';
   }
- 
 }
 
 export function hideErrorText(parentElement: string) {

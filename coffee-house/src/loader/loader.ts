@@ -21,22 +21,21 @@ export function showLoader(parentElement: string) {
       '.menu-products-grid',
     ) as HTMLElement;
     menuProductsGrid.style.display = 'none';
-  } else if(parentElement === '.modal-registration' || parentElement === '.modal-sign-in' || parentElement === '.modal-cart'){
-  containerSection = document.createElement('div');
-      containerSection.classList.add('overlay');
-      parent.append(containerSection);
-  } else  {
+  } else if (
+    parentElement === '.modal-registration' ||
+    parentElement === '.modal-sign-in' ||
+    parentElement === '.modal-cart'
+  ) {
+    containerSection = document.createElement('div');
+    containerSection.classList.add('overlay');
+    parent.append(containerSection);
+  } else {
     Array.from(containerSection.children).forEach((el) => {
       (el as HTMLElement).style.display = 'none';
     });
   }
 
   if (document.querySelector('.loader')) return;
-
-  console.log(containerSection);
-  // const elToRemove = document.querySelector(`.${elementToRemove}`) as HTMLElement;
-
-  // elToRemove.remove()
 
   const loaderBlock = document.createElement('div');
   loaderBlock.classList.add('loader');
