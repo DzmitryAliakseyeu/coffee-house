@@ -14,8 +14,10 @@ export default function createContent(parent: HTMLElement, slide: SliderDataI) {
   image.classList.add('image');
   imageBox.append(image);
 
+  console.log(slide.name)
+
   // image.src = slide.srcImg;
-  image.src = `../../../../../../../../public/products/${slide.name}.png`;
+  image.src = `../../../../../../../../public/slider/${slide.name}.png`;
 
   const sliderInfo = document.createElement('div');
   sliderInfo.classList.add('slider-info');
@@ -25,7 +27,7 @@ export default function createContent(parent: HTMLElement, slide: SliderDataI) {
   slideTitle.classList.add('heading-3');
   slideTitle.classList.add('text-dark');
   slideTitle.classList.add('slide-title');
-  slideTitle.textContent = slide.slideTitle;
+  slideTitle.textContent = slide.name;
   sliderInfo.append(slideTitle);
 
   const slideDescription = document.createElement('p');

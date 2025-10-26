@@ -1,4 +1,3 @@
-import createTotal from "../total/total";
 import createOrderInfoBlock from "./order-info-block/order-info-block";
 
 export default function createOrderInfo(parent: HTMLElement){

@@ -1,6 +1,5 @@
 import createProductsCartContainer from "./products-in-cart/products-in-cart";
 import './cart-section.css'
-import createTotal from "./total/total";
 import createCartButtonsBlock from "./cart-buttons/cart-buttons";
 import createOrderInfo from "./order-info/order-info";
 
@@ -21,21 +20,6 @@ export default function createCartSection(parent: HTMLElement){
       containerSection.append(sectionTitle)
 
       createProductsCartContainer(containerSection);
-    //   createTotal(containerSection);
     createOrderInfo(containerSection)
     createCartButtonsBlock(containerSection)
-    
-    //   createMenuOfferContainer(containerSection);
-    
-    //   createMenuProductsGrid(containerSection);
-    
-    //   createButton({
-    //     parent: containerSection,
-    //     className: 'load',
-    //     action: () => {
-    //       loadProducts(filteredProducts);
-    //     },
-    //     text: '',
-    //     hasIcon: true,
-    //   });
 }
