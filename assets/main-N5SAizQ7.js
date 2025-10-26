@@ -1,1 +1,0 @@
-import{c as t,a as c,b as d}from"./main-CpKlfxBg.js";async function n(){const a=document.body,e=document.createElement("div");e.classList.add("app"),e.id="app",a.append(e),t(e),c(e,!0,!1,!1),d(e)}n();
