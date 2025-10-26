@@ -31,7 +31,6 @@ export default async function createRowSlider(parent: HTMLElement) {
     });
   } catch {
     favoriteProductsData = [];
-    console.log('error');
     hideLoader('.favorite');
     showErrorText('.favorite');
   }

@@ -3,3 +3,7 @@
     justify-self: center;
     align-self: center;
 }
+
+.error .error-text {
+    text-align: center;
+}

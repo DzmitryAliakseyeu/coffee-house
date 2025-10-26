@@ -1,4 +1,5 @@
 import '../loader/loader.css';
+import './error.css'
 
 export function showErrorText(parentElement: string) {
   console.log(parentElement);
@@ -36,11 +37,16 @@ export function showErrorText(parentElement: string) {
   containerSection?.append(errorBlock);
 
   const errorText = document.createElement('p');
-  errorText.classList.add('loader-text');
+  errorText.classList.add('error-text');
   errorText.classList.add('heading-3');
   errorText.classList.add('text-dark');
   errorBlock.append(errorText);
-  errorText.textContent = 'Something went wrong. Please, refresh the page';
+  if(parentElement === '.menu' || parentElement === '.favorite'){
+     errorText.textContent = 'Something went wrong. Please, refresh the page';
+  } else {
+     errorText.textContent = ' Something went wrong. Please, try again';
+  }
+ 
 }
 
 export function hideErrorText(parentElement: string) {

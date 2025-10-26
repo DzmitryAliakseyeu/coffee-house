@@ -1,6 +1,9 @@
 import createButton from "../../../button/button";
 import { OrderToServerI, ProductInLSI } from "../../../interfaces/interfaces";
+import createModalCard from "../../../menu/menu-section/menu-products/modal/card-modal/card-modal";
+import createModal from "../../../menu/menu-section/menu-products/modal/modal";
 import confirmOrderRequest from "../../../requests/confirmOrder";
+import createModalCart from "../../cart-modal/cart-modal";
 import './cart-buttons.css'
 
 let isUserLogged = false;
@@ -18,25 +21,23 @@ export default function createCartButtonsBlock(parent: HTMLElement){
          createButton({
             parent:  cartButtonsBlock,
             className: 'confirm',
-            action: () => {
-                ordersInLS =  JSON.parse(localStorage.getItem('orders') ?? '[]');
-                console.log(ordersInLS);
+            action: async () => {
+                createModalCart()
+        //         ordersInLS =  JSON.parse(localStorage.getItem('orders') ?? '[]');
+        //         console.log(ordersInLS);
 
-               order = {
-                items: ordersInLS.map(item => ({
-                productId: +item.id,
-                size: item.size,
-                additives: item.extras || [],
-                quantity: 1 
-            })),
-          totalPrice: ordersInLS.reduce((sum, item) => sum + +item.totlatPrice, 0)
-        };
+        //        order = {
+        //         items: ordersInLS.map(item => ({
+        //         productId: +item.id,
+        //         size: item.size,
+        //         additives: item.extras || [],
+        //         quantity: 1 
+        //     })),
+        //   totalPrice: ordersInLS.reduce((sum, item) => sum + +item.totlatPrice, 0)
+        // };
 
-        console.log(ordersInLS)
-         
-           console.log(order)
 
-           confirmOrderRequest(order)
+        //    let response = await confirmOrderRequest(order)
             },
             text: 'Confirm',
             hasIcon: false,
