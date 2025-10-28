@@ -114,6 +114,30 @@
     gap: 8px;
     justify-content: start;
 }
+.tab-item {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    top: -70%;
+    right: 0;
+    background-color: #000000;
+    color: #E1D4C9;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
+    display: none;
+}
+
+.tooltip.visible {
+    display: flex;
+    gap: 5px;
+}
+
+.add-price-not-relevant {
+    text-decoration: line-through;
+}
 
 
 @media (max-width: 820px){

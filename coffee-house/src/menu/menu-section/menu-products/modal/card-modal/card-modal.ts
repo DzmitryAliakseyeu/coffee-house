@@ -142,6 +142,24 @@ export default function createModalCard(
         tab.classList.add('tab-active');
       cardOfferTabs.append(tab);
 
+      const tooltip = document.createElement('div');
+      tooltip.classList.add('tooltip');
+      tab.append(tooltip);
+      if(tabI.discount !== 0 && localStorage.getItem('token')){
+       
+           tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${tabI.discount}</span>`
+      } else {
+        tooltip.innerHTML = `<span>$${tabI.addPrice}</span>`
+      }
+
+      tab.addEventListener('mouseenter', () => {
+        tooltip.classList.add('visible')
+      });   
+
+      tab.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('visible')
+      });  
+
       tab.addEventListener('click', () => {
         if (tabI.field === 'size') {
           let userSignIn = JSON.parse(
