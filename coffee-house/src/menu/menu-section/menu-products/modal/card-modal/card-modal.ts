@@ -42,10 +42,13 @@ export default function createModalCard(
 
     order.discountPrice = product.discountPrice ? +product.discountPrice : 0;
   const isSignedIn = Boolean(localStorage.getItem('signInUser'));
-  order.totlatPrice =
-    isSignedIn && product.discountPrice
-      ? +product.discountPrice
-      : +order.price.base;
+  // order.totlatPrice =
+  //   isSignedIn && product.discountPrice
+  //     ? +product.discountPrice
+  //     : +order.price.base;
+
+      order.totlatPrice = +order.price.base;
+
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' || event.key === 'Esc') {
@@ -196,6 +199,8 @@ export default function createModalCard(
                 product.discountPrice !== null
                   ? +product.sizes.s.discountPrice
                   : +(product.discountPrice ?? 0);
+
+              
             }
 
             if (order.price.discount > 0) {
@@ -235,24 +240,67 @@ export default function createModalCard(
         const isSignedIn = Boolean(userSignIn);
         let totalSum = 0;
 
-    
-        if (isSignedIn && (order.price.discount > 0 || (order.discountPrice > 0 && tab.id === 'S'))) {
+        let token = localStorage.getItem('token')
+
+        if(!token || (order.discountPrice === 0 && order.price.discount === 0)){
+          order.totalDiscountSum = 0;
           totalSum = addivitesPriceSum + order.price.size;
-          if(order.price.discount > 0){
-                 order.totalDiscountSum = addivitesPriceSum + order.price.discount;
-          } else {
+          console.log('1')
+        }
+
+        if(token && order.discountPrice > 0 && order.price.discount === 0){
+          if(tab.id === 'S'){
             order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
+          } else {
+              order.totalDiscountSum = order.price.discount;
           }
-          toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
-        } else if (isSignedIn && order.price.discount === 0) {
-     
-          totalSum = addivitesPriceSum + order.price.size;
-        } else if (!isSignedIn) {
+        
           totalSum = addivitesPriceSum + order.price.size;
         }
+
+        if(token && order.discountPrice === 0 && order.price.discount > 0){
+          order.totalDiscountSum = addivitesPriceSum + order.price.discount;
+          totalSum = addivitesPriceSum + order.price.size;
+
+        }
+
+        if(token && order.discountPrice > 0 && order.price.discount > 0){
+          order.totalDiscountSum = addivitesPriceSum + order.price.discount;
+          totalSum = addivitesPriceSum + order.price.size;
+         
+        }
+
+        toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
+
+    
+        // if (isSignedIn && (order.price.discount > 0 || (order.discountPrice > 0 && tab.id === 'S'))) {
+        //   totalSum = addivitesPriceSum + order.price.size;
+        //   if(order.price.discount > 0){
+        //        console.log('1')
+        //          order.totalDiscountSum = addivitesPriceSum + order.price.discount;
+        //   } else {
+        //     console.log('2')
+        //     order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
+        //   }
+        //   toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
+        // } else if (isSignedIn && order.price.discount === 0 && (order.discountPrice === 0 && tab.id === 'S')) {
+        // console.log('3')
+        //   totalSum = addivitesPriceSum + order.price.size;
+        // } else if (isSignedIn && order.price.discount === 0 && (order.discountPrice > 0 && tab.id === 'S')) {
+        //       console.log('4')
+        //   totalSum = addivitesPriceSum + order.price.size;
+        //    order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
+        //      toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
+        // } else if (!isSignedIn) {
+        //      console.log('5')
+        //   totalSum = addivitesPriceSum + order.price.size;
+        // }
         order.totlatPrice = totalSum;
         totalPrice.textContent = `$${totalSum.toFixed(2)}`;
+
+
       });
+
 
       const tabLink = document.createElement('a');
       tabLink.classList.add('tab-link');
