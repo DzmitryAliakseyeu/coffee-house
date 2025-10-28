@@ -98,6 +98,7 @@ export interface OrderI {
   size: string;
   selectSize: string;
   extras: string[];
+  discountPrice: number;
   price: {
     base: number;
     size: number;
@@ -105,6 +106,7 @@ export interface OrderI {
     additivies: number[];
   };
   totlatPrice: number;
+  totalDiscountSum: number;
 }
 
 export interface AddressOptionI {

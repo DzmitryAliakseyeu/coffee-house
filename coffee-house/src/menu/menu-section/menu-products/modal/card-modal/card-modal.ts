@@ -12,13 +12,16 @@ let order: OrderI = {
   selectSize: '',
   size: 's',
   extras: [],
+  discountPrice: 0,
   price: {
     base: 0,
     size: 0,
     discount: 0,
     additivies: [],
   },
+  
   totlatPrice: 0,
+  totalDiscountSum: 0,
 };
 
 export default function createModalCard(
@@ -36,6 +39,8 @@ export default function createModalCard(
   order.price.discount = product.sizes.s.discountPrice
     ? +product.sizes.s.discountPrice
     : 0;
+
+    order.discountPrice = product.discountPrice ? +product.discountPrice : 0;
   const isSignedIn = Boolean(localStorage.getItem('signInUser'));
   order.totlatPrice =
     isSignedIn && product.discountPrice
@@ -230,17 +235,23 @@ export default function createModalCard(
         const isSignedIn = Boolean(userSignIn);
         let totalSum = 0;
 
-        if (isSignedIn && order.price.discount > 0) {
-          totalSum = addivitesPriceSum + order.price.discount;
+    
+        if (isSignedIn && (order.price.discount > 0 || (order.discountPrice > 0 && tab.id === 'S'))) {
+          totalSum = addivitesPriceSum + order.price.size;
+          if(order.price.discount > 0){
+                 order.totalDiscountSum = addivitesPriceSum + order.price.discount;
+          } else {
+            order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
+          }
+          toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
         } else if (isSignedIn && order.price.discount === 0) {
+     
           totalSum = addivitesPriceSum + order.price.size;
         } else if (!isSignedIn) {
           totalSum = addivitesPriceSum + order.price.size;
         }
-        // order.totlatPrice = totalSum;
-        order.totlatPrice = order.price.size;
-        // totalPrice.textContent = `$${totalSum.toFixed(2)}`;
-         totalPrice.textContent = `$${order.totlatPrice.toFixed(2)}`;
+        order.totlatPrice = totalSum;
+        totalPrice.textContent = `$${totalSum.toFixed(2)}`;
       });
 
       const tabLink = document.createElement('a');
