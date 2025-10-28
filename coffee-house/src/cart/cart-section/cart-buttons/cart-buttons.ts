@@ -27,7 +27,7 @@ export default function createCartButtonsBlock(parent: HTMLElement) {
       parent: cartButtonsBlock,
       className: 'sign-in',
       action: () => {
-        window.open('/pages/sign-in.html', '_self');
+        window.open('/coffee-house/pages/sign-in.html', '_self');
       },
       text: 'Sign In',
       hasIcon: false,
@@ -38,7 +38,7 @@ export default function createCartButtonsBlock(parent: HTMLElement) {
       parent: cartButtonsBlock,
       className: 'registration',
       action: () => {
-        window.open('/pages/registration.html', '_self');
+        window.open('/coffee-house/pages/registration.html', '_self');
       },
       text: 'Registration',
       hasIcon: false,

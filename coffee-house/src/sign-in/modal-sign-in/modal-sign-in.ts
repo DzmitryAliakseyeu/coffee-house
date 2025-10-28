@@ -33,7 +33,7 @@ export default async function createModalSignIn() {
 
     if (response) {
       setTimeout(() => hideLoader('.modal-sign-in'), 1000);
-      window.open('/pages/menu.html', '_self');
+      window.open('/coffee-house/pages/menu.html', '_self');
       localStorage.setItem('signInUser', JSON.stringify(userSignIn));
     }
 

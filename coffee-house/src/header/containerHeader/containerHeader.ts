@@ -15,12 +15,12 @@ export default function createContainerHeader(parent: HTMLElement) {
   const logo = document.createElement('a');
   logo.classList.add('logo');
   headerMenu.append(logo);
-  logo.href = 'index.html';
+  logo.href = '/coffee-house/index.html';
 
   const logoImage = document.createElement('img');
   logoImage.classList.add('logo-img');
   logo.append(logoImage);
-  logoImage.src = '../../public/logo.svg';
+  logoImage.src = '/coffee-house/logo.svg';
 
   const navigationBox = document.createElement('div');
   navigationBox.classList.add('navigation-box');
@@ -42,7 +42,7 @@ export default function createContainerHeader(parent: HTMLElement) {
         parent: navigationBox,
         className: 'menu',
         action: () => {
-          window.open('/pages/menu.html', '_self');
+          window.open('/coffee-house/pages/menu.html', '_self');
         },
         text: 'Menu',
         hasIcon: true,
@@ -52,7 +52,7 @@ export default function createContainerHeader(parent: HTMLElement) {
         parent: navigationBox,
         className: 'cart',
         action: () => {
-          window.open('/pages/cart.html', '_self');
+          window.open('/coffee-house/pages/cart.html', '_self');
         },
         text: `<p class="burger-link text-dark cart-title">Cart</p><span class="cart-icon"></span>`,
         hasIcon: false,
@@ -63,7 +63,7 @@ export default function createContainerHeader(parent: HTMLElement) {
         parent: navigationBox,
         className: 'cart',
         action: () => {
-          window.open('/pages/cart.html', '_self');
+          window.open('/coffee-house/pages/cart.html', '_self');
         },
         text: `<span class="cart-icon"></span> <p class="link-and-button text-dark cart-quantity">${productsQuntityInCart}</p>`,
         hasIcon: false,
@@ -74,7 +74,7 @@ export default function createContainerHeader(parent: HTMLElement) {
         parent: navigationBox,
         className: 'menu',
         action: () => {
-          window.open('/pages/menu.html', '_self');
+          window.open('/coffee-house/pages/menu.html', '_self');
         },
         text: 'Menu',
         hasIcon: true,

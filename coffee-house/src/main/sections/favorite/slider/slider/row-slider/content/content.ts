@@ -14,7 +14,7 @@ export default function createContent(parent: HTMLElement, slide: SliderDataI) {
   image.classList.add('image');
   imageBox.append(image);
 
-  image.src = `../../../../../../../../public/slider/${slide.name}.png`;
+  image.src = `./slider/${slide.name}.png`;
 
   const sliderInfo = document.createElement('div');
   sliderInfo.classList.add('slider-info');

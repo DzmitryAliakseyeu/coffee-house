@@ -9,7 +9,7 @@ export default function createEnjoySection(parent: HTMLElement) {
   const video = document.createElement('video');
   video.classList.add('video');
   containerSection.append(video);
-  video.src = '../../public/video/coffee-house-video.mp4';
+  video.src = './video/coffee-house-video.mp4';
   video.autoplay = true;
   video.muted = true;
   video.loop = true;
@@ -40,7 +40,7 @@ export default function createEnjoySection(parent: HTMLElement) {
     parent: offer,
     className: 'offer',
     action: () => {
-      window.open('/pages/menu.html', '_self');
+      window.open('/coffee-house/pages/menu.html', '_self');
     },
     text: 'Menu',
     hasIcon: true,

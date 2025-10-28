@@ -37,7 +37,7 @@ export default async function createModalRegistration() {
       let responseSignIn = await singInUserRequest();
       if (responseSignIn) {
         setTimeout(() => hideLoader('.menu-registration'), 1000);
-        window.open('/pages/menu.html', '_self');
+        window.open('/coffee-house/pages/menu.html', '_self');
         localStorage.setItem('logedUser', JSON.stringify(userAddress));
       }
     }

@@ -30,7 +30,7 @@ export default function createProductBlock(
   const productImage = document.createElement('img');
   productImage.classList.add('product-image');
   productImageBox.append(productImage);
-  productImage.src = `../../../../../public/products/${product.name}.png`;
+  productImage.src = `../products/${product.name}.png`;
 
   const productDescription = document.createElement('div');
   productDescription.classList.add('product-description');

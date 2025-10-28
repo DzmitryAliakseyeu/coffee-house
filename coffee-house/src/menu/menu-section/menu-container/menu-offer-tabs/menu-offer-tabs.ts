@@ -51,7 +51,7 @@ export default function createMenuOfferTabs(parent: HTMLElement) {
         createPreviewCard({
           parent: menuProductsGrid,
           id: product.id,
-          srcImg: `../../../../public/products/${product.name}.png`,
+          srcImg: `../products/${product.name}.png`,
           title: product.name,
           description: product.description,
           price: `$${product.price}`,
