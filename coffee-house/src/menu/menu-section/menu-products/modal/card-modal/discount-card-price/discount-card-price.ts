@@ -28,7 +28,7 @@ export default function toggleDiscountCardPrice(
       discountPriceCard.classList.add('preview-card-price');
       discountPriceCard.classList.add('discount-card-price-modal');
       totalPriceBlock.append(discountPriceCard);
-      discountPriceCard.textContent = `$${discount}`;
+      discountPriceCard.textContent = `$${discount}!!!!`;
       return;
     }
 

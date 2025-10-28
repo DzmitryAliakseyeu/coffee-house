@@ -145,9 +145,14 @@ export default function createModalCard(
       const tooltip = document.createElement('div');
       tooltip.classList.add('tooltip');
       tab.append(tooltip);
-      if(tabI.discount !== 0 && localStorage.getItem('token')){
+      if(tabI.discount !== 0 && localStorage.getItem('token') || tab.id === 'S' && product.discountPrice && localStorage.getItem('token') ){
+        if(tabI.discount !== 0 && localStorage.getItem('token') ){
+          tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${tabI.discount}</span>`
+        } else {
+          tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${product.discountPrice}</span>`
+        }
        
-           tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${tabI.discount}</span>`
+         
       } else {
         tooltip.innerHTML = `<span>$${tabI.addPrice}</span>`
       }
@@ -232,8 +237,10 @@ export default function createModalCard(
         } else if (!isSignedIn) {
           totalSum = addivitesPriceSum + order.price.size;
         }
-        order.totlatPrice = totalSum;
-        totalPrice.textContent = `$${totalSum.toFixed(2)}`;
+        // order.totlatPrice = totalSum;
+        order.totlatPrice = order.price.size;
+        // totalPrice.textContent = `$${totalSum.toFixed(2)}`;
+         totalPrice.textContent = `$${order.totlatPrice.toFixed(2)}`;
       });
 
       const tabLink = document.createElement('a');
