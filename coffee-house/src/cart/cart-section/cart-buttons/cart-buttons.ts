@@ -12,9 +12,9 @@ export default function createCartButtonsBlock(parent: HTMLElement) {
   // );
 
   let token = localStorage.getItem('token');
-  let order = JSON.parse(localStorage.getItem('orders') ?? '[]')
+  let order = JSON.parse(localStorage.getItem('orders') ?? '[]');
 
-  if (token && (order && order.length > 0)) {
+  if (token && order && order.length > 0) {
     createButton({
       parent: cartButtonsBlock,
       className: 'confirm',
@@ -25,9 +25,9 @@ export default function createCartButtonsBlock(parent: HTMLElement) {
       hasIcon: false,
       isHtml: false,
     });
-  } 
-  
-  if(!token){
+  }
+
+  if (!token) {
     createButton({
       parent: cartButtonsBlock,
       className: 'sign-in',

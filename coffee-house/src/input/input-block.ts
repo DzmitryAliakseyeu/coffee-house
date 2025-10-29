@@ -47,23 +47,19 @@ export default function createInputBlock(
       isValid = validateLogin(input, inputError);
     } else if (labelName === 'Password') {
       isValid = validatePassword(input, inputError);
-  
     } else if (labelName.toLocaleLowerCase() === 'confirm password') {
       isValid = validateConfirmPassword(input, inputError);
-  
     } else if (labelName.toLocaleLowerCase() === 'house number') {
       isValid = validateHouseNumber(input, inputError);
     }
-   
 
     if (!isValid) {
-       input.classList.remove('valid')
+      input.classList.remove('valid');
       input.classList.add('invalid');
       inputError.style.color = 'red';
-    } else if(isValid && input.value){
-       
-        input.classList.add('valid')
-    
+    } else if (isValid && input.value) {
+      input.classList.add('valid');
+
       input.classList.remove('invalid');
       inputError.style.color = 'transparent';
       if (labelName === 'Login') {
@@ -81,15 +77,10 @@ export default function createInputBlock(
       }
 
       if (labelName.toLocaleLowerCase() === 'house number') {
-       
-
-          userAddress.address.houseNumber = input.value;
-     
+        userAddress.address.houseNumber = input.value;
       }
-
-   
-    } else if (!input.value){
- if (labelName === 'Login') {
+    } else if (!input.value) {
+      if (labelName === 'Login') {
         userAddress.login = input.value;
         userSignIn.login = input.value;
       }
@@ -107,13 +98,12 @@ export default function createInputBlock(
         userAddress.address.houseNumber = input.value;
       }
     }
-       updateButtonState();
-       console.log(userAddress)
+    updateButtonState();
   });
 
   input.addEventListener('focus', () => {
     input.classList.remove('invalid');
-     input.classList.remove('valid');
+    input.classList.remove('valid');
     inputError.style.color = 'transparent';
   });
 }

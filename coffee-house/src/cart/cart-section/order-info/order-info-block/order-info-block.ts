@@ -23,7 +23,7 @@ export default async function createOrderInfoBlock(
   orderInfoBlock.append(orderInfoTitle);
   orderInfoTitle.textContent = `${title}:`;
 
-  if(title === 'Total'){
+  if (title === 'Total') {
     const totalPriceBlock = document.createElement('div');
     totalPriceBlock.classList.add('totla-price-block-cart');
     orderInfoBlock.append(totalPriceBlock);
@@ -31,7 +31,7 @@ export default async function createOrderInfoBlock(
     const orederInfoText = document.createElement('h3');
     orederInfoText.classList.add('order-info-text');
     orederInfoText.classList.add(
-    `order-${title.toLowerCase().replace(/\s+/g, '-')}-info-text`,
+      `order-${title.toLowerCase().replace(/\s+/g, '-')}-info-text`,
     );
     orederInfoText.classList.add('heading-3');
     orederInfoText.classList.add('text-dark');
@@ -52,8 +52,11 @@ export default async function createOrderInfoBlock(
       0,
     );
 
-    let sumPricesPoductsWithoutDiscount = poductsWithoutDiscount.reduce((acc: number, item: OrderI) => acc + item.totlatPrice, 0)
- 
+    let sumPricesPoductsWithoutDiscount = poductsWithoutDiscount.reduce(
+      (acc: number, item: OrderI) => acc + item.totlatPrice,
+      0,
+    );
+
     orederInfoText.textContent = `$${totalOrderSum.toFixed(2)}`;
 
     if (totalDiscountSum > 0 && token) {
@@ -62,12 +65,12 @@ export default async function createOrderInfoBlock(
       discountPriceProduct.classList.add('heading-3');
       discountPriceProduct.classList.add('text-dark');
       discountPriceProduct.classList.add('cart-card-price');
+      discountPriceProduct.classList.add('total-discount-price');
       totalPriceBlock.append(discountPriceProduct);
       discountPriceProduct.textContent = `$${(totalDiscountSum + sumPricesPoductsWithoutDiscount).toFixed(2)}`;
-      return
-    } 
+      return;
+    }
   }
-
 
   const orderInfoText = document.createElement('h3');
   orderInfoText.classList.add('order-info-text');
@@ -80,14 +83,13 @@ export default async function createOrderInfoBlock(
 
   if (token) {
     let response = await getProfile(token);
-    console.log(response)
-      if (title === 'Address') {
-          orderInfoText.textContent = `${response.data.city}, ${response.data.street}, ${response.data.houseNumber}`;
-      }
+    if (title === 'Address') {
+      orderInfoText.textContent = `${response.data.city}, ${response.data.street}, ${response.data.houseNumber}`;
+    }
 
-      if (title === 'Pay by') {
-        orderInfoText.textContent = `${response.data.paymentMethod.charAt(0).toUpperCase() + response.data.paymentMethod.slice(1)}`;
-      }
+    if (title === 'Pay by') {
+      orderInfoText.textContent = `${response.data.paymentMethod.charAt(0).toUpperCase() + response.data.paymentMethod.slice(1)}`;
+    }
   }
 
   // if (title === 'Address') {
@@ -104,30 +106,26 @@ export default async function createOrderInfoBlock(
   //   }
   // }
 
-
-
-
-
   // if (title === 'Total') {
-    // let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
-    // let totalOrderSum = productsInLS.reduce(
-    //   (acc: number, item: OrderI) => acc + item.totlatPrice,
-    //   0,
-    // );
-    // let totalDiscountSum = productsInLS.reduce(
-    //   (acc: number, item: OrderI) => acc + item.totalDiscountSum,
-    //   0,
-    // );
-    // let token = localStorage.getItem('token')
-    // orederInfoText.textContent = `$${totalOrderSum.toFixed(2)}`;
-    //         if (totalDiscountSum > 0 && token) {
-    // orederInfoText.classList.add('unavaliable-price');
-    // const discountPriceProduct = document.createElement('h3');
-    // discountPriceProduct.classList.add('heading-3');
-    // discountPriceProduct.classList.add('text-dark');
-    // discountPriceProduct.classList.add('cart-card-price');
-    // orderInfoBlock.append(discountPriceProduct);
-    // discountPriceProduct.textContent = `$${totalDiscountSum.toFixed(2)}`;
+  // let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
+  // let totalOrderSum = productsInLS.reduce(
+  //   (acc: number, item: OrderI) => acc + item.totlatPrice,
+  //   0,
+  // );
+  // let totalDiscountSum = productsInLS.reduce(
+  //   (acc: number, item: OrderI) => acc + item.totalDiscountSum,
+  //   0,
+  // );
+  // let token = localStorage.getItem('token')
+  // orederInfoText.textContent = `$${totalOrderSum.toFixed(2)}`;
+  //         if (totalDiscountSum > 0 && token) {
+  // orederInfoText.classList.add('unavaliable-price');
+  // const discountPriceProduct = document.createElement('h3');
+  // discountPriceProduct.classList.add('heading-3');
+  // discountPriceProduct.classList.add('text-dark');
+  // discountPriceProduct.classList.add('cart-card-price');
+  // orderInfoBlock.append(discountPriceProduct);
+  // discountPriceProduct.textContent = `$${totalDiscountSum.toFixed(2)}`;
   // } else {
   //   orederInfoText.classList.remove('unavaliable-price');
   // }

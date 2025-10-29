@@ -1,4 +1,4 @@
-import { userAddress } from "../../user-data/user-data";
+import { userAddress } from '../../user-data/user-data';
 
 export default function validateHouseNumber(
   input: HTMLInputElement,
@@ -6,7 +6,7 @@ export default function validateHouseNumber(
 ) {
   const value = input.value.trim();
 
-   if (!value) {
+  if (!value) {
     errorEl.textContent = 'Fill field.';
     userAddress.address.houseNumber = '';
     return false;

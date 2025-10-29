@@ -8,7 +8,7 @@ export default function createOrderInfo(parent: HTMLElement) {
 
   createOrderInfoBlock(orderInfo, 'Total');
 
-  let token = localStorage.getItem('token')
+  let token = localStorage.getItem('token');
   if (token) {
     createOrderInfoBlock(orderInfo, 'Address');
     createOrderInfoBlock(orderInfo, 'Pay by');

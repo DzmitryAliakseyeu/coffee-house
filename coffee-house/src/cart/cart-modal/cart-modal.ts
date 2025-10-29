@@ -62,12 +62,22 @@ export default async function createModalCart() {
       ) as HTMLElement;
       let totalPrice = 0;
       totalCartPrice.textContent = `$${totalPrice.toFixed(2)}`;
+      totalCartPrice.classList.remove('unavaliable-price');
+
+      let totalDiscountPrice = document.querySelector(
+        '.total-discount-price',
+      ) as HTMLElement;
+      if (totalCartPrice) {
+        totalDiscountPrice.remove();
+      }
 
       localStorage.removeItem('orders');
-      const cartQuantity = document.querySelector('.cart-quantity') as HTMLElement;
+      const cartQuantity = document.querySelector(
+        '.cart-quantity',
+      ) as HTMLElement;
       cartQuantity.textContent = '0';
       const buttonConfirm = document.querySelector('.button-confirm');
-      buttonConfirm?.remove()
+      buttonConfirm?.remove();
     }
 
     modal.addEventListener('click', (e) => {

@@ -19,7 +19,7 @@ let order: OrderI = {
     discount: 0,
     additivies: [],
   },
-  
+
   totlatPrice: 0,
   totalDiscountSum: 0,
 };
@@ -39,23 +39,24 @@ export default function createModalCard(
   order.price.discount = product.sizes.s.discountPrice
     ? +product.sizes.s.discountPrice
     : 0;
+  order.price.additivies = [];
+  order.extras = [];
 
-    order.discountPrice = product.discountPrice ? +product.discountPrice : 0;
+  order.discountPrice = product.discountPrice ? +product.discountPrice : 0;
   // const isSignedIn = Boolean(localStorage.getItem('signInUser'));
   // order.totalDiscountSum = order.discountPrice ? +order.discountPrice : +order.price.discount ? order.price.discount: 0
   order.totalDiscountSum =
-  order.discountPrice && order.discountPrice > 0
-    ? +order.discountPrice
-    : order.price.discount && order.price.discount > 0
-    ? +order.price.discount
-    : 0;
+    order.discountPrice && order.discountPrice > 0
+      ? +order.discountPrice
+      : order.price.discount && order.price.discount > 0
+        ? +order.price.discount
+        : 0;
   // order.totlatPrice =
   //   isSignedIn && product.discountPrice
   //     ? +product.discountPrice
   //     : +order.price.base;
 
-      order.totlatPrice = +order.price.base;
-
+  order.totlatPrice = +order.price.base;
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' || event.key === 'Esc') {
@@ -147,8 +148,6 @@ export default function createModalCard(
       }));
     }
 
-    console.log(order)
-
     tabsData.forEach((tabI, index) => {
       const tab = document.createElement('li') as HTMLLIElement;
       tab.classList.add('tab-item');
@@ -162,27 +161,28 @@ export default function createModalCard(
       const tooltip = document.createElement('div');
       tooltip.classList.add('tooltip');
       tab.append(tooltip);
-      if(tabI.discount !== 0 && localStorage.getItem('token') || tab.id === 'S' && product.discountPrice && localStorage.getItem('token') ){
-        if(tabI.discount !== 0 && localStorage.getItem('token') ){
-          tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${tabI.discount}</span>`
+      if (
+        (tabI.discount !== 0 && localStorage.getItem('token')) ||
+        (tab.id === 'S' &&
+          product.discountPrice &&
+          localStorage.getItem('token'))
+      ) {
+        if (tabI.discount !== 0 && localStorage.getItem('token')) {
+          tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${tabI.discount}</span>`;
         } else {
-          tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${product.discountPrice}</span>`
+          tooltip.innerHTML = `<span class='add-price-not-relevant'>$${tabI.addPrice}</span> <span>$${product.discountPrice}</span>`;
         }
-       
-         
       } else {
-        tooltip.innerHTML = `<span>$${tabI.addPrice}</span>`
+        tooltip.innerHTML = `<span>$${tabI.addPrice}</span>`;
       }
 
       tab.addEventListener('mouseenter', () => {
-        tooltip.classList.add('visible')
-      });   
+        tooltip.classList.add('visible');
+      });
 
       tab.addEventListener('mouseleave', () => {
-        tooltip.classList.remove('visible')
-      });  
-
-     
+        tooltip.classList.remove('visible');
+      });
 
       tab.addEventListener('click', () => {
         if (tabI.field === 'size') {
@@ -210,8 +210,6 @@ export default function createModalCard(
                 product.discountPrice !== null
                   ? +product.sizes.s.discountPrice
                   : +(product.discountPrice ?? 0);
-
-              
             }
 
             if (order.price.discount > 0) {
@@ -248,73 +246,43 @@ export default function createModalCard(
           (acc, el) => acc + el,
           0,
         );
-        const isSignedIn = Boolean(userSignIn);
         let totalSum = 0;
 
-        let token = localStorage.getItem('token')
+        let token = localStorage.getItem('token');
 
-        if(!token || (order.discountPrice === 0 && order.price.discount === 0)){
+        if (
+          !token ||
+          (order.discountPrice === 0 && order.price.discount === 0)
+        ) {
           order.totalDiscountSum = 0;
           totalSum = addivitesPriceSum + order.price.size;
-          console.log('1')
         }
 
-        if(token && order.discountPrice > 0 && order.price.discount === 0){
-          console.log(tab)
-          if(order.size === 's'){
+        if (token && order.discountPrice > 0 && order.price.discount === 0) {
+          if (order.size === 's') {
             order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
           } else {
-              order.totalDiscountSum = order.price.discount;
+            order.totalDiscountSum = order.price.discount;
           }
-        
+
           totalSum = addivitesPriceSum + order.price.size;
         }
 
-        if(token && order.discountPrice === 0 && order.price.discount > 0){
+        if (token && order.discountPrice === 0 && order.price.discount > 0) {
           order.totalDiscountSum = addivitesPriceSum + order.price.discount;
           totalSum = addivitesPriceSum + order.price.size;
-
         }
 
-        if(token && order.discountPrice > 0 && order.price.discount > 0){
+        if (token && order.discountPrice > 0 && order.price.discount > 0) {
           order.totalDiscountSum = addivitesPriceSum + order.price.discount;
           totalSum = addivitesPriceSum + order.price.size;
-         
         }
 
-        toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
+        toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum);
 
-    
-        // if (isSignedIn && (order.price.discount > 0 || (order.discountPrice > 0 && tab.id === 'S'))) {
-        //   totalSum = addivitesPriceSum + order.price.size;
-        //   if(order.price.discount > 0){
-        //        console.log('1')
-        //          order.totalDiscountSum = addivitesPriceSum + order.price.discount;
-        //   } else {
-        //     console.log('2')
-        //     order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
-        //   }
-        //   toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
-        // } else if (isSignedIn && order.price.discount === 0 && (order.discountPrice === 0 && tab.id === 'S')) {
-        // console.log('3')
-        //   totalSum = addivitesPriceSum + order.price.size;
-        // } else if (isSignedIn && order.price.discount === 0 && (order.discountPrice > 0 && tab.id === 'S')) {
-        //       console.log('4')
-        //   totalSum = addivitesPriceSum + order.price.size;
-        //    order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
-        //      toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum)
-        // } else if (!isSignedIn) {
-        //      console.log('5')
-        //   totalSum = addivitesPriceSum + order.price.size;
-        // }
         order.totlatPrice = totalSum;
         totalPrice.textContent = `$${totalSum.toFixed(2)}`;
-
-
       });
-
-      
-
 
       const tabLink = document.createElement('a');
       tabLink.classList.add('tab-link');
@@ -363,8 +331,6 @@ export default function createModalCard(
   );
 
   if (order) {
-    const productDiscount = product.discountPrice ? +product.discountPrice : 0;
-    // toggleDiscountCardPrice(product, userSignIn, productDiscount);
     toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum);
   }
 

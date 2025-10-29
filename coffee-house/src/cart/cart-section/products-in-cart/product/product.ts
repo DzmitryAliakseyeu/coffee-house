@@ -59,24 +59,24 @@ export default function createProductBlock(
   productPrice.classList.add('heading-3');
   productPrice.classList.add('text-dark');
   productPriceBlock.append(productPrice);
-  let addivitiesSum = product.price.additivies.reduce(
-    (acc, sum) => acc + sum,
-    0,
-  );
+  // let addivitiesSum = product.price.additivies.reduce(
+  //   (acc, sum) => acc + sum,
+  //   0,
+  // );
 
-  let token = localStorage.getItem('token')
+  let token = localStorage.getItem('token');
 
   // productPrice.textContent =
   //   +product.price.discount > 0 && token
   //     ? `$${(product.price.discount + addivitiesSum).toFixed(2)}`
   //     : `$${(product.price.size + addivitiesSum).toFixed(2)}`;
 
-   productPrice.textContent =`$${(product.totlatPrice).toFixed(2)}`;
-    // +product.totalDiscountSum > 0 && token
-    //   ? `$${(product.totalDiscountSum + addivitiesSum).toFixed(2)}`
-    //   : `$${(product.totlatPrice + addivitiesSum).toFixed(2)}`;
+  productPrice.textContent = `$${product.totlatPrice.toFixed(2)}`;
+  // +product.totalDiscountSum > 0 && token
+  //   ? `$${(product.totalDiscountSum + addivitiesSum).toFixed(2)}`
+  //   : `$${(product.totlatPrice + addivitiesSum).toFixed(2)}`;
 
-        if (product.totalDiscountSum > 0 && token) {
+  if (product.totalDiscountSum > 0 && token) {
     productPrice.classList.add('unavaliable-price');
     const discountPriceProduct = document.createElement('h3');
     discountPriceProduct.classList.add('heading-3');
