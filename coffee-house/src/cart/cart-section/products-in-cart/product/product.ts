@@ -63,9 +63,6 @@ export default function createProductBlock(
     (acc, sum) => acc + sum,
     0,
   );
-  // let userSignIn = JSON.parse(
-  //   JSON.stringify(localStorage.getItem('signInUser')),
-  // );
 
   let token = localStorage.getItem('token')
 
@@ -74,7 +71,7 @@ export default function createProductBlock(
   //     ? `$${(product.price.discount + addivitiesSum).toFixed(2)}`
   //     : `$${(product.price.size + addivitiesSum).toFixed(2)}`;
 
-   productPrice.textContent =`$${(product.totlatPrice + addivitiesSum).toFixed(2)}`;
+   productPrice.textContent =`$${(product.totlatPrice).toFixed(2)}`;
     // +product.totalDiscountSum > 0 && token
     //   ? `$${(product.totalDiscountSum + addivitiesSum).toFixed(2)}`
     //   : `$${(product.totlatPrice + addivitiesSum).toFixed(2)}`;

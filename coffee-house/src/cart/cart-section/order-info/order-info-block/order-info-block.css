@@ -1,5 +1,17 @@
 .total-block, .address-block, .pay-by-block {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+        width: 100%;
+    justify-content:space-between;
+  
+
+}
+
+.totla-price-block-cart {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+
 }
