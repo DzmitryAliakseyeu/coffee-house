@@ -73,6 +73,7 @@ export default async function createOrderInfoBlock(
 
   if (token) {
     let response = await getProfile(token);
+    console.log(response)
       if (title === 'Address') {
           orderInfoText.textContent = `${response.data.city}, ${response.data.street}, ${response.data.houseNumber}`;
       }

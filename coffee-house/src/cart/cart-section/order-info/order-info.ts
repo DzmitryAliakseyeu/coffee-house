@@ -7,10 +7,9 @@ export default function createOrderInfo(parent: HTMLElement) {
   parent.append(orderInfo);
 
   createOrderInfoBlock(orderInfo, 'Total');
-  let userSignIn = JSON.parse(
-    JSON.stringify(localStorage.getItem('signInUser')),
-  );
-  if (userSignIn) {
+
+  let token = localStorage.getItem('token')
+  if (token) {
     createOrderInfoBlock(orderInfo, 'Address');
     createOrderInfoBlock(orderInfo, 'Pay by');
   }

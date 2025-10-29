@@ -81,11 +81,9 @@ export default function createInputBlock(
       }
 
       if (labelName.toLocaleLowerCase() === 'house number') {
-        if(!input.value.trim()){
-            userAddress.address.houseNumber = '';
-        } else {
+       
+
           userAddress.address.houseNumber = input.value;
-        }
      
       }
 

@@ -39,6 +39,7 @@ export default async function createModalRegistration() {
         setTimeout(() => hideLoader('.menu-registration'), 1000);
         window.open('/coffee-house/pages/menu.html', '_self');
         localStorage.setItem('logedUser', JSON.stringify(userAddress));
+        localStorage.setItem('token', responseSignIn.data.access_token)
       }
     }
 
