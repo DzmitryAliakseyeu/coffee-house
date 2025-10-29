@@ -64,6 +64,10 @@ export default async function createModalCart() {
       totalCartPrice.textContent = `$${totalPrice.toFixed(2)}`;
 
       localStorage.removeItem('orders');
+      const cartQuantity = document.querySelector('.cart-quantity') as HTMLElement;
+      cartQuantity.textContent = '0';
+      const buttonConfirm = document.querySelector('.button-confirm');
+      buttonConfirm?.remove()
     }
 
     modal.addEventListener('click', (e) => {
