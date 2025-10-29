@@ -63,24 +63,43 @@ export default function createProductBlock(
     (acc, sum) => acc + sum,
     0,
   );
-  let userSignIn = JSON.parse(
-    JSON.stringify(localStorage.getItem('signInUser')),
-  );
+  // let userSignIn = JSON.parse(
+  //   JSON.stringify(localStorage.getItem('signInUser')),
+  // );
 
-  productPrice.textContent =
-    +product.price.discount > 0 && userSignIn
-      ? `$${(product.price.discount + addivitiesSum).toFixed(2)}`
-      : `$${(product.price.size + addivitiesSum).toFixed(2)}`;
+  let token = localStorage.getItem('token')
 
-  if (product.price.discount && userSignIn) {
+  // productPrice.textContent =
+  //   +product.price.discount > 0 && token
+  //     ? `$${(product.price.discount + addivitiesSum).toFixed(2)}`
+  //     : `$${(product.price.size + addivitiesSum).toFixed(2)}`;
+
+   productPrice.textContent =`$${(product.totlatPrice + addivitiesSum).toFixed(2)}`;
+    // +product.totalDiscountSum > 0 && token
+    //   ? `$${(product.totalDiscountSum + addivitiesSum).toFixed(2)}`
+    //   : `$${(product.totlatPrice + addivitiesSum).toFixed(2)}`;
+
+        if (product.totalDiscountSum > 0 && token) {
     productPrice.classList.add('unavaliable-price');
     const discountPriceProduct = document.createElement('h3');
     discountPriceProduct.classList.add('heading-3');
     discountPriceProduct.classList.add('text-dark');
-    discountPriceProduct.classList.add('preview-card-price');
+    discountPriceProduct.classList.add('cart-card-price');
     productPriceBlock.append(discountPriceProduct);
-    discountPriceProduct.textContent = `$${product.price.discount}`;
+    discountPriceProduct.textContent = `$${product.totalDiscountSum}`;
   } else {
     productPrice.classList.remove('unavaliable-price');
   }
+
+  // if (product.price.discount && token) {
+  //   productPrice.classList.add('unavaliable-price');
+  //   const discountPriceProduct = document.createElement('h3');
+  //   discountPriceProduct.classList.add('heading-3');
+  //   discountPriceProduct.classList.add('text-dark');
+  //   discountPriceProduct.classList.add('preview-card-price');
+  //   productPriceBlock.append(discountPriceProduct);
+  //   discountPriceProduct.textContent = `$${product.price.discount}`;
+  // } else {
+  //   productPrice.classList.remove('unavaliable-price');
+  // }
 }

@@ -41,7 +41,14 @@ export default function createModalCard(
     : 0;
 
     order.discountPrice = product.discountPrice ? +product.discountPrice : 0;
-  const isSignedIn = Boolean(localStorage.getItem('signInUser'));
+  // const isSignedIn = Boolean(localStorage.getItem('signInUser'));
+  // order.totalDiscountSum = order.discountPrice ? +order.discountPrice : +order.price.discount ? order.price.discount: 0
+  order.totalDiscountSum =
+  order.discountPrice && order.discountPrice > 0
+    ? +order.discountPrice
+    : order.price.discount && order.price.discount > 0
+    ? +order.price.discount
+    : 0;
   // order.totlatPrice =
   //   isSignedIn && product.discountPrice
   //     ? +product.discountPrice
@@ -140,6 +147,8 @@ export default function createModalCard(
       }));
     }
 
+    console.log(order)
+
     tabsData.forEach((tabI, index) => {
       const tab = document.createElement('li') as HTMLLIElement;
       tab.classList.add('tab-item');
@@ -172,6 +181,8 @@ export default function createModalCard(
       tab.addEventListener('mouseleave', () => {
         tooltip.classList.remove('visible')
       });  
+
+     
 
       tab.addEventListener('click', () => {
         if (tabI.field === 'size') {
@@ -249,7 +260,8 @@ export default function createModalCard(
         }
 
         if(token && order.discountPrice > 0 && order.price.discount === 0){
-          if(tab.id === 'S'){
+          console.log(tab)
+          if(order.size === 's'){
             order.totalDiscountSum = addivitesPriceSum + order.discountPrice;
           } else {
               order.totalDiscountSum = order.price.discount;
@@ -301,6 +313,8 @@ export default function createModalCard(
 
       });
 
+      
+
 
       const tabLink = document.createElement('a');
       tabLink.classList.add('tab-link');
@@ -350,7 +364,8 @@ export default function createModalCard(
 
   if (order) {
     const productDiscount = product.discountPrice ? +product.discountPrice : 0;
-    toggleDiscountCardPrice(product, userSignIn, productDiscount);
+    // toggleDiscountCardPrice(product, userSignIn, productDiscount);
+    toggleDiscountCardPrice(product, userSignIn, order.totalDiscountSum);
   }
 
   const totalValue = sum.reduce((acc, el) => acc + el, 0);
