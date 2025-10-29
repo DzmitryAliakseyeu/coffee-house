@@ -46,6 +46,13 @@ export default async function createOrderInfoBlock(
       (acc: number, item: OrderI) => acc + item.totalDiscountSum,
       0,
     );
+
+    let poductsWithoutDiscount = productsInLS.filter(
+      (item: OrderI) => item.totalDiscountSum === 0,
+      0,
+    );
+
+    let sumPricesPoductsWithoutDiscount = poductsWithoutDiscount.reduce((acc: number, item: OrderI) => acc + item.totlatPrice, 0)
  
     orederInfoText.textContent = `$${totalOrderSum.toFixed(2)}`;
 
@@ -56,7 +63,7 @@ export default async function createOrderInfoBlock(
       discountPriceProduct.classList.add('text-dark');
       discountPriceProduct.classList.add('cart-card-price');
       totalPriceBlock.append(discountPriceProduct);
-      discountPriceProduct.textContent = `$${totalDiscountSum.toFixed(2)}`;
+      discountPriceProduct.textContent = `$${(totalDiscountSum + sumPricesPoductsWithoutDiscount).toFixed(2)}`;
       return
     } 
   }
