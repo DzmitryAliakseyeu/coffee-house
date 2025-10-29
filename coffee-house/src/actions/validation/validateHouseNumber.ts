@@ -1,8 +1,16 @@
+import { userAddress } from "../../user-data/user-data";
+
 export default function validateHouseNumber(
   input: HTMLInputElement,
   errorEl: HTMLElement,
 ) {
   const value = input.value.trim();
+
+   if (!value) {
+    errorEl.textContent = 'Fill field.';
+    userAddress.address.houseNumber = '';
+    return false;
+  }
 
   const number = Number(value);
 

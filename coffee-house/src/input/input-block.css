@@ -14,6 +14,7 @@
     border-radius: 12px;
     padding-left: 12px;
     padding-right: 12px;
+    box-sizing: border-box;
 }
 
 .input-field:focus {
@@ -21,8 +22,15 @@
 }
 
 .input-field.invalid {
-  border-color: red;
+  border-color: #F44336;
   background-image: url('../../public/input/attention.svg');
+  background-position: 98% center;
+  background-repeat: no-repeat;
+}
+
+.input-field.valid {
+  border-color: #0DBB42;
+  background-image: url('../input/check.svg');
   background-position: 98% center;
   background-repeat: no-repeat;
 }
@@ -47,9 +55,7 @@
     padding-left: 56px;
 }
 
-#password {
-    background-image: url();
-}
+
 
 @media(max-width: 1050px){
     .registration .input-block-login{
