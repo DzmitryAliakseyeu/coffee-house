@@ -1,9 +1,9 @@
 import { AddressOptionI } from '../interfaces/interfaces';
 
 export const addressData: AddressOptionI[] = [
-  { 
-                   city: 'Warsaw',
-         streets: [
+  {
+    city: 'Warsaw',
+      streets: [
       'Nowy Świat',
       'Marszałkowska',
       'Puławska',
@@ -17,8 +17,8 @@ export const addressData: AddressOptionI[] = [
     ],
   },
   {
-        city: 'Krakow',
-      streets: [
+    city: 'Krakow',
+    streets: [
       'Floriańska',
       'Grodzka',
       'Karmelicka',
