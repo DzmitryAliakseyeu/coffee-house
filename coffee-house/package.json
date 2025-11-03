@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "lint-staged": {
+  "list-staged": {
     "**/*.{ts,tsx,js,jsx,json,css,md}": [
     "prettier --write",
     "eslint --fix",
