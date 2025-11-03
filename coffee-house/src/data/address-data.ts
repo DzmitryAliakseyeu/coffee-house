@@ -17,7 +17,7 @@ export const addressData: AddressOptionI[] = [
     ],
   },
   {
-       city: 'Krakow',
+        city: 'Krakow',
     streets: [
       'Floriańska',
       'Grodzka',
