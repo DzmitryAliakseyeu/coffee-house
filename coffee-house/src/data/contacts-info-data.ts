@@ -4,7 +4,7 @@ export const contactsInfoData: ContactsInfoDataI[] = [
   {
     srcImg: './contacts-info/pin-alt.svg',
 
-    href: 'https://maps.app.goo.gl/HcGzJkaL18asCgkq7',
+        href: 'https://maps.app.goo.gl/HcGzJkaL18asCgkq7',
     title: 'pin-alt',
     content: `8558 Green Rd.,   LA`,
     isLink: true,
