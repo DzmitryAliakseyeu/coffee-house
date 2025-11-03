@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
-dos2unix .husky/pre-commit
+. "$(dirname "$0")/_/husky.sh"
 
+# Run lint-staged on staged files
 npx lint-staged
