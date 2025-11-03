@@ -2,7 +2,7 @@ import { AddressOptionI } from '../interfaces/interfaces';
 
 export const addressData: AddressOptionI[] = [
   {
-       city: 'Warsaw',
+        city: 'Warsaw',
       streets: [
       'Nowy Świat',
       'Marszałkowska',
