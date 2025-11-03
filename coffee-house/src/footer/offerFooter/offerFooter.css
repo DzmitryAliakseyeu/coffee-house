@@ -1,19 +1,19 @@
 .offer-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    height: 250px;
-    width: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 250px;
+  width: 530px;
 }
 
-@media (max-width: 768px){
- .offer-footer {
-   width: 100%;
-}
+@media (max-width: 768px) {
+  .offer-footer {
+    width: 100%;
+  }
 }
 
-@media (max-width: 500px){
- .offer-footer {
-   height: fit-content;
-}
+@media (max-width: 500px) {
+  .offer-footer {
+    height: fit-content;
+  }
 }

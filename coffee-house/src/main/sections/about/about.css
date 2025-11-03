@@ -1,14 +1,12 @@
 .about .container-section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .about-title {
-    text-align: left;
+  text-align: left;
 }
 
-
-@media (max-width: 768px){
-    
+@media (max-width: 768px) {
 }

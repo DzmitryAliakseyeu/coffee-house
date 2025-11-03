@@ -1,12 +1,12 @@
 .menu-offer-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
 }
 
 .menu-offer-title {
-    text-align: center;
-    max-width: 800px;
-    width: 100%;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
 }

@@ -20,13 +20,12 @@ export default function createContainerHeader(parent) {
   const logoImage = document.createElement('img');
   logoImage.classList.add('logo-img');
   logo.append(logoImage);
-  const url = window.location.href; 
+  const url = window.location.href;
   if (url.includes('menu.html')) {
     logoImage.src = '../logo.svg';
   } else {
     logoImage.src = './logo.svg';
   }
-
 
   const navigationBox = document.createElement('div');
   navigationBox.classList.add('navigation-box');

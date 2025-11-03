@@ -1,6 +1,6 @@
 export const galleryData = [
   {
-         srcImg: './gallery/about-1.png',
+    srcImg: './gallery/about-1.png',
     alt: 'about-1',
   },
   {

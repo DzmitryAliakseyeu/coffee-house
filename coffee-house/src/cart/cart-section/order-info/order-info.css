@@ -1,6 +1,6 @@
 .order-info {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding-left: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 48px;
 }

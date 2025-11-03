@@ -16,8 +16,8 @@ export default function createMenuProductsGrid(parent) {
   filteredProducts.forEach((product) => {
     createPreviewCard(
       menuProductsGrid,
-       `../products/${product.name}.png`,
-  
+      `../products/${product.name}.png`,
+
       product.name,
       product.description,
       `$${product.price}`,

@@ -1,101 +1,82 @@
 .gallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-   justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .gallery-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .img-box {
-    width: 660px;
-    height: 430px;
-    background-position: center;
-    background-size: 110%;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    transition: background-size 0.9s ease; 
+  width: 660px;
+  height: 430px;
+  background-position: center;
+  background-size: 110%;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  transition: background-size 0.9s ease;
 }
 
 .img-box:hover {
-   
-    background-size: 100%;
+  background-size: 100%;
 }
 
-
-
-
-
-.gallery-container-0 .img-box:first-child, .gallery-container-2 .img-box:last-child{
- height: 590px;
+.gallery-container-0 .img-box:first-child,
+.gallery-container-2 .img-box:last-child {
+  height: 590px;
 }
 
- 
+@media (max-width: 1439px) {
+  .gallery {
+    gap: 10px;
+    justify-content: space-between;
+  }
 
-
-@media (max-width: 1439px){
-    .gallery {
-        gap: 10px;
-        justify-content: space-between;
-    }
-
-    .gallery-container {
-        gap: 20px;
-    }
+  .gallery-container {
+    gap: 20px;
+  }
 }
 
- @media (max-width: 1350px){
-    .gallery {
-       justify-content: center;
-    }
-
-  
+@media (max-width: 1350px) {
+  .gallery {
+    justify-content: center;
+  }
 }
 
-@media (max-width: 768px){
-    .gallery {
-        gap: 40px;
-    }
-    .img-box {
-        width: 688px;
-        height: 590px;
-        background-size: 105%;
-    
-    }
+@media (max-width: 768px) {
+  .gallery {
+    gap: 40px;
+  }
+  .img-box {
+    width: 688px;
+    height: 590px;
+    background-size: 105%;
+  }
 
-    .gallery-container-0 > :last-child {
-        display: none;
-    }
+  .gallery-container-0 > :last-child {
+    display: none;
+  }
 
-   .gallery-container-2 > :first-child {
-        display: none;
-    }
+  .gallery-container-2 > :first-child {
+    display: none;
+  }
 }
 
-@media (max-width: 720px){
-    
-    .img-box {
-       width: 480px;
-        background-size:cover;
-    
-    }
-
-  
+@media (max-width: 720px) {
+  .img-box {
+    width: 480px;
+    background-size: cover;
+  }
 }
 
-
-@media (max-width: 500px){
-    
-    .img-box {
-       width: 348px;
-       height: 348px;
-        background-size: 210%;
-    
-    }
-
-  
+@media (max-width: 500px) {
+  .img-box {
+    width: 348px;
+    height: 348px;
+    background-size: 210%;
+  }
 }
