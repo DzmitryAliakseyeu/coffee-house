@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "lint-staged": {
-     "*.{ts,tsx,js,jsx,json,css,md}": [
+   "src/**/*.{ts,tsx,js,jsx}": [
     "prettier --write",
     "eslint --fix",
     "git add"
