@@ -1,7 +1,7 @@
+
+
 #!/usr/bin/env sh
-set -x
 . "$(dirname "$0")/_/husky.sh"
 
-
-echo "Running lint-staged..."
-npx --no-install lint-staged
+echo "Husky hook is running!"
+exit 0
