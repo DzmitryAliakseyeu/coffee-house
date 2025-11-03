@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
+# Run lint-staged inside coffee-house
 cd coffee-house || exit 1
 npx --no-install lint-staged
