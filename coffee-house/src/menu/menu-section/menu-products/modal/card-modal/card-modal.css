@@ -82,7 +82,7 @@
 
 .alert-icon {
     display: inline-block;
-    background-image: url('../../../../../../public/menu/info-empty.svg');
+    background-image: url('./menu/info-empty.svg');
     width: 16px;
     height: 16px;
     background-repeat: no-repeat;
