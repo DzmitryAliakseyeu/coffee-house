@@ -5,8 +5,8 @@
   "type": "module",
   "lint-staged": {
    "src/**/*.{ts,tsx,js,jsx}": [
-    "prettier --write",
-    "eslint --fix",
+     "prettier --write --loglevel debug",
+    "eslint --fix --debug",
     "git add"
   ]
   },
