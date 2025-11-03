@@ -1,0 +1,17 @@
+.registration .inputs-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:24px;
+}
+
+@media(max-width: 900px){
+    .registration .inputs-container{
+        flex-direction: column;
+    }
+
+    .registration .input-block-city,.registration .input-block-street,.registration .input-block-house-number {
+        max-width: 100%;
+        width: 100%;
+    }
+}

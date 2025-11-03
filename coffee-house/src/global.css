@@ -65,6 +65,12 @@ ul {
     line-height: 150%;
 }
 
+.burger-link {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+}
+
 .container-section {
     max-width: 1360px;
     width: 100%;
@@ -85,7 +91,7 @@ ul {
     background-color: #665F55;
 }
 
-.hero, .favorite, .about, .menu {
+.hero, .favorite, .about, .menu, .sign-in {
     display: flex;
     justify-content: center;
     width: 100%;

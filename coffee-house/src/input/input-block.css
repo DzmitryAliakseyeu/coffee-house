@@ -1,0 +1,72 @@
+.input-block {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    height: 84px;
+}
+
+.input-field {
+    background-color: transparent;
+    height: 56px;
+    border: 1px solid #C1B6AD;
+    border-radius: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+}
+
+.input-field.invalid {
+  border-color: #F44336;
+  background-image: url('../../public/input/attention.svg');
+  background-position: 98% center;
+  background-repeat: no-repeat;
+}
+
+.input-field.valid {
+  border-color: #0DBB42;
+  background-image: url('../input/check.svg');
+  background-position: 98% center;
+  background-repeat: no-repeat;
+}
+
+.input-field::placeholder {
+    color: #403f3d41;
+}
+
+.input-error {
+    position: absolute;
+    bottom: -20px;
+    margin: 0;
+    font-size: 12px;
+}
+
+.registration .input-block-city, .registration  .input-block-street,.registration  .input-block-house-number{
+    max-width: 260px;
+    width: 100%;
+}
+
+.registration .input-block-login {
+    padding-left: 56px;
+}
+
+
+
+@media(max-width: 1050px){
+    .registration .input-block-login{
+        padding: 0;
+    }
+}
+
+
+
+@media(max-width: 430px){
+    .input-block{
+        width: 360px;
+    }
+}
