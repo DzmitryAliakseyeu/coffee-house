@@ -78,8 +78,7 @@ export default function createContainerHeader(parent: HTMLElement) {
         parent: userButtonsContainer,
         className: 'profile',
         action: () => {
-          // window.open('/coffee-house/pages/menu.html', '_self');
-          console.log('profile');
+          window.open('/coffee-house/pages/profile.html', '_self');
         },
         text: '',
         hasIcon: true,
