@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/../.husky/_/husky.sh"
-echo 'run husky'
+
 cd "$(dirname "$0")/.." # перейти в coffee-house
 npx lint-staged
