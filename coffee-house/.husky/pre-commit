@@ -1,6 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-cd "$(dirname "$0")/.."  # move up to project root (inside coffee-house)
+cd "$(dirname "$0")/.."  # move to project root (coffee-house)
 echo "🔧 Running lint-staged..."
 npx lint-staged
