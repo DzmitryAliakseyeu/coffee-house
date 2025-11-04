@@ -28,6 +28,10 @@ export default function createContainerHeader(parent: HTMLElement) {
 
   createNavigation(navigationBox);
 
+  const userButtonsContainer = document.createElement('div');
+  userButtonsContainer.classList.add('user-buttons-container');
+  navigationBox.append(userButtonsContainer);
+
   const renderCartButton = () => {
     const oldMenuButton = navigationBox.querySelector('.button-menu');
     if (oldMenuButton) oldMenuButton.remove();
@@ -49,7 +53,18 @@ export default function createContainerHeader(parent: HTMLElement) {
       });
 
       createButton({
-        parent: navigationBox,
+        parent: userButtonsContainer,
+        className: 'profile',
+        action: () => {
+          // window.open('/coffee-house/pages/menu.html', '_self');
+          console.log('profile');
+        },
+        text: '',
+        hasIcon: true,
+      });
+
+      createButton({
+        parent: userButtonsContainer,
         className: 'cart',
         action: () => {
           window.open('/coffee-house/pages/cart.html', '_self');
@@ -60,7 +75,18 @@ export default function createContainerHeader(parent: HTMLElement) {
       });
     } else {
       createButton({
-        parent: navigationBox,
+        parent: userButtonsContainer,
+        className: 'profile',
+        action: () => {
+          // window.open('/coffee-house/pages/menu.html', '_self');
+          console.log('profile');
+        },
+        text: '',
+        hasIcon: true,
+      });
+
+      createButton({
+        parent: userButtonsContainer,
         className: 'cart',
         action: () => {
           window.open('/coffee-house/pages/cart.html', '_self');

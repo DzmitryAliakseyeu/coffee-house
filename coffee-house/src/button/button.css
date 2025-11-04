@@ -195,7 +195,8 @@
   border: none;
   padding: 0;
   align-self: center;
-  margin-right: 32px;
+  height: 38px;
+  /* margin-right: 32px; */
 }
 
 .button-cart .button-cart-text {
@@ -217,7 +218,7 @@
   background-size: contain;
   height: 20px;
   width: 20px;
-  margin-bottom: 4px;
+  /* margin-bottom: 4px; */
 }
 
 .button-cart .cart-quantity {
@@ -260,6 +261,29 @@
 .button-sign-in-request:disabled {
   pointer-events: none;
   color: #403f3d68;
+}
+
+.button-profile {
+  width: 38px;
+  height: 38px;
+  align-self: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.button-profile .button-profile-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../public/header/profile.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
 
 @media (max-width: 768px) {

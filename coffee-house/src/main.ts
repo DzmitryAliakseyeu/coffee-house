@@ -13,4 +13,3 @@ import renderPage from './renderPage';
 // checkWidth();
 
 renderPage();
-const foo =  1

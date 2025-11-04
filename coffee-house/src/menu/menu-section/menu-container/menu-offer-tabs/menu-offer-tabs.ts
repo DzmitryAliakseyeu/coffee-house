@@ -5,6 +5,7 @@ import {
 } from '../../../../interfaces/interfaces';
 import filterProducts from '../../menu-products/filter-products/filter-products';
 import { products } from '../../menu-products/menu-products';
+
 import createPreviewCard from '../../menu-products/preview-card/preview-card';
 
 import './menu-offer-tabs.css';
