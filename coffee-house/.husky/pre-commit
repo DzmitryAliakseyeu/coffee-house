@@ -1,6 +1,4 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+echo '#!/bin/sh
+sh ./coffee-house/.husky/pre-commit' > .git/hooks/pre-commit
 
-cd "$(dirname "$0")/.."  # перейти в coffee-house
-echo "🔧 Running lint-staged..."
-npx lint-staged
+chmod +x .git/hooks/pre-commit
