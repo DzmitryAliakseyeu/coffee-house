@@ -6,11 +6,10 @@ module.exports = {
   rules: {
     'header-max-length': [2, 'always', 200],
     'type-enum': [2, 'always', ['feat', 'fix', 'chore', 'docs', 'refactor']],
-    'header-case': [0, 'always'], // disable built-in casing rule
+    'header-case': [0, 'always'],
   },
-  
-  // Custom validation
-  ignores: [(commit) => false], // do not ignore any commit
+
+  ignores: [(commit) => false], 
   plugins: [
     {
       rules: {
