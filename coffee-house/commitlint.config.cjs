@@ -8,6 +8,7 @@ module.exports = {
     'type-enum': [2, 'always', ['feat', 'fix', 'chore', 'docs', 'refactor']],
     'header-case': [0, 'always'], // disable built-in casing rule
   },
+  
   // Custom validation
   ignores: [(commit) => false], // do not ignore any commit
   plugins: [
