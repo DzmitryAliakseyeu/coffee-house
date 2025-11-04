@@ -1,4 +1,6 @@
-echo '#!/bin/sh
-sh ./coffee-house/.husky/pre-commit' > .git/hooks/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
-chmod +x .git/hooks/pre-commit
+cd "$(dirname "$0")/.."  # move up to project root (inside coffee-house)
+echo "🔧 Running lint-staged..."
+npx lint-staged
