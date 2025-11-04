@@ -1,6 +1,9 @@
 #!/bin/sh
-# Husky helper script
 if [ -z "$husky_skip_init" ]; then
-  export husky_skip_init=1
-fi
+  debug () {
+    [ "$HUSKY_DEBUG" = "1" ] && echo "husky (debug) - $1"
+  }
 
+  readonly hook_name="$(basename "$0")"
+  debug "starting $hook_name hook"
+fi
