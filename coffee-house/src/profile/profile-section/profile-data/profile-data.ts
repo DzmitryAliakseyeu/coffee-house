@@ -82,7 +82,17 @@ export default async function createProfileDataGrid(parent: HTMLElement) {
         createButton({
           parent: editBlock,
           className: 'edit',
-          action: () => console.log('click'),
+          action: () => {
+            const input = editBlock.querySelector(
+              'input',
+            ) as HTMLInputElement | null;
+            if (input) {
+              input.disabled = !input.disabled;
+            }
+
+            if (input) console.log('Input value:', input.value);
+          },
+
           text: '',
           hasIcon: true,
           isHtml: false,
