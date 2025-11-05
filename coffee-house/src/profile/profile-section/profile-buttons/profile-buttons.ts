@@ -1,4 +1,5 @@
 import cancelUpdatingUserData from '../../../actions/profile/cancelUpdatingUserData';
+import logOut from '../../../actions/profile/logOut';
 import saveUpdatedUserData from '../../../actions/profile/saveUpdatedData';
 import createButton from '../../../button/button';
 import './profile-buttons.css';
@@ -8,7 +9,7 @@ export default function createProfileButtons(parent: HTMLElement) {
   profileButtonsBlock.classList.add('profile-buttons-block');
   parent.append(profileButtonsBlock);
 
-  //Button Save used for imitation sening request to update user data in server
+  //Button Save used for imitation sending request to update user data in server
   createButton({
     parent: profileButtonsBlock,
     className: 'save',
@@ -29,7 +30,7 @@ export default function createProfileButtons(parent: HTMLElement) {
   createButton({
     parent: profileButtonsBlock,
     className: 'log-out',
-    action: () => console.log('click'),
+    action: () => logOut(),
     text: 'Log out',
     hasIcon: false,
     isHtml: false,
