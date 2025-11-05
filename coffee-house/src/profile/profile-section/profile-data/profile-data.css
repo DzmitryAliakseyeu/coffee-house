@@ -1,11 +1,11 @@
 .profile-data-grid {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .edit-block {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 8px;
 }

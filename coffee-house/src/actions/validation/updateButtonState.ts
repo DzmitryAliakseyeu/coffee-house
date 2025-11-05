@@ -8,6 +8,14 @@ export default function updateButtonState() {
     '.button-sign-in-request',
   ) as HTMLButtonElement;
 
+  const buttonSave = document.querySelector(
+    '.button-save',
+  ) as HTMLButtonElement;
+
+  const buttonCancel = document.querySelector(
+    '.button-cancel',
+  ) as HTMLButtonElement;
+
   if (buttonRegistration) {
     buttonRegistration.disabled = !checkAllInputsFilled('registrate');
     return;
@@ -17,4 +25,10 @@ export default function updateButtonState() {
     buttonSignIn.disabled = !checkAllInputsFilled('sign-in');
     return;
   }
+
+  //  if (buttonSave && buttonCancel) {
+  //   buttonSave.disabled = !checkAllInputsFilled('profile');
+  //   buttonCancel.disabled = !checkAllInputsFilled('profile');
+  //   return;
+  // }
 }

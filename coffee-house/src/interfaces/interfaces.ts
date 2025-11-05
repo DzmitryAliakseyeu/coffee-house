@@ -133,6 +133,28 @@ export interface UserSignInI {
   password: string;
 }
 
+export interface UpdatedUserDataI {
+  login: string;
+  paymentMethod: string;
+  address: {
+    city: string;
+    street: string;
+    houseNumber: string;
+  };
+}
+
+type PaymenthMethodI = 'cash' | 'card';
+
+export interface UserProfileFromServerI {
+  city: string;
+  createdAt: string;
+  houseNumber: string;
+  id: number;
+  login: string;
+  paymentMethod: PaymenthMethodI;
+  street: string;
+}
+
 export interface OrderToServerI {
   items: OrderItemToServerI[];
   totalPrice: number;

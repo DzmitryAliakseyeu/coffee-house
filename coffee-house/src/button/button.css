@@ -248,7 +248,10 @@
 .button-sign-in,
 .button-registration,
 .button-sign-in-request,
-.button-registration-request {
+.button-registration-request,
+.button-save,
+.button-cancel,
+.button-log-out {
   width: 200px;
   height: 44px;
   box-sizing: border-box;
@@ -258,7 +261,9 @@
 }
 
 .button-registration-request:disabled,
-.button-sign-in-request:disabled {
+.button-sign-in-request:disabled,
+.button-save:disabled,
+.button-cancel:disabled {
   pointer-events: none;
   color: #403f3d68;
 }
@@ -305,6 +310,13 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
+}
+
+.button-save,
+.button-cancel,
+.button-log-out {
+  min-width: 150px;
+  width: fit-content;
 }
 
 @media (max-width: 768px) {
@@ -477,7 +489,10 @@
   .button-add-to-cart:hover,
   .button-sign-in:hover,
   .button-registration:hover,
-  .button-confirm:hover {
+  .button-confirm:hover,
+  .button-save:hover,
+  .button-cancel:hover,
+  .button-log-out:hover {
     background-color: #665f55;
     color: #e1d4c9;
     transition: all 0.2s ease-in;

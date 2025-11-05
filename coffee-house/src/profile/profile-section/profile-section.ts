@@ -1,5 +1,7 @@
+import updateButtonState from '../../actions/validation/updateButtonState';
 import createButton from '../../button/button';
 import createInputsContainer from '../../registration/registration-section/inputs-container/inputs-container';
+import createProfileButtons from './profile-buttons/profile-buttons';
 import createProfileDataGrid from './profile-data/profile-data';
 
 import './profile-section.css';
@@ -21,6 +23,9 @@ export default function createProfileSection(parent: HTMLElement) {
   containerSection.append(sectionTitle);
 
   createProfileDataGrid(containerSection);
+  createProfileButtons(containerSection);
+
+  updateButtonState();
 
   //   createInputsContainer(containerSection);
 

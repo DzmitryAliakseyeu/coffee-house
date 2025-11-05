@@ -1,10 +1,20 @@
+import updateButtonState from '../../../actions/validation/updateButtonState';
 import createButton from '../../../button/button';
 import { hideErrorText, showErrorText } from '../../../error/error';
 import createRadioGroup from '../../../input-radio/input-radio';
 import createInputBlock from '../../../input/input-block';
 import { hideLoader, showLoader } from '../../../loader/loader';
 import getProfile from '../../../requests/getProfile';
+import { userDataFromServer } from '../../../user-data/user-data';
 import './profile-data.css';
+
+let updatedUserData = {
+  login: '',
+  city: '',
+  street: '',
+  houseNumber: 0,
+  paymentMethod: '',
+};
 
 export default async function createProfileDataGrid(parent: HTMLElement) {
   const profileDataGrid = document.createElement('div');
@@ -22,6 +32,12 @@ export default async function createProfileDataGrid(parent: HTMLElement) {
 
       let profileData = response.data;
       console.log(profileData);
+
+      userDataFromServer.login = profileData.login;
+      userDataFromServer.address.city = profileData.city;
+      userDataFromServer.address.street = profileData.street;
+      userDataFromServer.address.houseNumber = profileData.houseNumber;
+      userDataFromServer.paymentMethod = profileData.paymentMethod;
 
       setTimeout(() => hideLoader('.profile'), 1000);
 
@@ -88,9 +104,9 @@ export default async function createProfileDataGrid(parent: HTMLElement) {
             ) as HTMLInputElement | null;
             if (input) {
               input.disabled = !input.disabled;
-            }
 
-            if (input) console.log('Input value:', input.value);
+              updateButtonState();
+            }
           },
 
           text: '',
