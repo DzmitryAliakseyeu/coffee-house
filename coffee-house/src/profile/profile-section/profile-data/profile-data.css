@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.edit-block {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

@@ -7,13 +7,19 @@ export default [
   js.configs.recommended,
   // ...ts.configs.recommended,
   {
-    ignores: ['dist', 'node_modules', '*.config.js', '*.config.ts', 'scripts/**/*'],
+    ignores: [
+      'dist',
+      'node_modules',
+      '*.config.js',
+      '*.config.ts',
+      'scripts/**/*',
+    ],
   },
   {
     files: ['src/**/*.{ts,tsx,js}'],
     languageOptions: {
       parser,
-    
+
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -21,27 +27,26 @@ export default [
 
         // tsconfigRootDir: import.meta.dirname,
       },
-       globals: {
-          console: 'readonly',
-      document: 'readonly',
-      window: 'readonly',
-      HTMLElement: 'readonly',
-      HTMLLIElement: 'readonly',
-      HTMLDivElement: 'readonly',
-      setTimeout: 'readonly',
-      clearTimeout: 'readonly',
-      setInterval: 'readonly',
-      clearInterval: 'readonly',
-      requestAnimationFrame: 'readonly',
-      cancelAnimationFrame: 'readonly',
-      fetch: 'readonly',
-      localStorage: 'readonly',
-      HTMLButtonElement: 'readonly',
-      HTMLInputElement: 'readonly',
-      Event: 'readonly',
-      sessionStorage: 'readonly'
+      globals: {
+        console: 'readonly',
+        document: 'readonly',
+        window: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLLIElement: 'readonly',
+        HTMLDivElement: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        requestAnimationFrame: 'readonly',
+        cancelAnimationFrame: 'readonly',
+        fetch: 'readonly',
+        localStorage: 'readonly',
+        HTMLButtonElement: 'readonly',
+        HTMLInputElement: 'readonly',
+        Event: 'readonly',
+        sessionStorage: 'readonly',
       },
-   
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
@@ -52,9 +57,9 @@ export default [
       'no-unused-vars': 'warn',
       // '@typescript-eslint/no-unused-vars': ['warn'],
       '@typescript-eslint/no-explicit-any': ['error'],
-      "no-useless-escape": "off",
+      'no-useless-escape': 'off',
       //  "no-console": ["error"]
-      "no-console": 'off'
+      'no-console': 'off',
     },
   },
 ];

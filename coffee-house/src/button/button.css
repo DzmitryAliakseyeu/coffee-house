@@ -286,6 +286,27 @@
   background-position: center center;
 }
 
+.button-edit {
+  width: 56px;
+  height: 56px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+
+.button-edit .button-edit-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../public/profile/pencil.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
 @media (max-width: 768px) {
   .button-menu {
     width: 100%;

@@ -1,6 +1,6 @@
 // vite.config.js
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
   root: '.',
@@ -13,7 +13,6 @@ export default defineConfig({
         cart: resolve(__dirname, 'pages/cart.html'),
         registration: resolve(__dirname, 'pages/registration.html'),
         signin: resolve(__dirname, 'pages/sign-in.html'),
-
       },
     },
   },
