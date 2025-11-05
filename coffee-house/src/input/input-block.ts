@@ -12,6 +12,7 @@ export default function createInputBlock(
   labelName: string,
   type: string,
   placeholder: string,
+  value = '',
 ) {
   const inputBlock = document.createElement('div');
   inputBlock.classList.add('input-block');
@@ -30,6 +31,11 @@ export default function createInputBlock(
   input.classList.add('medium');
   input.id = className;
   inputBlock.append(input);
+
+  if (value) {
+    input.value = value;
+    input.disabled = true;
+  }
 
   if (labelName.toLowerCase() === 'confirm password') {
     input.disabled = true;

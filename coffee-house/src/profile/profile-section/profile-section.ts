@@ -1,23 +1,26 @@
 import createButton from '../../button/button';
 import createInputsContainer from '../../registration/registration-section/inputs-container/inputs-container';
+import createProfileDataGrid from './profile-data/profile-data';
 
 import './profile-section.css';
 
 export default function createProfileSection(parent: HTMLElement) {
-  const sectionRegistration = document.createElement('section');
-  sectionRegistration.classList.add('registration');
-  parent.append(sectionRegistration);
+  const sectionProfile = document.createElement('section');
+  sectionProfile.classList.add('profile');
+  parent.append(sectionProfile);
 
   const containerSection = document.createElement('section');
   containerSection.classList.add('container-section');
-  sectionRegistration.append(containerSection);
+  sectionProfile.append(containerSection);
 
   const sectionTitle = document.createElement('h2');
-  sectionTitle.classList.add('Registration-title');
+  sectionTitle.classList.add('profile-title');
   sectionTitle.classList.add('heading-2');
   sectionTitle.classList.add('text-dark');
   sectionTitle.textContent = 'Profile';
   containerSection.append(sectionTitle);
+
+  createProfileDataGrid(containerSection);
 
   //   createInputsContainer(containerSection);
 
