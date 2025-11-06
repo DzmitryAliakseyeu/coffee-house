@@ -57,6 +57,14 @@
   padding-left: 56px;
 }
 
+.label[for='password'],
+.label[for='confirm-password'] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
 @media (max-width: 1050px) {
   .registration .input-block-login {
     padding: 0;

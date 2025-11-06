@@ -1,8 +1,10 @@
+import toggleShowPassword from '../actions/input/toggle-show-password';
 import updateButtonState from '../actions/validation/updateButtonState';
 import validateConfirmPassword from '../actions/validation/validateConfirmPassword';
 import validateHouseNumber from '../actions/validation/validateHouseNumber';
 import validateLogin from '../actions/validation/validateLogin';
 import validatePassword from '../actions/validation/validatePassword';
+import createButton from '../button/button';
 import { userAddress, userSignIn } from '../user-data/user-data';
 import './input-block.css';
 
@@ -31,6 +33,22 @@ export default function createInputBlock(
   input.classList.add('medium');
   input.id = className;
   inputBlock.append(input);
+
+  if (input.id === 'password' || input.id === 'confirm-password') {
+    createButton({
+      parent: label,
+      className: 'toggle-password',
+      action: () => {
+        const button = label.querySelector(
+          '.button-toggle-password',
+        ) as HTMLElement;
+        toggleShowPassword(button);
+      },
+      text: '',
+      hasIcon: true,
+      isHtml: false,
+    });
+  }
 
   if (value) {
     input.value = value;
