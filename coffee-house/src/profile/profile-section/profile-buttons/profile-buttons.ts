@@ -9,30 +9,56 @@ export default function createProfileButtons(parent: HTMLElement) {
   profileButtonsBlock.classList.add('profile-buttons-block');
   parent.append(profileButtonsBlock);
 
-  //Button Save used for imitation sending request to update user data in server
-  createButton({
-    parent: profileButtonsBlock,
-    className: 'save',
-    action: () => saveUpdatedUserData(),
-    text: 'Save',
-    hasIcon: false,
-    isHtml: false,
-  });
+  let token = localStorage.getItem('token');
 
-  createButton({
-    parent: profileButtonsBlock,
-    className: 'cancel',
-    action: () => cancelUpdatingUserData(),
-    text: 'Cancel',
-    hasIcon: false,
-    isHtml: false,
-  });
-  createButton({
-    parent: profileButtonsBlock,
-    className: 'log-out',
-    action: () => logOut(),
-    text: 'Log out',
-    hasIcon: false,
-    isHtml: false,
-  });
+  if (!token) {
+    createButton({
+      parent: profileButtonsBlock,
+      className: 'sign-in',
+      action: () => {
+        window.open('/coffee-house/pages/sign-in.html', '_self');
+      },
+      text: 'Sign In',
+      hasIcon: false,
+      isHtml: false,
+    });
+
+    createButton({
+      parent: profileButtonsBlock,
+      className: 'registration',
+      action: () => {
+        window.open('/coffee-house/pages/registration.html', '_self');
+      },
+      text: 'Registration',
+      hasIcon: false,
+      isHtml: false,
+    });
+  } else {
+    //Button Save used for imitation sending request to update user data in server
+    createButton({
+      parent: profileButtonsBlock,
+      className: 'save',
+      action: () => saveUpdatedUserData(),
+      text: 'Save',
+      hasIcon: false,
+      isHtml: false,
+    });
+
+    createButton({
+      parent: profileButtonsBlock,
+      className: 'cancel',
+      action: () => cancelUpdatingUserData(),
+      text: 'Cancel',
+      hasIcon: false,
+      isHtml: false,
+    });
+    createButton({
+      parent: profileButtonsBlock,
+      className: 'log-out',
+      action: () => logOut(),
+      text: 'Log out',
+      hasIcon: false,
+      isHtml: false,
+    });
+  }
 }

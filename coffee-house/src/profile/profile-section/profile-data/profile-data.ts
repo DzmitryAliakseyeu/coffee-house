@@ -21,12 +21,12 @@ export default async function createProfileDataGrid(parent: HTMLElement) {
   profileDataGrid.classList.add('profile-data-grid');
   parent.append(profileDataGrid);
 
-  hideErrorText('.profile');
-  showLoader('.profile');
-
   let token = localStorage.getItem('token');
+  if (!token) return;
 
   if (token) {
+    hideErrorText('.profile');
+    showLoader('.profile');
     try {
       let response = await getProfile(token);
 
