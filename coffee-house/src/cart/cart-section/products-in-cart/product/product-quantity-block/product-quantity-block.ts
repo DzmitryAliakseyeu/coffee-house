@@ -1,3 +1,5 @@
+import decreaseProductQuantity from '../../../../../actions/cart/decreaseProductQuantity';
+import increaseProductQuantity from '../../../../../actions/cart/increase-product-quantity';
 import createButton from '../../../../../button/button';
 import './product-quantity-block.css';
 
@@ -12,7 +14,7 @@ export default function createProductQuantityBlock(
   createButton({
     parent: productQuantityBlock,
     className: 'decrease-product',
-    action: () => console.log('decrease'),
+    action: () => decreaseProductQuantity(productQuantityBlock),
     text: '-',
     hasIcon: false,
     isHtml: false,
@@ -26,7 +28,7 @@ export default function createProductQuantityBlock(
   createButton({
     parent: productQuantityBlock,
     className: 'increase-product',
-    action: () => console.log('increase'),
+    action: () => increaseProductQuantity(productQuantityBlock),
     text: '+',
     hasIcon: false,
     isHtml: false,

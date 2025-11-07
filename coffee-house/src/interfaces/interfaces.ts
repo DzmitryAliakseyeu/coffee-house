@@ -183,4 +183,6 @@ export interface UnionOrderI {
   quantity: number;
   totlatPrice: number;
   totalDiscountSum: number;
+  singleProductTotalSum: number;
+  singleProductDiscountSum: number;
 }

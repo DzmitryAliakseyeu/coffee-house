@@ -1,3 +1,4 @@
+import { UnionOrderI } from '../../interfaces/interfaces';
 import normalizeOrder from './normalizeOrder';
 
 export default function deepCompareOrders() {
@@ -9,7 +10,12 @@ export default function deepCompareOrders() {
     console.log(key);
 
     if (!uniqOrders.has(key)) {
-      uniqOrders.set(key, { ...order, quantity: 1 });
+      uniqOrders.set(key, {
+        ...order,
+        quantity: 1,
+        singleProductDiscountSum: order.totalDiscountSum,
+        singleProductTotalSum: order.totlatPrice,
+      });
     } else {
       uniqOrders.get(key).quantity += 1;
     }
