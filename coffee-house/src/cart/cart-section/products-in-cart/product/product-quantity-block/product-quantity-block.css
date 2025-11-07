@@ -1,5 +1,11 @@
 .product-quantity-block {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 4px;
+}
+
+.product-quantity-text {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
 }

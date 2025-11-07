@@ -1,0 +1,10 @@
+.product-image-box {
+  width: 100px;
+  height: 100px;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+}

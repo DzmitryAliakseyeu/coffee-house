@@ -18,7 +18,9 @@ export default function createProductQuantityBlock(
     isHtml: false,
   });
   const productQuantityText = document.createElement('p');
-  productQuantityText.classList.add('product-quntity-text');
+  productQuantityText.classList.add('product-quantity-text');
+  productQuantityText.classList.add('text-dark');
+  productQuantityText.classList.add('medium');
   productQuantityText.textContent = String(quantity);
   productQuantityBlock.append(productQuantityText);
   createButton({
@@ -29,4 +31,14 @@ export default function createProductQuantityBlock(
     hasIcon: false,
     isHtml: false,
   });
+
+  const decreaseButtonText = document.querySelector(
+    '.button-decrease-product-text',
+  ) as HTMLElement;
+  const increaseButtonText = document.querySelector(
+    '.button-increase-product-text',
+  ) as HTMLElement;
+
+  decreaseButtonText.classList.add('text-dark');
+  increaseButtonText.classList.add('text-dark');
 }

@@ -1,0 +1,10 @@
+.product-description {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.product-extras {
+  margin: 0;
+}
