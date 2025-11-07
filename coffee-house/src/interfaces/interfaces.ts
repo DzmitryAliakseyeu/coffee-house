@@ -166,3 +166,21 @@ export interface OrderItemToServerI {
   additives: string[];
   quantity: number;
 }
+
+export interface UnionOrderI {
+  id: string;
+  name: string;
+  size: string;
+  selectSize: string;
+  extras: string[];
+  discountPrice: number;
+  price: {
+    base: number;
+    size: number;
+    discount: number;
+    additivies: number[];
+  };
+  quantity: number;
+  totlatPrice: number;
+  totalDiscountSum: number;
+}

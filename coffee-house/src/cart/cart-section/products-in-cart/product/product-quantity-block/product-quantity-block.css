@@ -1,0 +1,5 @@
+.product-quantity-block {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
