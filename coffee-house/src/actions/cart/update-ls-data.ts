@@ -1,6 +1,9 @@
-import { UnionOrderI } from '../../interfaces/interfaces';
+import { OrderI, UnionOrderI } from '../../interfaces/interfaces';
 
-export default function updateLocalStorageData(parent: HTMLElement) {
+export default function updateLocalStorageData(
+  parent: HTMLElement,
+  action: 'decrease' | 'increase',
+) {
   const productName = parent.querySelector('.product-title') as HTMLElement;
   const productExtras = parent.querySelector('.product-extras') as HTMLElement;
   const productExtrasArray = productExtras.textContent.split(',');
@@ -21,9 +24,41 @@ export default function updateLocalStorageData(parent: HTMLElement) {
       order.quantity = +productQuantityText.textContent;
       order.totlatPrice = order.quantity * order.singleProductTotalSum;
       order.totalDiscountSum = order.quantity * order.singleProductDiscountSum;
+      return order;
     }
     return order;
   });
 
   localStorage.setItem('unionOrders', JSON.stringify(updatedUnionOrders));
+
+  const ordersInLS: OrderI[] = JSON.parse(
+    localStorage.getItem('orders') || '[]',
+  );
+  if (action === 'increase') {
+    const match = ordersInLS.find(
+      (order) =>
+        order.name === productName.textContent &&
+        order.selectSize === productSelectSize &&
+        order.extras.join(',').trim() === productAddivities.join(',').trim(),
+    );
+
+    if (match) {
+      ordersInLS.push({ ...match });
+    }
+  }
+
+  if (action === 'decrease') {
+    const index = ordersInLS.findIndex(
+      (order) =>
+        order.name === productName.textContent &&
+        order.selectSize === productSelectSize &&
+        order.extras.join(',').trim() === productAddivities.join(',').trim(),
+    );
+
+    if (index !== -1) {
+      ordersInLS.splice(index, 1);
+    }
+  }
+
+  localStorage.setItem('orders', JSON.stringify(ordersInLS));
 }

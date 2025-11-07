@@ -14,6 +14,6 @@ export default function decreaseProductQuantity(parent: HTMLElement) {
 
   productQuantityText.textContent = String(+quantity - 1);
 
-  updateLocalStorageData(productBlock);
+  updateLocalStorageData(productBlock, 'decrease');
   updateDataPage(productBlock);
 }

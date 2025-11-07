@@ -18,6 +18,12 @@ export default function deepCompareOrders() {
       });
     } else {
       uniqOrders.get(key).quantity += 1;
+      uniqOrders.get(key).totalDiscountSum =
+        uniqOrders.get(key).singleProductDiscountSum *
+        uniqOrders.get(key).quantity;
+      uniqOrders.get(key).totlatPrice =
+        uniqOrders.get(key).singleProductTotalSum *
+        uniqOrders.get(key).quantity;
     }
   }
 

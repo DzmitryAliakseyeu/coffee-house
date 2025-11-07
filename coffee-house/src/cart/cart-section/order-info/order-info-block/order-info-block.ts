@@ -1,3 +1,4 @@
+import updateLocalStorageData from '../../../../actions/cart/update-ls-data';
 import { OrderI } from '../../../../interfaces/interfaces';
 import getProfile from '../../../../requests/getProfile';
 import './order-info-block.css';
@@ -37,17 +38,40 @@ export default async function createOrderInfoBlock(
     orederInfoText.classList.add('text-dark');
     totalPriceBlock.append(orederInfoText);
 
-    let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
-    let totalOrderSum = productsInLS.reduce(
+    // let productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
+    // let totalOrderSum = productsInLS.reduce(
+    //   (acc: number, item: OrderI) => acc + item.totlatPrice,
+    //   0,
+    // );
+    // let totalDiscountSum = productsInLS.reduce(
+    //   (acc: number, item: OrderI) => acc + item.totalDiscountSum,
+    //   0,
+    // );
+
+    // let poductsWithoutDiscount = productsInLS.filter(
+    //   (item: OrderI) => item.totalDiscountSum === 0,
+    //   0,
+    // );
+
+    // let sumPricesPoductsWithoutDiscount = poductsWithoutDiscount.reduce(
+    //   (acc: number, item: OrderI) => acc + item.totlatPrice,
+    //   0,
+    // );
+
+    let unionOrdesInLS = JSON.parse(
+      localStorage.getItem('unionOrders') ?? '[]',
+    );
+    console.log(unionOrdesInLS);
+    let totalOrderSum = unionOrdesInLS.reduce(
       (acc: number, item: OrderI) => acc + item.totlatPrice,
       0,
     );
-    let totalDiscountSum = productsInLS.reduce(
+    let totalDiscountSum = unionOrdesInLS.reduce(
       (acc: number, item: OrderI) => acc + item.totalDiscountSum,
       0,
     );
 
-    let poductsWithoutDiscount = productsInLS.filter(
+    let poductsWithoutDiscount = unionOrdesInLS.filter(
       (item: OrderI) => item.totalDiscountSum === 0,
       0,
     );

@@ -1,12 +1,12 @@
 .product-price {
-  width: 69px;
+  width: fit-content;
   text-align: right;
 }
 
 .product-price-block {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 10px;
   justify-content: end;
   min-width: 200px;
 }

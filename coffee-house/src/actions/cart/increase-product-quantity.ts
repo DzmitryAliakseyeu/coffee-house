@@ -11,6 +11,6 @@ export default function increaseProductQuantity(parent: HTMLElement) {
 
   productQuantityText.textContent = String(+quantity + 1);
 
-  updateLocalStorageData(productBlock);
+  updateLocalStorageData(productBlock, 'increase');
   updateDataPage(productBlock);
 }

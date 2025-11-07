@@ -14,7 +14,7 @@ export default function createProductPriceBlock(
   productPrice.classList.add('heading-3');
   productPrice.classList.add('text-dark');
   productPriceBlock.append(productPrice);
-  productPrice.textContent = `$${(product.totlatPrice * product.quantity).toFixed(2)}`;
+  productPrice.textContent = `$${product.totlatPrice.toFixed(2)}`;
 
   let token = localStorage.getItem('token');
 
@@ -25,7 +25,7 @@ export default function createProductPriceBlock(
     discountPriceProduct.classList.add('text-dark');
     discountPriceProduct.classList.add('cart-card-price');
     productPriceBlock.append(discountPriceProduct);
-    discountPriceProduct.textContent = `$${(product.totalDiscountSum * product.quantity).toFixed(2)}`;
+    discountPriceProduct.textContent = `$${product.totalDiscountSum.toFixed(2)}`;
   } else {
     productPrice.classList.remove('unavaliable-price');
   }
