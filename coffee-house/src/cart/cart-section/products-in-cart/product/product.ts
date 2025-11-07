@@ -20,7 +20,7 @@ export default function createProductBlock(
     parent: productBlock,
     className: 'remove-from-cart',
     action: () => {
-      removeProductFromCart(productBlock.id);
+      removeProductFromCart(productBlock);
     },
     text: '',
     hasIcon: true,
