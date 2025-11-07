@@ -2,6 +2,7 @@ import createProductsCartContainer from './products-in-cart/products-in-cart';
 import './cart-section.css';
 import createCartButtonsBlock from './cart-buttons/cart-buttons';
 import createOrderInfo from './order-info/order-info';
+import createPromoCodeBlock from './promo-code/promo-code';
 
 export default function createCartSection(parent: HTMLElement) {
   const sectionCart = document.createElement('section');
@@ -20,6 +21,7 @@ export default function createCartSection(parent: HTMLElement) {
   containerSection.append(sectionTitle);
 
   createProductsCartContainer(containerSection);
+  createPromoCodeBlock(containerSection);
   createOrderInfo(containerSection);
   createCartButtonsBlock(containerSection);
 }

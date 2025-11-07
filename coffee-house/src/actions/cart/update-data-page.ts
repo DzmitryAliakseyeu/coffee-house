@@ -42,7 +42,6 @@ export default function updateDataPage(parent: HTMLElement) {
     0,
   );
 
-  // let totalCartPriceSum = unionOrders.reduce((sum: number, item: UnionOrderI)=> console.log(item))
   let allDiscountSum = unionOrders
     .filter((order: UnionOrderI) => order.totalDiscountSum > 0)
     .reduce((sum: number, item: UnionOrderI) => sum + item.totalDiscountSum, 0);
@@ -50,9 +49,6 @@ export default function updateDataPage(parent: HTMLElement) {
     .filter((order: UnionOrderI) => order.totalDiscountSum === 0)
     .reduce((sum: number, item: UnionOrderI) => sum + item.totlatPrice, 0);
   let totalCartAllPriceSum = allDiscountSum + allWithoutTotalDiscountSum;
-
-  console.log(totalCartAllPriceSum);
-  console.log(totalCartPriceSum);
   totalCartPrice.textContent = `$${String(totalCartPriceSum.toFixed(2))}`;
 
   if (totalCartDiscountPrice) {

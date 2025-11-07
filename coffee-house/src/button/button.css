@@ -251,7 +251,8 @@
 .button-registration-request,
 .button-save,
 .button-cancel,
-.button-log-out {
+.button-log-out,
+.button-apply-promo-code {
   width: 200px;
   height: 44px;
   box-sizing: border-box;
@@ -376,6 +377,12 @@
 .button-increase-product-text {
   text-align: left;
   padding-left: 8px;
+}
+
+.button-apply-promo-code {
+  width: 150px;
+  align-self: flex-end;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
@@ -551,7 +558,8 @@
   .button-confirm:hover,
   .button-save:hover,
   .button-cancel:hover,
-  .button-log-out:hover {
+  .button-log-out:hover,
+  .button-apply-promo-code:hover {
     background-color: #665f55;
     color: #e1d4c9;
     transition: all 0.2s ease-in;

@@ -1,5 +1,6 @@
 import toggleShowPassword from '../actions/input/toggle-show-password';
 import updateButtonState from '../actions/validation/updateButtonState';
+import validatePromoCode from '../actions/validation/validate-promo-code';
 import validateConfirmPassword from '../actions/validation/validateConfirmPassword';
 import validateHouseNumber from '../actions/validation/validateHouseNumber';
 import validateLogin from '../actions/validation/validateLogin';
@@ -75,6 +76,23 @@ export default function createInputBlock(
       isValid = validateConfirmPassword(input, inputError);
     } else if (labelName.toLocaleLowerCase() === 'house number') {
       isValid = validateHouseNumber(input, inputError);
+    } else if (labelName.toLocaleLowerCase() === 'promo code') {
+      const buttonApplyPromoCode = document.querySelector(
+        '.button-apply-promo-code',
+      ) as HTMLButtonElement;
+      isValid = validatePromoCode(input, inputError);
+      buttonApplyPromoCode.removeAttribute('disabled');
+      if (!isValid) {
+        buttonApplyPromoCode.setAttribute('disabled', '');
+      }
+      if (input.value === '') {
+        input.classList.remove('valid');
+        input.classList.remove('invalid');
+
+        buttonApplyPromoCode.setAttribute('disabled', '');
+
+        return;
+      }
     }
 
     if (!isValid) {
