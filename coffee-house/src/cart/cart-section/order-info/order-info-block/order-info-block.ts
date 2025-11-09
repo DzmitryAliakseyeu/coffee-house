@@ -1,4 +1,3 @@
-import updateLocalStorageData from '../../../../actions/cart/update-ls-data';
 import { OrderI } from '../../../../interfaces/interfaces';
 import getProfile from '../../../../requests/getProfile';
 import './order-info-block.css';

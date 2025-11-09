@@ -1,9 +1,5 @@
 import { hideErrorText, showErrorText } from '../../error/error';
-import {
-  OrderToServerI,
-  ProductInLSI,
-  UnionOrderI,
-} from '../../interfaces/interfaces';
+import { OrderToServerI, UnionOrderI } from '../../interfaces/interfaces';
 import { hideLoader, showLoader } from '../../loader/loader';
 import confirmOrderRequest from '../../requests/confirmOrder';
 

@@ -1,6 +1,6 @@
 import removeProductFromCart from '../../../../actions/cart/removeProductFromCart';
 import createButton from '../../../../button/button';
-import { OrderI, UnionOrderI } from '../../../../interfaces/interfaces';
+import { UnionOrderI } from '../../../../interfaces/interfaces';
 import createProductDescriptionBlock from './product-description-block/product-description-block';
 import createProductImageBlock from './product-image-block/product-image-block';
 import createProductPriceBlock from './product-price-block/product-price-block';

@@ -1,5 +1,4 @@
 import checkAllInputsFilled from './checkAllFormFields';
-import validatePromoCode from './validate-promo-code';
 
 export default function updateButtonState() {
   const buttonRegistration = document.querySelector(

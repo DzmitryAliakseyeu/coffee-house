@@ -8,13 +8,13 @@ import getProfile from '../../../requests/getProfile';
 import { userDataFromServer } from '../../../user-data/user-data';
 import './profile-data.css';
 
-let updatedUserData = {
-  login: '',
-  city: '',
-  street: '',
-  houseNumber: 0,
-  paymentMethod: '',
-};
+// let updatedUserData = {
+//   login: '',
+//   city: '',
+//   street: '',
+//   houseNumber: 0,
+//   paymentMethod: '',
+// };
 
 export default async function createProfileDataGrid(parent: HTMLElement) {
   const profileDataGrid = document.createElement('div');

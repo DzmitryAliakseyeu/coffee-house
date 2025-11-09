@@ -189,3 +189,10 @@ export interface UnionOrderI {
   totlatPriceWithPromoCode: number;
   totalDiscountSumWithPromoCode: number;
 }
+
+export interface CardDataI {
+  cardholderName: string;
+  cardNumber: string;
+  expires: string;
+  cvv: string;
+}

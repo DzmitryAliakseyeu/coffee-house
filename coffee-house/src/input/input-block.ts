@@ -1,11 +1,17 @@
 import toggleShowPassword from '../actions/input/toggle-show-password';
+import checkAllCardInputs from '../actions/validation/checkAllCardData';
 import updateButtonState from '../actions/validation/updateButtonState';
 import validatePromoCode from '../actions/validation/validate-promo-code';
+import validateCardholderName from '../actions/validation/validateCardholderName';
+import validateCardNumber from '../actions/validation/validateCardNumber';
 import validateConfirmPassword from '../actions/validation/validateConfirmPassword';
+import validateCVV from '../actions/validation/validateCVV';
+import validateExpires from '../actions/validation/validateExpires';
 import validateHouseNumber from '../actions/validation/validateHouseNumber';
 import validateLogin from '../actions/validation/validateLogin';
 import validatePassword from '../actions/validation/validatePassword';
 import createButton from '../button/button';
+import { cardData } from '../user-data/card-data';
 import { userAddress, userSignIn } from '../user-data/user-data';
 import './input-block.css';
 
@@ -93,6 +99,14 @@ export default function createInputBlock(
 
         return;
       }
+    } else if (labelName.toLocaleLowerCase() === 'cardholder name:') {
+      isValid = validateCardholderName(input, inputError);
+    } else if (labelName.toLocaleLowerCase() === 'card number:') {
+      isValid = validateCardNumber(input, inputError);
+    } else if (labelName.toLocaleLowerCase() === 'expires:') {
+      isValid = validateExpires(input, inputError);
+    } else if (labelName.toLocaleLowerCase() === 'cvv:') {
+      isValid = validateCVV(input, inputError);
     }
 
     if (!isValid) {
@@ -121,6 +135,29 @@ export default function createInputBlock(
       if (labelName.toLocaleLowerCase() === 'house number') {
         userAddress.address.houseNumber = input.value;
       }
+      if (labelName.toLocaleLowerCase() === 'cardholder name:') {
+        cardData.cardholderName = input.value;
+        localStorage.setItem('cardData', JSON.stringify(cardData));
+        checkAllCardInputs();
+      }
+
+      if (labelName.toLocaleLowerCase() === 'card number:') {
+        cardData.cardNumber = input.value;
+        localStorage.setItem('cardData', JSON.stringify(cardData));
+        checkAllCardInputs();
+      }
+
+      if (labelName.toLocaleLowerCase() === 'expires:') {
+        cardData.expires = input.value;
+        localStorage.setItem('cardData', JSON.stringify(cardData));
+        checkAllCardInputs();
+      }
+
+      if (labelName.toLocaleLowerCase() === 'cvv:') {
+        cardData.cvv = input.value;
+        localStorage.setItem('cardData', JSON.stringify(cardData));
+        checkAllCardInputs();
+      }
     } else if (!input.value) {
       if (labelName === 'Login') {
         userAddress.login = input.value;
@@ -138,6 +175,22 @@ export default function createInputBlock(
 
       if (labelName.toLocaleLowerCase() === 'house number') {
         userAddress.address.houseNumber = input.value;
+      }
+
+      if (labelName.toLocaleLowerCase() === 'cardholder name:') {
+        cardData.cardholderName = '';
+      }
+
+      if (labelName.toLocaleLowerCase() === 'card number:') {
+        cardData.cardNumber = '';
+      }
+
+      if (labelName.toLocaleLowerCase() === 'expires:') {
+        cardData.expires = '';
+      }
+
+      if (labelName.toLocaleLowerCase() === 'cvv:') {
+        cardData.cvv = '';
       }
     }
     updateButtonState();

@@ -1,4 +1,3 @@
-import { UnionOrderI } from '../../interfaces/interfaces';
 import normalizeOrder from './normalizeOrder';
 
 export default function deepCompareOrders() {
@@ -32,8 +31,6 @@ export default function deepCompareOrders() {
       uniqOrders.get(key).totalDiscountSumWithPromoCode = 0;
     }
   }
-
-  console.log(uniqOrders.values());
 
   return Array.from(uniqOrders.values());
 }

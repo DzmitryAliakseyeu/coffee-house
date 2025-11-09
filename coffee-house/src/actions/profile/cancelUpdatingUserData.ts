@@ -1,4 +1,3 @@
-import { UserProfileFromServerI } from '../../interfaces/interfaces';
 import { updatedUserData, userDataFromServer } from '../../user-data/user-data';
 
 export default function cancelUpdatingUserData() {

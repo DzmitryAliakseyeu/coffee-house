@@ -1,8 +1,4 @@
-import {
-  updatedUserData,
-  userAddress,
-  userSignIn,
-} from '../../user-data/user-data';
+import { userAddress, userSignIn } from '../../user-data/user-data';
 
 export default function checkAllInputsFilled(page: string): boolean {
   if (page === 'registrate') {

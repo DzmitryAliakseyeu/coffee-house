@@ -1,0 +1,24 @@
+.card-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-image-block {
+  background-image: url('../../../../public/cart/card.svg');
+  width: 320px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.card-info-block {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}

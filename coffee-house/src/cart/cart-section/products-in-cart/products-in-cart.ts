@@ -1,5 +1,5 @@
 import deepCompareOrders from '../../../actions/cart/compareOrders';
-import { OrderI, UnionOrderI } from '../../../interfaces/interfaces';
+import { UnionOrderI } from '../../../interfaces/interfaces';
 import createProductBlock from './product/product';
 import './products-in-cart.css';
 
@@ -8,7 +8,7 @@ export default function createProductsCartContainer(parent: HTMLElement) {
   productsCartContainer.classList.add('products-cart-container');
   parent.append(productsCartContainer);
 
-  let productsInLS = JSON.parse(localStorage.getItem('orders') || '[]');
+  // let productsInLS = JSON.parse(localStorage.getItem('orders') || '[]');
 
   let unionOrders: UnionOrderI[] = deepCompareOrders();
   console.log(unionOrders);
