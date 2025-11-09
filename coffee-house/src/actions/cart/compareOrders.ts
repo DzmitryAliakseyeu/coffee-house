@@ -6,7 +6,6 @@ export default function deepCompareOrders() {
 
   for (let order of orders) {
     let key = normalizeOrder(order);
-    console.log(key);
 
     if (!uniqOrders.has(key)) {
       uniqOrders.set(key, {

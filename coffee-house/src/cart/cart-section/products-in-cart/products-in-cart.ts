@@ -11,7 +11,6 @@ export default function createProductsCartContainer(parent: HTMLElement) {
   // let productsInLS = JSON.parse(localStorage.getItem('orders') || '[]');
 
   let unionOrders: UnionOrderI[] = deepCompareOrders();
-  console.log(unionOrders);
   localStorage.setItem('unionOrders', JSON.stringify(unionOrders));
 
   // productsInLS.forEach((product: OrderI) => {

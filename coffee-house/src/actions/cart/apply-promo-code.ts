@@ -24,32 +24,52 @@ export default function applyPromoCode(parent: HTMLElement) {
     let unionOrdersUp = JSON.parse(localStorage.getItem('unionOrders') || '[]');
 
     unionOrdersUp.forEach((order: UnionOrderI) => {
-      const productBlock = document.getElementById(order.id) as HTMLElement;
-      const productPriceBlock = productBlock.querySelector(
-        '.product-price-block',
-      ) as HTMLElement;
-      const productTotalPriceText = productBlock.querySelector(
-        '.product-price',
-      ) as HTMLElement;
-      const productTotalDiscountPriceText = productBlock.querySelector(
-        '.cart-card-price',
-      ) as HTMLElement;
+      const productsBlock =
+        document.querySelectorAll<HTMLDivElement>('.product-block');
+      productsBlock.forEach((el) => {
+        const productName = el.querySelector('.product-title') as HTMLElement;
 
-      if (productTotalDiscountPriceText) {
-        productTotalDiscountPriceText.textContent = `$${String(order.totalDiscountSumWithPromoCode.toFixed(2))}`;
-      } else {
-        if (order.totlatPriceWithPromoCode > 0) {
-          productTotalPriceText.classList.add('unavaliable-price');
-          const discountPriceProduct = document.createElement('h3');
-          discountPriceProduct.classList.add('heading-3');
-          discountPriceProduct.classList.add('text-dark');
-          discountPriceProduct.classList.add('cart-card-price');
-          productPriceBlock.append(discountPriceProduct);
-          discountPriceProduct.textContent = `$${order.totlatPriceWithPromoCode.toFixed(2)}`;
-        } else {
-          productTotalPriceText.classList.remove('unavaliable-price');
+        const productExtras = el.querySelector(
+          '.product-extras',
+        ) as HTMLElement;
+        const productExtrasArray = productExtras.textContent.split(',');
+        const productSelectSize = productExtrasArray[0];
+        const productAddivities = productExtrasArray.splice(1);
+
+        if (
+          order.name === productName.textContent &&
+          order.selectSize === productSelectSize &&
+          order.extras.join(',').trim() === productAddivities.join(',').trim()
+        ) {
+          const productPriceBlock = el.querySelector(
+            '.product-price-block',
+          ) as HTMLElement;
+          const productTotalPriceText = el.querySelector(
+            '.product-price',
+          ) as HTMLElement;
+          const productTotalDiscountPriceText = el.querySelector(
+            '.cart-card-price',
+          ) as HTMLElement;
+
+          if (productTotalDiscountPriceText) {
+            productTotalDiscountPriceText.textContent = `$${String(order.totalDiscountSumWithPromoCode.toFixed(2))}`;
+          } else {
+            if (order.totlatPriceWithPromoCode > 0) {
+              productTotalPriceText.classList.add('unavaliable-price');
+              const discountPriceProduct = document.createElement('h3');
+              discountPriceProduct.classList.add('heading-3');
+              discountPriceProduct.classList.add('text-dark');
+              discountPriceProduct.classList.add('cart-card-price');
+              productPriceBlock.append(discountPriceProduct);
+              discountPriceProduct.textContent = `$${order.totlatPriceWithPromoCode.toFixed(2)}`;
+            } else {
+              productTotalPriceText.classList.remove('unavaliable-price');
+            }
+          }
         }
-      }
+      });
+
+      //   const productBlock = document.getElementById(order.id) as HTMLElement;
     });
 
     const totalCartDiscountPrice = document.querySelector(

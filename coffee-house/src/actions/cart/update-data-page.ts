@@ -2,6 +2,9 @@ import { UnionOrderI } from '../../interfaces/interfaces';
 
 export default function updateDataPage(parent: HTMLElement) {
   const productName = parent.querySelector('.product-title') as HTMLElement;
+  const productPriceBlock = parent.querySelector(
+    '.product-price-block',
+  ) as HTMLElement;
   const productExtras = parent.querySelector('.product-extras') as HTMLElement;
   const productExtrasArray = productExtras.textContent.split(',');
   const productSelectSize = productExtrasArray[0];
@@ -44,6 +47,29 @@ export default function updateDataPage(parent: HTMLElement) {
           }
         }
       }
+
+      //   else {
+      // if (!order.hasPromoCode) {
+
+      // }
+
+      //   if (order.hasPromoCode) {
+      //       let token = localStorage.getItem('token');
+
+      //     if (order.totlatPriceWithPromoCode > 0 && token) {
+      //         productPrice.classList.add('unavaliable-price');
+      //         const discountPriceProduct = document.createElement('h3');
+      //         discountPriceProduct.classList.add('heading-3');
+      //         discountPriceProduct.classList.add('text-dark');
+      //         discountPriceProduct.classList.add('cart-card-price');
+      //         productPriceBlock.append(discountPriceProduct);
+      //         discountPriceProduct.textContent = `$${order.totlatPriceWithPromoCode.toFixed(2)}`;
+      //     } else {
+      //         productPrice.classList.remove('unavaliable-price');
+      //     }
+
+      // }
+      //   }
     }
   });
 
@@ -52,7 +78,6 @@ export default function updateDataPage(parent: HTMLElement) {
   );
 
   if (indexOrderWithPromoCode === -1) {
-    console.log('all true');
     let productsWithoutDiscountWithPromo: UnionOrderI[] = unionOrders.filter(
       (item: UnionOrderI) => item.totalDiscountSumWithPromoCode === 0,
     );
@@ -112,6 +137,5 @@ export default function updateDataPage(parent: HTMLElement) {
     );
 
     cartHeaderQuantity.textContent = String(productsQuantityInCart);
-    console.log('continue');
   }
 }

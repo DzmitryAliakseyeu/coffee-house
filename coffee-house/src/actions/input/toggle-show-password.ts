@@ -13,7 +13,6 @@ export default function toggleShowPassword(button: HTMLElement) {
   let inputEl = inputBlockPassword ?? inputBlockConfirmPassword;
 
   const input = inputEl.querySelector('input') as HTMLInputElement;
-  console.log(input);
 
   input.type === 'password' ? (input.type = 'text') : (input.type = 'password');
 }

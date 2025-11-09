@@ -8,3 +8,9 @@
 .product-extras {
   margin: 0;
 }
+
+@media (max-width: 675px) {
+  .product-description .product-title {
+    font-size: 20px;
+  }
+}

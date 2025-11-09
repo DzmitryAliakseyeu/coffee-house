@@ -37,6 +37,8 @@ export default function createContainerHeader(parent: HTMLElement) {
     if (oldMenuButton) oldMenuButton.remove();
     const oldCartButton = navigationBox.querySelector('.button-cart');
     if (oldCartButton) oldCartButton.remove();
+    const oldProfileButton = navigationBox.querySelector('.button-profile');
+    if (oldProfileButton) oldProfileButton.remove();
 
     const productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
     const productsQuntityInCart = productsInLS ? productsInLS.length : 0;
@@ -56,11 +58,11 @@ export default function createContainerHeader(parent: HTMLElement) {
         parent: userButtonsContainer,
         className: 'profile',
         action: () => {
-          // window.open('/coffee-house/pages/menu.html', '_self');
-          console.log('profile');
+          window.open('/coffee-house/pages/profile.html', '_self');
         },
-        text: '',
-        hasIcon: true,
+        text: `<p class="burger-link text-dark profile-title">Profile</p><span class="profile-icon"></span>`,
+        hasIcon: false,
+        isHtml: true,
       });
 
       createButton({
@@ -74,14 +76,16 @@ export default function createContainerHeader(parent: HTMLElement) {
         isHtml: true,
       });
     } else {
+      document.documentElement.classList.remove('no-scroll');
       createButton({
         parent: userButtonsContainer,
         className: 'profile',
         action: () => {
           window.open('/coffee-house/pages/profile.html', '_self');
         },
-        text: '',
-        hasIcon: true,
+        text: `<span class="profile-icon"></span> <p class="link-and-button text-dark profile-text"></p>`,
+        hasIcon: false,
+        isHtml: true,
       });
 
       createButton({

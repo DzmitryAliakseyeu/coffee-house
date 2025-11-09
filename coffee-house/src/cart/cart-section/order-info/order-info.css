@@ -4,3 +4,12 @@
   gap: 12px;
   padding-left: 48px;
 }
+
+@media (max-width: 490px) {
+  .order-info {
+    padding: 0;
+  }
+  .order-info .heading-3 {
+    font-size: 20px;
+  }
+}

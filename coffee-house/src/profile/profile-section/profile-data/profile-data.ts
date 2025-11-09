@@ -31,7 +31,6 @@ export default async function createProfileDataGrid(parent: HTMLElement) {
       let response = await getProfile(token);
 
       let profileData = response.data;
-      console.log(profileData);
 
       userDataFromServer.login = profileData.login;
       userDataFromServer.address.city = profileData.city;

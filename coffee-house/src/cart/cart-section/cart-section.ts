@@ -44,7 +44,7 @@ export default async function createCartSection(parent: HTMLElement) {
         createCartButtonsBlock(containerSection);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   } else {
     createOrderInfo(containerSection);

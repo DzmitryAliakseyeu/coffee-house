@@ -284,7 +284,16 @@
   box-sizing: border-box;
 }
 
-.button-profile .button-profile-icon {
+.button-profile-text {
+  display: flex;
+  align-items: center;
+}
+
+.profile-title {
+  margin: 0;
+}
+
+.button-profile .profile-icon {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -400,12 +409,19 @@
     line-height: 125%;
   }
 
+  .user-buttons-container {
+    margin: 0;
+    width: fit-content;
+  }
+
   .button-menu-icon,
-  .button-cart .cart-icon {
+  .button-cart .cart-icon,
+  .button-profile .profile-icon {
     width: 40px;
     height: 40px;
     background-repeat: no-repeat;
     background-size: contain;
+    /* display: inline-block; */
   }
 
   .button-cart {
@@ -413,18 +429,35 @@
   }
 
   .button-cart .cart-icon {
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    margin: 0;
   }
 
   .button-cart .button-cart-text {
     gap: 16px;
     width: 130px;
     justify-content: space-between;
+    margin: 0;
   }
 
   .button-cart .button-cart-text .cart-title {
     margin: 0;
-    margin-top: 20px;
+  }
+
+  .button-profile .button-profile-text {
+    gap: 16px;
+    width: 130px;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .button-profile .button-cart-text .profile-title {
+    margin: 0;
+  }
+
+  .button-cart .button-cart-text .cart-title {
+    margin: 0;
+    /* margin-top: 20px; */
     align-self: center;
     justify-self: center;
   }
@@ -565,5 +598,19 @@
     background-color: #665f55;
     color: #e1d4c9;
     transition: all 0.2s ease-in;
+  }
+}
+
+@media (hover: none) {
+  .item::after,
+  .button-menu::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background-color: none;
+    transition: width 0.4s ease-in-out;
   }
 }

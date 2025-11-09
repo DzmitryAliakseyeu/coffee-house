@@ -4,3 +4,9 @@
   gap: 20px;
   align-items: center;
 }
+
+@media (max-width: 675px) {
+  .product-block {
+    gap: 8px;
+  }
+}

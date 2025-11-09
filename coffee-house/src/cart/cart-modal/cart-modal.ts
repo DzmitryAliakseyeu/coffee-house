@@ -48,8 +48,6 @@ export default async function createModalCart() {
       ),
     };
 
-    console.log(order);
-
     let response = await confirmOrderRequest(order);
 
     if (response) {
@@ -98,6 +96,9 @@ export default async function createModalCart() {
         modal.remove();
       }
     });
+
+    document.documentElement.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
   } catch {
     hideLoader('.modal-cart');
     showErrorText('.modal-cart');

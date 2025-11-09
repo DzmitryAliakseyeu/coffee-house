@@ -96,9 +96,24 @@
 
   .navigation-box.open {
     transform: translateX(0);
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 0;
   }
 
   .button-burger {
     display: block;
+  }
+
+  .user-buttons-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 30px;
+  }
+
+  button:hover,
+  a:hover {
+    border: none;
   }
 }

@@ -8,7 +8,6 @@ export default function saveUpdatedUserData() {
     const selected = document.querySelector<HTMLInputElement>(
       'input[name="pay-by"]:checked',
     );
-    console.log(selected);
     if (!input) return;
 
     if (selected) updatedUserData.paymentMethod = selected.value.toLowerCase();
@@ -33,6 +32,4 @@ export default function saveUpdatedUserData() {
         break;
     }
   });
-
-  console.log(updatedUserData);
 }
