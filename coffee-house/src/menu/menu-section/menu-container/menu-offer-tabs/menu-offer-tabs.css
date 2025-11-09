@@ -1,14 +1,14 @@
 .menu-offer-tabs {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    width: fit-content;
-    align-self: center;
-    margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: fit-content;
+  align-self: center;
+  margin: 0;
 }
 
 .tab-item {
-  border: 1px solid #C1B6AD;
+  border: 1px solid #c1b6ad;
   border-radius: 100px;
   display: flex;
   flex-direction: row;
@@ -16,60 +16,56 @@
   align-items: center;
   width: fit-content;
   padding-left: 8px;
-  padding-right: 16px;;
+  padding-right: 16px;
 }
 
-.tab-link{
+.tab-link {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   align-items: center;
   gap: 8px;
 }
 
 .tab-icon {
-    width: 30px;
-    height: 30px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-color: #C1B6AD;
-    border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #c1b6ad;
+  border-radius: 100%;
 }
 
-.tab-coffee-icon{
-    background-image: url('../menu/menu-offer-tabs/coffee.png');
+.tab-coffee-icon {
+  background-image: url('../menu/menu-offer-tabs/coffee.png');
 }
 
-.tab-tea-icon{
-    background-image: url('../menu/menu-offer-tabs/tea.png');
+.tab-tea-icon {
+  background-image: url('../menu/menu-offer-tabs/tea.png');
 }
 
 .tab-dessert-icon {
-background-image: url('../menu/menu-offer-tabs/dessert.png');
+  background-image: url('../menu/menu-offer-tabs/dessert.png');
 }
 
 .tab-active {
-     background-color: #665F55;
+  background-color: #665f55;
 }
 
 .menu-offer-tabs .tab-active {
-    background-color: #665F55;
-     pointer-events: none;
-    
+  background-color: #665f55;
+  pointer-events: none;
 }
 
-.tab-active .tab-icon{
-    background-color: #E1D4C9;
-   
+.tab-active .tab-icon {
+  background-color: #e1d4c9;
 }
 
-.tab-active .tab-text{
-    color: #E1D4C9;
+.tab-active .tab-text {
+  color: #e1d4c9;
 }
 
-
-
-@media (max-width: 500px){
-    .menu-offer-tabs {
-        gap: 8px;
-    }
+@media (max-width: 500px) {
+  .menu-offer-tabs {
+    gap: 8px;
+  }
 }

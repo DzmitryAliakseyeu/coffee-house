@@ -1,9 +1,9 @@
 .overlay .error {
-    width: 80%;
-    justify-self: center;
-    align-self: center;
+  width: 80%;
+  justify-self: center;
+  align-self: center;
 }
 
 .error .error-text {
-    text-align: center;
+  text-align: center;
 }

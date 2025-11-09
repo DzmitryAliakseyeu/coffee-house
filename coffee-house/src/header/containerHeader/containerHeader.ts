@@ -28,11 +28,17 @@ export default function createContainerHeader(parent: HTMLElement) {
 
   createNavigation(navigationBox);
 
+  const userButtonsContainer = document.createElement('div');
+  userButtonsContainer.classList.add('user-buttons-container');
+  navigationBox.append(userButtonsContainer);
+
   const renderCartButton = () => {
     const oldMenuButton = navigationBox.querySelector('.button-menu');
     if (oldMenuButton) oldMenuButton.remove();
     const oldCartButton = navigationBox.querySelector('.button-cart');
     if (oldCartButton) oldCartButton.remove();
+    const oldProfileButton = navigationBox.querySelector('.button-profile');
+    if (oldProfileButton) oldProfileButton.remove();
 
     const productsInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
     const productsQuntityInCart = productsInLS ? productsInLS.length : 0;
@@ -49,7 +55,18 @@ export default function createContainerHeader(parent: HTMLElement) {
       });
 
       createButton({
-        parent: navigationBox,
+        parent: userButtonsContainer,
+        className: 'profile',
+        action: () => {
+          window.open('/coffee-house/pages/profile.html', '_self');
+        },
+        text: `<p class="burger-link text-dark profile-title">Profile</p><span class="profile-icon"></span>`,
+        hasIcon: false,
+        isHtml: true,
+      });
+
+      createButton({
+        parent: userButtonsContainer,
         className: 'cart',
         action: () => {
           window.open('/coffee-house/pages/cart.html', '_self');
@@ -59,8 +76,20 @@ export default function createContainerHeader(parent: HTMLElement) {
         isHtml: true,
       });
     } else {
+      document.documentElement.classList.remove('no-scroll');
       createButton({
-        parent: navigationBox,
+        parent: userButtonsContainer,
+        className: 'profile',
+        action: () => {
+          window.open('/coffee-house/pages/profile.html', '_self');
+        },
+        text: `<span class="profile-icon"></span> <p class="link-and-button text-dark profile-text"></p>`,
+        hasIcon: false,
+        isHtml: true,
+      });
+
+      createButton({
+        parent: userButtonsContainer,
         className: 'cart',
         action: () => {
           window.open('/coffee-house/pages/cart.html', '_self');

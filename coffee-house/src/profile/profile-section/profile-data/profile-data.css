@@ -1,0 +1,18 @@
+.profile-data-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-block {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+@media (max-width: 500px) {
+  .profile-data-grid {
+    max-width: 360px;
+    width: 100%;
+  }
+}

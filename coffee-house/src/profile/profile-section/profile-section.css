@@ -1,0 +1,12 @@
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+.profile .container-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  align-self: center;
+}

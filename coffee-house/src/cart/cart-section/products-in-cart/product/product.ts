@@ -1,11 +1,15 @@
 import removeProductFromCart from '../../../../actions/cart/removeProductFromCart';
 import createButton from '../../../../button/button';
-import { OrderI } from '../../../../interfaces/interfaces';
+import { UnionOrderI } from '../../../../interfaces/interfaces';
+import createProductDescriptionBlock from './product-description-block/product-description-block';
+import createProductImageBlock from './product-image-block/product-image-block';
+import createProductPriceBlock from './product-price-block/product-price-block';
+import createProductQuantityBlock from './product-quantity-block/product-quantity-block';
 import './product.css';
 
 export default function createProductBlock(
   parent: HTMLElement,
-  product: OrderI,
+  product: UnionOrderI,
 ) {
   const productBlock = document.createElement('div');
   productBlock.classList.add('product-block');
@@ -16,87 +20,18 @@ export default function createProductBlock(
     parent: productBlock,
     className: 'remove-from-cart',
     action: () => {
-      removeProductFromCart(productBlock.id);
+      removeProductFromCart(productBlock);
     },
     text: '',
     hasIcon: true,
     isHtml: false,
   });
 
-  const productImageBox = document.createElement('div');
-  productImageBox.classList.add('product-image-box');
-  productBlock.append(productImageBox);
+  createProductImageBlock(productBlock, product);
 
-  const productImage = document.createElement('img');
-  productImage.classList.add('product-image');
-  productImageBox.append(productImage);
-  productImage.src = `../products/${product.name}.png`;
+  createProductDescriptionBlock(productBlock, product);
 
-  const productDescription = document.createElement('div');
-  productDescription.classList.add('product-description');
-  productBlock.append(productDescription);
+  createProductQuantityBlock(productBlock, product.quantity);
 
-  const productTitle = document.createElement('h3');
-  productTitle.classList.add('product-title');
-  productTitle.classList.add('heading-3');
-  productTitle.classList.add('text-dark');
-  productDescription.append(productTitle);
-  productTitle.textContent = product.name;
-
-  const productExtras = document.createElement('p');
-  productExtras.classList.add('product-extras');
-  productExtras.classList.add('text-dark');
-  productExtras.classList.add('medium');
-  productDescription.append(productExtras);
-  productExtras.textContent = `${product.selectSize}, ${product.extras.join(',')}`;
-
-  const productPriceBlock = document.createElement('div');
-  productPriceBlock.classList.add('product-price-block');
-  productBlock.append(productPriceBlock);
-
-  const productPrice = document.createElement('h3');
-  productPrice.classList.add('product-price');
-  productPrice.classList.add('heading-3');
-  productPrice.classList.add('text-dark');
-  productPriceBlock.append(productPrice);
-  // let addivitiesSum = product.price.additivies.reduce(
-  //   (acc, sum) => acc + sum,
-  //   0,
-  // );
-
-  let token = localStorage.getItem('token');
-
-  // productPrice.textContent =
-  //   +product.price.discount > 0 && token
-  //     ? `$${(product.price.discount + addivitiesSum).toFixed(2)}`
-  //     : `$${(product.price.size + addivitiesSum).toFixed(2)}`;
-
-  productPrice.textContent = `$${product.totlatPrice.toFixed(2)}`;
-  // +product.totalDiscountSum > 0 && token
-  //   ? `$${(product.totalDiscountSum + addivitiesSum).toFixed(2)}`
-  //   : `$${(product.totlatPrice + addivitiesSum).toFixed(2)}`;
-
-  if (product.totalDiscountSum > 0 && token) {
-    productPrice.classList.add('unavaliable-price');
-    const discountPriceProduct = document.createElement('h3');
-    discountPriceProduct.classList.add('heading-3');
-    discountPriceProduct.classList.add('text-dark');
-    discountPriceProduct.classList.add('cart-card-price');
-    productPriceBlock.append(discountPriceProduct);
-    discountPriceProduct.textContent = `$${product.totalDiscountSum}`;
-  } else {
-    productPrice.classList.remove('unavaliable-price');
-  }
-
-  // if (product.price.discount && token) {
-  //   productPrice.classList.add('unavaliable-price');
-  //   const discountPriceProduct = document.createElement('h3');
-  //   discountPriceProduct.classList.add('heading-3');
-  //   discountPriceProduct.classList.add('text-dark');
-  //   discountPriceProduct.classList.add('preview-card-price');
-  //   productPriceBlock.append(discountPriceProduct);
-  //   discountPriceProduct.textContent = `$${product.price.discount}`;
-  // } else {
-  //   productPrice.classList.remove('unavaliable-price');
-  // }
+  createProductPriceBlock(productBlock, product);
 }

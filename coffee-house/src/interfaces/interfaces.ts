@@ -133,6 +133,28 @@ export interface UserSignInI {
   password: string;
 }
 
+export interface UpdatedUserDataI {
+  login: string;
+  paymentMethod: string;
+  address: {
+    city: string;
+    street: string;
+    houseNumber: string;
+  };
+}
+
+type PaymenthMethodI = 'cash' | 'card';
+
+export interface UserProfileFromServerI {
+  city: string;
+  createdAt: string;
+  houseNumber: string;
+  id: number;
+  login: string;
+  paymentMethod: PaymenthMethodI;
+  street: string;
+}
+
 export interface OrderToServerI {
   items: OrderItemToServerI[];
   totalPrice: number;
@@ -143,4 +165,34 @@ export interface OrderItemToServerI {
   size: string;
   additives: string[];
   quantity: number;
+}
+
+export interface UnionOrderI {
+  id: string;
+  name: string;
+  size: string;
+  selectSize: string;
+  extras: string[];
+  discountPrice: number;
+  price: {
+    base: number;
+    size: number;
+    discount: number;
+    additivies: number[];
+  };
+  quantity: number;
+  totlatPrice: number;
+  totalDiscountSum: number;
+  singleProductTotalSum: number;
+  singleProductDiscountSum: number;
+  hasPromoCode: boolean;
+  totlatPriceWithPromoCode: number;
+  totalDiscountSumWithPromoCode: number;
+}
+
+export interface CardDataI {
+  cardholderName: string;
+  cardNumber: string;
+  expires: string;
+  cvv: string;
 }

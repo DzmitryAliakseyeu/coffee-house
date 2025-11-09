@@ -7,10 +7,6 @@ export default function createCartButtonsBlock(parent: HTMLElement) {
   cartButtonsBlock.classList.add('cart-buttons-block');
   parent.append(cartButtonsBlock);
 
-  // let userSignIn = JSON.parse(
-  //   JSON.stringify(localStorage.getItem('signInUser')),
-  // );
-
   let token = localStorage.getItem('token');
   let order = JSON.parse(localStorage.getItem('orders') ?? '[]');
 

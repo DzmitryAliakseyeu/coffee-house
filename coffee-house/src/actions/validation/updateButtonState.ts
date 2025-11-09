@@ -8,6 +8,14 @@ export default function updateButtonState() {
     '.button-sign-in-request',
   ) as HTMLButtonElement;
 
+  // const buttonApplyPromoCode = document.querySelector(
+  //   '.button-apply-promo-code',
+  // ) as HTMLButtonElement;
+
+  // const buttonCancel = document.querySelector(
+  //   '.button-cancel',
+  // ) as HTMLButtonElement;
+
   if (buttonRegistration) {
     buttonRegistration.disabled = !checkAllInputsFilled('registrate');
     return;

@@ -1,23 +1,22 @@
 .mobile-app {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .mobile-app .container-section {
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: center;
 }
 
-@media (max-width: 1439px){
-    .mobile-app .container-section {
+@media (max-width: 1439px) {
+  .mobile-app .container-section {
     display: flex;
     flex-direction: row;
     gap: 0px;
     align-items: center;
     justify-content: space-between;
+  }
 }
-}
-

@@ -1,8 +1,8 @@
 .offer-ma-buttons {
-    display: flex;
-    flex-direction: row;
-    gap:20px;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 /* .button-offer-ma-google-play .button-offer-ma-google-play-text {
@@ -10,17 +10,16 @@
 } */
 
 .offer-ma-buttons span {
-    transform: skewX(0);
-    font-style: normal;
+  transform: skewX(0);
+  font-style: normal;
 }
 
 .offer-ma-buttons span > :first-of-type {
-   text-align: left;
+  text-align: left;
 }
 
-
-@media (max-width: 500px){
-    .offer-ma-buttons {
-        flex-direction: column;
-    }
+@media (max-width: 500px) {
+  .offer-ma-buttons {
+    flex-direction: column;
+  }
 }

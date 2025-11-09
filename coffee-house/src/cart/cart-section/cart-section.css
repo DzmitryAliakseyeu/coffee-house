@@ -1,9 +1,9 @@
 .cart-title {
-    text-align: center;
+  text-align: center;
 }
 
 .cart .container-section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }

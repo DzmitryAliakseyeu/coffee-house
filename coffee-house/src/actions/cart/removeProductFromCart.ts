@@ -1,74 +1,72 @@
-import { OrderI } from '../../interfaces/interfaces';
+import { OrderI, UnionOrderI } from '../../interfaces/interfaces';
 
-export default function removeProductFromCart(id: string) {
-  const productBlocks =
-    document.querySelectorAll<HTMLDivElement>('.product-block');
-  let productInLs = JSON.parse(localStorage.getItem('orders') ?? '[]');
+export default function removeProductFromCart(parent: HTMLElement) {
+  const productName = parent.querySelector('.product-title') as HTMLElement;
+  const productExtras = parent.querySelector('.product-extras') as HTMLElement;
+  const productExtrasArray = productExtras.textContent.split(',');
+  const productSelectSize = productExtrasArray[0];
+  const productAddivities = productExtrasArray.splice(1);
+  const productQuantityInCartText = document.querySelector(
+    '.cart-quantity',
+  ) as HTMLElement;
 
-  const indexToRemove = productInLs.findLastIndex(
-    (product: OrderI) => String(product.id) === id,
+  const totalCartPrice = document.querySelector(
+    '.order-total-info-text',
+  ) as HTMLElement;
+  const totalCartDiscountPrice = document.querySelector(
+    '.total-discount-price',
+  ) as HTMLElement;
+
+  const unionOrders: UnionOrderI[] = JSON.parse(
+    localStorage.getItem('unionOrders') || '[]',
   );
-  if (indexToRemove !== -1) {
-    productInLs.splice(indexToRemove, 1);
+  const ordersInLS: OrderI[] = JSON.parse(
+    localStorage.getItem('orders') || '[]',
+  );
 
-    localStorage.setItem('orders', JSON.stringify(productInLs));
-    const productBlock = Array.from(productBlocks)
-      .reverse()
-      .find((product) => product.id === id);
-    if (productBlock) productBlock.remove();
+  let updatedUnionOrders = unionOrders.filter((order: UnionOrderI) => {
+    return !(
+      order.name === productName.textContent &&
+      order.selectSize === productSelectSize &&
+      order.extras.join(',').trim() === productAddivities.join(',').trim()
+    );
+  });
 
-    (function updateData() {
-      let productInLs = JSON.parse(localStorage.getItem('orders') ?? '[]');
-      // const totalPrice = document.querySelector(
-      //   '.order-total-info-text',
-      // ) as HTMLElement | null;
-      const cartQuantity = document.querySelector(
-        '.cart-quantity',
-      ) as HTMLElement | null;
+  localStorage.setItem('unionOrders', JSON.stringify(updatedUnionOrders));
+  let productsInCartQuantity = updatedUnionOrders.reduce(
+    (sum: number, item: UnionOrderI) => sum + item.quantity,
+    0,
+  );
+  productQuantityInCartText.textContent = String(productsInCartQuantity);
 
-      const orderTotalInfoText = document.querySelector(
-        '.order-total-info-text',
-      ) as HTMLElement;
-      const totalDiscountPrice = document.querySelector(
-        '.total-discount-price',
-      ) as HTMLElement;
+  let updatedOrders = ordersInLS.filter((order: OrderI) => {
+    return !(
+      order.name === productName.textContent &&
+      order.selectSize === productSelectSize &&
+      order.extras.join(',').trim() === productAddivities.join(',').trim()
+    );
+  });
 
-      // const totalPriceSum = productInLs.reduce(
-      //   (acc: number, el: OrderI) => acc + el.totlatPrice,
-      //   0,
-      // );
+  let totalCartPriceSum = updatedUnionOrders.reduce(
+    (sum: number, item: UnionOrderI) => sum + item.totlatPrice,
+    0,
+  );
 
-      let totalOrderSum = productInLs.reduce(
-        (acc: number, item: OrderI) => acc + item.totlatPrice,
-        0,
-      );
+  let allDiscountSum = updatedUnionOrders
+    .filter((order: UnionOrderI) => order.totalDiscountSum > 0)
+    .reduce((sum: number, item: UnionOrderI) => sum + item.totalDiscountSum, 0);
+  let allWithoutTotalDiscountSum = updatedUnionOrders
+    .filter((order: UnionOrderI) => order.totalDiscountSum === 0)
+    .reduce((sum: number, item: UnionOrderI) => sum + item.totlatPrice, 0);
+  let totalCartAllPriceSum = allDiscountSum + allWithoutTotalDiscountSum;
 
-      let totalDiscountSum = productInLs.reduce(
-        (acc: number, item: OrderI) => acc + item.totalDiscountSum,
-        0,
-      );
+  totalCartPrice.textContent = `$${String(totalCartPriceSum.toFixed(2))}`;
 
-      let poductsWithoutDiscount = productInLs.filter(
-        (item: OrderI) => item.totalDiscountSum === 0,
-        0,
-      );
-
-      let sumPricesPoductsWithoutDiscount = poductsWithoutDiscount.reduce(
-        (acc: number, item: OrderI) => acc + item.totlatPrice,
-        0,
-      );
-
-      if (orderTotalInfoText) {
-        orderTotalInfoText.textContent = `$${totalOrderSum.toFixed(2)}`;
-      }
-
-      if (totalDiscountPrice) {
-        totalDiscountPrice.textContent = `$${(totalDiscountSum + sumPricesPoductsWithoutDiscount).toFixed(2)}`;
-      }
-
-      if (cartQuantity) {
-        cartQuantity.textContent = productInLs.length.toString();
-      }
-    })();
+  if (totalCartDiscountPrice) {
+    totalCartDiscountPrice.textContent = `$${String(totalCartAllPriceSum.toFixed(2))}`;
   }
+
+  localStorage.setItem('orders', JSON.stringify(updatedOrders));
+
+  parent.remove();
 }

@@ -1,5 +1,5 @@
 import { hideErrorText, showErrorText } from '../../error/error';
-import { OrderToServerI, ProductInLSI } from '../../interfaces/interfaces';
+import { OrderToServerI, UnionOrderI } from '../../interfaces/interfaces';
 import { hideLoader, showLoader } from '../../loader/loader';
 import confirmOrderRequest from '../../requests/confirmOrder';
 
@@ -27,18 +27,25 @@ export default async function createModalCart() {
   });
 
   try {
-    let ordersInLS: ProductInLSI[];
+    // let ordersInLS: ProductInLSI[];
+    let unionOrdersInLS: UnionOrderI[];
     let order: OrderToServerI;
-    ordersInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
+
+    // ordersInLS = JSON.parse(localStorage.getItem('orders') ?? '[]');
+    unionOrdersInLS = JSON.parse(localStorage.getItem('unionOrders') ?? '[]');
 
     order = {
-      items: ordersInLS.map((item) => ({
+      items: unionOrdersInLS.map((item) => ({
         productId: +item.id,
         size: item.size,
         additives: item.extras || [],
-        quantity: 1,
+        quantity: item.quantity,
       })),
-      totalPrice: ordersInLS.reduce((sum, item) => sum + +item.totlatPrice, 0),
+
+      totalPrice: unionOrdersInLS.reduce(
+        (sum, item) => sum + +item.totlatPrice,
+        0,
+      ),
     };
 
     let response = await confirmOrderRequest(order);
@@ -72,12 +79,24 @@ export default async function createModalCart() {
       }
 
       localStorage.removeItem('orders');
+      localStorage.removeItem('unionOrders');
+      localStorage.removeItem('cardData');
       const cartQuantity = document.querySelector(
         '.cart-quantity',
       ) as HTMLElement;
       cartQuantity.textContent = '0';
       const buttonConfirm = document.querySelector('.button-confirm');
       buttonConfirm?.remove();
+    }
+
+    const promoCode = document.querySelector('.promo-code') as HTMLElement;
+    if (promoCode) {
+      promoCode.remove();
+    }
+
+    const cardBlock = document.querySelector('.card-block') as HTMLElement;
+    if (cardBlock) {
+      cardBlock.remove();
     }
 
     modal.addEventListener('click', (e) => {
@@ -88,6 +107,9 @@ export default async function createModalCart() {
         modal.remove();
       }
     });
+
+    document.documentElement.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
   } catch {
     hideLoader('.modal-cart');
     showErrorText('.modal-cart');

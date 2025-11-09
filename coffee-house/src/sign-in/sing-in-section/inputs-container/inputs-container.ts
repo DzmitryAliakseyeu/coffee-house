@@ -11,7 +11,7 @@ export default function createInputsContainer(parent: HTMLElement) {
     inputsContainer,
     'password',
     'Password',
-    'text',
+    'password',
     'Placeholder',
   );
 }

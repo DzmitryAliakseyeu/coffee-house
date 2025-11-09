@@ -5,46 +5,44 @@
 } */
 
 .hero .container-section {
-    position: relative;
-    height: 644px;
-
+  position: relative;
+  height: 644px;
 }
 
 video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 40px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px;
 }
 
 .offer {
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    width: 530px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.offer-title, .offer-text {
-    margin: 0;
+.offer-title,
+.offer-text {
+  margin: 0;
 }
 
 .offer-text {
-    letter-spacing: 0.1px;
-    white-space: normal;
+  letter-spacing: 0.1px;
+  white-space: normal;
 }
 
-
-
 .offer-title {
-    text-align: left;
-    letter-spacing: 2.4px;
+  text-align: left;
+  letter-spacing: 2.4px;
 }
 
 .offer-title span {
-    font-style: italic;
+  font-style: italic;
 }
 
 /* .button-offer {
@@ -55,29 +53,24 @@ video {
     border-radius: 100px;
 } */
 
-@media (max-width: 768px){
-    .offer {
-        left: 60px;
-    }
-
-
+@media (max-width: 768px) {
+  .offer {
+    left: 60px;
+  }
 }
 
-@media (max-width: 710px){
-    .offer {
-        width: 316px;
-        top: 60px;
-    }
-
-    
+@media (max-width: 710px) {
+  .offer {
+    width: 316px;
+    top: 60px;
+  }
 }
 
-@media (max-width: 470px){
-
-    .hero .container-section {
-        height: 552px;
-    }
-    .offer {
-        left: 16px;
-    }
+@media (max-width: 470px) {
+  .hero .container-section {
+    height: 552px;
+  }
+  .offer {
+    left: 16px;
+  }
 }

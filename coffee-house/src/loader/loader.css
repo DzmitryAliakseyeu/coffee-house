@@ -1,66 +1,61 @@
-
-
 .main {
-    flex: 1;
+  flex: 1;
 }
 
 .loader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .loader-text {
-    margin: 0;
+  margin: 0;
 }
 
 .loader-images {
-     display: flex;
-    flex-direction: row;
-    height: fit-content;
-    gap: 10px;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 .loader-image {
-    width: 20px;
-    height: 20px;
-    background-image: url('../../public/loader/coffee-bean.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../public/loader/coffee-bean.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
   animation: rotateBean 1s linear infinite;
 }
 
-
-
 .loader {
-  
-    height: 100%;
+  height: 100%;
 }
 
 .overlay {
-    min-width: 320px;
-    width: 50%;
-    height: 300px;
-    background-color: #E1D4C9;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-width: 320px;
+  width: 50%;
+  height: 300px;
+  background-color: #e1d4c9;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .overlay .loader {
-    justify-content: center;
+  justify-content: center;
 }
 
-@keyframes rotateBean{
-    0% {
-        transform: rotate(0deg)
-    }
+@keyframes rotateBean {
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg)
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -1,5 +1,6 @@
 import createCartSection from '../cart/cart-section/cart-section';
 import createMenuSection from '../menu/menu-section/menu-section';
+import createProfileSection from '../profile/profile-section/profile-section';
 import createRegistrationSection from '../registration/registration-section/registration-section';
 import createSignSection from '../sign-in/sing-in-section/sign-in-section';
 import './main.css';
@@ -14,6 +15,7 @@ export default function createMain(
   isCartPage = false,
   isSignInPage = false,
   isRegistrationPage = false,
+  isProfilePage = false,
 ) {
   const main = document.createElement('main');
   main.classList.add('main');
@@ -31,5 +33,7 @@ export default function createMain(
     createSignSection(main);
   } else if (isRegistrationPage) {
     createRegistrationSection(main);
+  } else if (isProfilePage) {
+    createProfileSection(main);
   }
 }

@@ -1,0 +1,13 @@
+.profile-buttons-block {
+  display: flex;
+  gap: 5px;
+}
+
+@media (max-width: 500px) {
+  .profile-buttons-block {
+    max-width: 360px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}

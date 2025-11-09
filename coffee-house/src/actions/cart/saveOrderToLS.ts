@@ -1,4 +1,5 @@
 import { OrderI } from '../../interfaces/interfaces';
+import deepCompareOrders from './compareOrders';
 
 export default function saveOrderToLS(obj: OrderI) {
   const product = { ...obj };
@@ -10,4 +11,8 @@ export default function saveOrderToLS(obj: OrderI) {
   orders.push(product);
 
   localStorage.setItem('orders', JSON.stringify(orders));
+
+  let unionOrders = deepCompareOrders();
+
+  localStorage.setItem('unionOrders', JSON.stringify(unionOrders));
 }
