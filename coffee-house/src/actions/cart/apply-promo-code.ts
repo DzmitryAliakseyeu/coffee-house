@@ -105,7 +105,10 @@ export default function applyPromoCode(parent: HTMLElement) {
       '.totla-price-block-cart',
     ) as HTMLElement;
     totalCardPriceWithPromoText.textContent = `$${productsTotalPriceSum.toFixed(2)}`;
-    if (allCartDiscountWithPromo > 0) {
+    if (
+      allCartDiscountWithPromo > 0 &&
+      !document.querySelector('.total-discount-price')
+    ) {
       totalCardPriceWithPromoText.classList.add('unavaliable-price');
       const discountPriceProduct = document.createElement('h3');
       discountPriceProduct.classList.add('heading-3');
@@ -115,6 +118,13 @@ export default function applyPromoCode(parent: HTMLElement) {
       totalPriceBlock.append(discountPriceProduct);
       discountPriceProduct.textContent = `$${allCartDiscountWithPromo.toFixed(2)}`;
       return;
+    } else if (
+      allCartDiscountWithPromo > 0 &&
+      document.querySelector('.total-discount-price')
+    ) {
+      (
+        document.querySelector('.total-discount-price') as HTMLElement
+      ).textContent = `$${allCartDiscountWithPromo.toFixed(2)}`;
     }
   }
 }
