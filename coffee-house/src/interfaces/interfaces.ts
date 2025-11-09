@@ -185,4 +185,7 @@ export interface UnionOrderI {
   totalDiscountSum: number;
   singleProductTotalSum: number;
   singleProductDiscountSum: number;
+  hasPromoCode: boolean;
+  totlatPriceWithPromoCode: number;
+  totalDiscountSumWithPromoCode: number;
 }

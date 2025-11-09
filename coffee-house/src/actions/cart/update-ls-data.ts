@@ -24,6 +24,12 @@ export default function updateLocalStorageData(
       order.quantity = +productQuantityText.textContent;
       order.totlatPrice = order.quantity * order.singleProductTotalSum;
       order.totalDiscountSum = order.quantity * order.singleProductDiscountSum;
+      if (order.hasPromoCode) {
+        order.totlatPriceWithPromoCode =
+          order.quantity * order.singleProductTotalSum * 0.8;
+        order.totalDiscountSumWithPromoCode =
+          order.quantity * order.singleProductDiscountSum * 0.8;
+      }
       return order;
     }
     return order;

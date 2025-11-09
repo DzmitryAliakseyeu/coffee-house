@@ -61,7 +61,7 @@ export default async function createOrderInfoBlock(
     let unionOrdesInLS = JSON.parse(
       localStorage.getItem('unionOrders') ?? '[]',
     );
-    console.log(unionOrdesInLS);
+
     let totalOrderSum = unionOrdesInLS.reduce(
       (acc: number, item: OrderI) => acc + item.totlatPrice,
       0,

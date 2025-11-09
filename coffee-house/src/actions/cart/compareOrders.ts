@@ -15,6 +15,9 @@ export default function deepCompareOrders() {
         quantity: 1,
         singleProductDiscountSum: order.totalDiscountSum,
         singleProductTotalSum: order.totlatPrice,
+        hasPromoCode: false,
+        totlatPriceWithPromoCode: 0,
+        totalDiscountSumWithPromoCode: 0,
       });
     } else {
       uniqOrders.get(key).quantity += 1;
@@ -24,6 +27,9 @@ export default function deepCompareOrders() {
       uniqOrders.get(key).totlatPrice =
         uniqOrders.get(key).singleProductTotalSum *
         uniqOrders.get(key).quantity;
+      uniqOrders.get(key).hasPromoCode = false;
+      uniqOrders.get(key).totlatPriceWithPromoCode = 0;
+      uniqOrders.get(key).totalDiscountSumWithPromoCode = 0;
     }
   }
 

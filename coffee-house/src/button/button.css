@@ -264,7 +264,8 @@
 .button-registration-request:disabled,
 .button-sign-in-request:disabled,
 .button-save:disabled,
-.button-cancel:disabled {
+.button-cancel:disabled,
+.button-apply-promo-code:disabled {
   pointer-events: none;
   color: #403f3d68;
 }
