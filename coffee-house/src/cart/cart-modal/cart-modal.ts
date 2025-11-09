@@ -78,14 +78,25 @@ export default async function createModalCart() {
         totalDiscountPrice.remove();
       }
 
-      // localStorage.removeItem('orders');
+      localStorage.removeItem('orders');
       localStorage.removeItem('unionOrders');
+      localStorage.removeItem('cardData');
       const cartQuantity = document.querySelector(
         '.cart-quantity',
       ) as HTMLElement;
       cartQuantity.textContent = '0';
       const buttonConfirm = document.querySelector('.button-confirm');
       buttonConfirm?.remove();
+    }
+
+    const promoCode = document.querySelector('.promo-code') as HTMLElement;
+    if (promoCode) {
+      promoCode.remove();
+    }
+
+    const cardBlock = document.querySelector('.card-block') as HTMLElement;
+    if (cardBlock) {
+      cardBlock.remove();
     }
 
     modal.addEventListener('click', (e) => {

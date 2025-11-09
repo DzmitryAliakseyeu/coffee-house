@@ -68,13 +68,12 @@ export default function applyPromoCode(parent: HTMLElement) {
           }
         }
       });
-
-      //   const productBlock = document.getElementById(order.id) as HTMLElement;
     });
 
-    const totalCartDiscountPrice = document.querySelector(
-      '.total-discount-price',
-    ) as HTMLElement;
+    let productsTotalPriceSum = unionOrdersUp.reduce(
+      (acc: number, item: UnionOrderI) => acc + item.totlatPrice,
+      0,
+    );
 
     let productsWithoutDiscountWithPromo: UnionOrderI[] = unionOrdersUp.filter(
       (item: UnionOrderI) => item.totalDiscountSumWithPromoCode === 0,
@@ -99,6 +98,23 @@ export default function applyPromoCode(parent: HTMLElement) {
     let allCartDiscountWithPromo =
       poductsWithoutDiscountSumWithPromo + poductsWithWithDiscountSumWithPromo;
 
-    totalCartDiscountPrice.textContent = `$${allCartDiscountWithPromo.toFixed(2)}`;
+    const totalCardPriceWithPromoText = document.querySelector(
+      '.order-total-info-text',
+    ) as HTMLElement;
+    const totalPriceBlock = document.querySelector(
+      '.totla-price-block-cart',
+    ) as HTMLElement;
+    totalCardPriceWithPromoText.textContent = `$${productsTotalPriceSum.toFixed(2)}`;
+    if (allCartDiscountWithPromo > 0) {
+      totalCardPriceWithPromoText.classList.add('unavaliable-price');
+      const discountPriceProduct = document.createElement('h3');
+      discountPriceProduct.classList.add('heading-3');
+      discountPriceProduct.classList.add('text-dark');
+      discountPriceProduct.classList.add('cart-card-price');
+      discountPriceProduct.classList.add('total-discount-price');
+      totalPriceBlock.append(discountPriceProduct);
+      discountPriceProduct.textContent = `$${allCartDiscountWithPromo.toFixed(2)}`;
+      return;
+    }
   }
 }
